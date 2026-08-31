@@ -1,26 +1,50 @@
 <main class="min-h-full w-100 flex-center register-page">
   <div class="w-100 px-3 py-5" style="max-width: 1080px;">
+
     <div class="text-center mb-4">
-      <img src="/assets/images/logo-placeholder.svg" class="brand-logo" alt="logo">
-      <h3 class="text-primary mb-0">Cashew Production Management System</h3>
-      <p class="text-muted">Create your account</p>
+      <img
+        src="/assets/images/logo.png"
+        class="brand-logo"
+        alt="logo"
+      >
+
+      <h3 class="text-primary mb-0">
+        {{ 'SYSTEM.NAME' | translate }}
+      </h3>
+
+      <p class="text-muted">
+        {{ 'REGISTER.SUBTITLE' | translate }}
+      </p>
     </div>
 
     <div class="row g-0 auth-card overflow-hidden">
+
       <div class="col-lg-5 bg-primary d-none d-lg-block">
         <app-image-slider></app-image-slider>
       </div>
 
-      <div class="col-lg-7 bg-white p-4 p-lg-5">
-        <h2 class="fw-bold text-primary">Registration</h2>
-        <p class="text-muted mb-4">Enter your information below to create a system account.</p>
+<div class="col-lg-7 p-4 p-lg-5 register-form-section">
+        <h2 class="fw-bold text-primary">
+          {{ 'REGISTER.TITLE' | translate }}
+        </h2>
 
-        <app-form *ngIf="fp" [fp]="fp"></app-form>
+        <p class="text-muted mb-4">
+          {{ 'REGISTER.DESCRIPTION' | translate }}
+        </p>
+
+        <app-form
+          *ngIf="fp"
+          [fp]="fp">
+        </app-form>
 
         <div class="text-end mt-3">
-          Already have an account?
-          <a routerLink="/auth/login">Sign in</a>
+          {{ 'REGISTER.HAVE_ACCOUNT' | translate }}
+
+          <a routerLink="/auth/login">
+            {{ 'REGISTER.SIGN_IN' | translate }}
+          </a>
         </div>
+
       </div>
     </div>
   </div>

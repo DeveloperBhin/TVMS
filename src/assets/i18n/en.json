@@ -1,4 +1,3 @@
-
 {
   "LOGIN": {
     "TITLE": "Sign in to your account",
@@ -10,12 +9,36 @@
     "FORGOT_PASSWORD": "Forgot password?"
   },
 
+  "REGISTER": {
+    "TITLE": "Registration",
+    "SUBTITLE": "Create your system account",
+    "DESCRIPTION": "Enter your information below to create a system account.",
+
+    "FULLNAME": "Full Name",
+    "USERNAME": "User Name",
+    "REGION":"Region",
+    "DISTRICT":"District",
+    "WARD":"Ward",
+    "VILLAGE":"Village",
+    "EMAIL": "Email Address",
+    "PHONE": "Phone Number",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "BUTTON": "Create Account",
+
+    "HAVE_ACCOUNT": "Already have an account?",
+    "SIGN_IN": "Sign in"
+  },
+
   "LANGUAGE": {
     "ENGLISH": "English",
     "SWAHILI": "Swahili"
   },
 
   "SYSTEM": {
-    "NAME": "Cashew Production Management System"
-  }
+    "NAME": "Cashew Production Management System (CPMS)"
+  },
+  "VALIDATION": {
+  "REQUIRED": "is required"
+}
 }

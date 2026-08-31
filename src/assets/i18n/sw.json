@@ -9,12 +9,36 @@
     "FORGOT_PASSWORD": "Umesahau nenosiri?"
   },
 
+  "REGISTER": {
+    "TITLE": "Usajili",
+    "SUBTITLE": "Fungua akaunti yako ya mfumo",
+    "DESCRIPTION": "Jaza taarifa zako hapa chini ili kufungua akaunti ya mfumo.",
+
+    "FULLNAME": "Jina Kamili",
+    "USERNAME": "Jina la Mtumiaji",
+    "EMAIL": "Barua Pepe",
+    "REGION":"Mkoa",
+    "DISTRICT":"Wilaya",
+    "WARD":"Kata",
+    "VILLAGE":"Kijiji",
+    "PHONE": "Namba ya Simu",
+    "PASSWORD": "Nenosiri",
+    "CONFIRM_PASSWORD": "Thibitisha Nenosiri",
+    "BUTTON": "Fungua Akaunti",
+
+    "HAVE_ACCOUNT": "Tayari una akaunti?",
+    "SIGN_IN": "Ingia"
+  },
+
   "LANGUAGE": {
     "ENGLISH": "Kiingereza",
     "SWAHILI": "Kiswahili"
   },
 
   "SYSTEM": {
-    "NAME": "Mfumo wa Usimamizi wa Uzalishaji wa Korosho"
-  }
+    "NAME": "Mfumo wa Usimamizi wa Uzalishaji wa Korosho (CPMS)"
+  },
+  "VALIDATION": {
+  "REQUIRED": "inahitajika"
+}
 }

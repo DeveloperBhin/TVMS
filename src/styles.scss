@@ -1,28 +1,41 @@
 @use './app/theme/theme';
 
-html, body {
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '@angular/cdk/overlay-prebuilt.css';
+html,
+body {
   min-height: 100%;
   margin: 0;
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--app-bg);
+  color: var(--app-text);
 
-  font-family:
-    Inter,
-    Arial,
-    sans-serif;
-
-  background:
-    var(--app-bg);
-
-  color:
-    var(--app-text);
-
-   transition:
+  transition:
     background-color 0.25s ease,
     color 0.25s ease;
-
 }
+
+button,
+input,
+textarea,
+select,
+.mat-mdc-form-field,
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-outlined-button {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* =========================
+   GLOBAL HELPERS
+========================= */
 
 a {
   color: var(--app-primary);
@@ -35,50 +48,244 @@ a {
   justify-content: center;
 }
 
-.min-h-full { min-height: 100vh; }
-.max-w-920 { max-width: 920px; }
-.max-w-420 { max-width: 420px; }
-.faded { opacity: .78; }
-.no-shadow { box-shadow: none !important; }
-.no-bg { background: transparent !important; }
+.min-h-full {
+  min-height: 100vh;
+}
+
+.max-w-920 {
+  max-width: 920px;
+}
+
+.max-w-420 {
+  max-width: 420px;
+}
+
+.faded {
+  opacity: 0.78;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.no-bg {
+  background: transparent !important;
+}
 
 .page-container {
   padding: 24px;
 }
 
 .feature-card {
-
-  border:
-    1px solid var(--app-border);
-
+  border: 1px solid var(--app-border);
   border-radius: 14px;
-
-  background:
-    var(--app-card);
-
-  color:
-    var(--app-text);
-
+  background: var(--app-card);
+  color: var(--app-text);
   padding: 20px;
-
 }
+
+/* =========================
+   MATERIAL MENU
+========================= */
+
 .mat-mdc-menu-panel {
-  background: var(--app-surface) !important;
-  color: var(--app-text) !important;
+  background: #464646 !important;
+  color: #fff !important;
+
+  border-radius: 7px !important;
+
+  min-width: 104px !important;
+  max-width: 150px !important;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.28) !important;
 }
 
 .mat-mdc-menu-content {
-  background: var(--app-surface) !important;
+  padding: 6px 0 !important;
+  background: transparent !important;
 }
 
 .mat-mdc-menu-item {
-  color: var(--app-text) !important;
+  min-height: 46px !important;
+
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+
+  color: #fff !important;
+  background: transparent !important;
+
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
 }
 
 .mat-mdc-menu-item .mdc-list-item__primary-text {
-  color: var(--app-text) !important;
+  color: #fff !important;
+
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
 }
 
 .mat-mdc-menu-item:hover {
-  background: var(--app-card) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+/* =========================
+   GLOBAL FORM INPUTS
+========================= */
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+/* Rounded input */
+.mat-mdc-text-field-wrapper {
+  border-radius: 6px !important;
+}
+
+/* Input height */
+.mat-mdc-form-field-infix {
+  min-height: 56px !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Input text */
+.mat-mdc-input-element {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: var(--app-text) !important;
+}
+
+/* Placeholder */
+.mat-mdc-input-element::placeholder {
+  font-family: 'Poppins', sans-serif; 
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--app-text-muted);
+  opacity: 0.8;
+}
+
+/* Label */
+.mat-mdc-floating-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: var(--app-text-muted) !important;
+}
+
+
+
+/* Focused label */
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: var(--app-primary) !important;
+}
+
+/* =========================
+   GLOBAL BUTTONS
+========================= */
+
+button,
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-outlined-button {
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button {
+  min-height: 40px;
+  border-radius: 6px !important;
+}
+.utility-icon-btn {
+  width: 40px;
+  height: 40px;
+}
+.login-green-btn {
+  background-color: #11732e !important;
+  color: #ffffff !important;
+  border-color: #11732e !important;
+}
+
+.login-green-btn:hover {
+  background-color: #0d5c25 !important;
+  border-color: #0d5c25 !important;
+  color: #ffffff !important;
+}
+
+/* =========================
+   GLOBAL SOFT INPUT STYLE
+========================= */
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+/* Main input container */
+.mat-mdc-text-field-wrapper {
+  background: #e7f0eb !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+/* Remove outlined border */
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border: none !important;
+}
+
+/* Input area */
+.mat-mdc-form-field-infix {
+  min-height: 56px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+/* Actual typed text */
+.mat-mdc-input-element {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: var(--app-text) !important;
+}
+
+/* Placeholder */
+.mat-mdc-input-element::placeholder {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #747474 !important;
+  opacity: 1 !important;
+}
+
+/* Floating label */
+.mat-mdc-floating-label {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: #747474 !important;
+}
+
+/* Focus */
+.mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  background: #e1eee7 !important;
+
+  box-shadow:
+    0 0 0 1px var(--app-primary) !important;
+}
+
+/* Focused label */
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: var(--app-primary) !important;
+}
+
+/* Password / suffix icons */
+.mat-mdc-form-field-icon-suffix,
+.mat-mdc-icon-button {
+  color: #747474 !important;
 }

@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./sessions/sessions.module').then(m => m.SessionsModule)
   },
+    {
+        path: 'farmers',
+        loadChildren: () =>
+          import('./modules/farmers/farmers.module').then(m => m.FarmersModule)
+      },
   {
     path: '',
     component: MainLayoutComponent,

@@ -7,9 +7,10 @@
 <mat-label>
   {{ field.label | translate }}
 </mat-label>          <input matInput [type]="field.inputType || 'text'" [formControlName]="field.key" [placeholder]="field.placeholder || ''">
+      
           <mat-error *ngIf="form.get(field.key)?.hasError('required')">
-            {{ field.label }} is required
-          </mat-error>
+  {{ field.label | translate }} {{ 'VALIDATION.REQUIRED' | translate }}
+</mat-error>
         </mat-form-field>
 
         <mat-form-field *ngSwitchCase="FieldType.select" class="w-100" [appearance]="field.appearance || 'outline'">

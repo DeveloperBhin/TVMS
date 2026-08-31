@@ -2,8 +2,8 @@ import { FieldConfig, FieldType } from '@shared';
 
 export const registerFormFields: FieldConfig[] = [
   {
-    key: 'fullName',
-    label: 'Full Name',
+     key: 'fullname',
+    label: 'REGISTER.FULLNAME',
     type: FieldType.input,
     class: 'col-12',
     appearance: 'outline',
@@ -11,15 +11,42 @@ export const registerFormFields: FieldConfig[] = [
   },
   {
     key: 'username',
-    label: 'Username',
+  label: 'REGISTER.USERNAME',
     type: FieldType.input,
     class: 'col-md-6 col-12',
     appearance: 'outline',
     required: true
   },
   {
-    key: 'email',
-    label: 'Email Address',
+    key: 'Region',
+    label: 'REGISTER.REGION',
+    type: FieldType.input,
+    inputType: 'email',
+    class: 'col-md-6 col-12',
+    appearance: 'outline',
+    required: true
+  },
+   {
+    key: 'District',
+    label: 'REGISTER.DISTRICT',
+    type: FieldType.input,
+    inputType: 'email',
+    class: 'col-md-6 col-12',
+    appearance: 'outline',
+    required: true
+  },
+   {
+    key: 'ward',
+    label: 'REGISTER.WARD',
+    type: FieldType.input,
+    inputType: 'email',
+    class: 'col-md-6 col-12',
+    appearance: 'outline',
+    required: true
+  },
+    {
+    key: 'Village',
+    label: 'REGISTER.VILLAGE',
     type: FieldType.input,
     inputType: 'email',
     class: 'col-md-6 col-12',
@@ -28,29 +55,32 @@ export const registerFormFields: FieldConfig[] = [
   },
   {
     key: 'phoneNumber',
-    label: 'Phone Number',
+    label: 'REGISTER.PHONE',
+
     type: FieldType.input,
     class: 'col-md-6 col-12',
     appearance: 'outline',
     required: true
   },
-  {
-    key: 'userType',
-    label: 'User Type',
-    type: FieldType.select,
-    class: 'col-md-6 col-12',
-    appearance: 'outline',
-    required: true,
-    options: [
-      { name: 'Farmer', value: 'FARMER' },
-      { name: 'Extension Officer', value: 'EXTENSION_OFFICER' },
-      { name: 'Production Officer', value: 'PRODUCTION_OFFICER' },
-      { name: 'Researcher', value: 'RESEARCHER' }
-    ]
-  },
+  // {
+  //   key: 'userType',
+  //   label: 'User Type',
+  //   label: 'LOGIN.USERNAME',
+  //   type: FieldType.select,
+  //   class: 'col-md-6 col-12',
+  //   appearance: 'outline',
+  //   required: true,
+  //   options: [
+  //     { name: 'Farmer', value: 'FARMER' },
+  //     { name: 'Extension Officer', value: 'EXTENSION_OFFICER' },
+  //     { name: 'Production Officer', value: 'PRODUCTION_OFFICER' },
+  //     { name: 'Researcher', value: 'RESEARCHER' }
+  //   ]
+  // },
   {
     key: 'password',
-    label: 'Password',
+    label: 'REGISTER.PASSWORD',
+
     type: FieldType.input,
     inputType: 'password',
     class: 'col-md-6 col-12',
@@ -59,7 +89,8 @@ export const registerFormFields: FieldConfig[] = [
   },
   {
     key: 'confirmPassword',
-    label: 'Confirm Password',
+    label: 'REGISTER.CONFIRM_PASSWORD',
+
     type: FieldType.input,
     inputType: 'password',
     class: 'col-md-6 col-12',
@@ -71,6 +102,7 @@ export const registerFormFields: FieldConfig[] = [
     label: 'Create Account',
     type: FieldType.button,
     class: 'col-12',
-    fieldClass: 'w-100'
+      fieldClass: 'w-100 login-green-btn'
+
   }
 ];
