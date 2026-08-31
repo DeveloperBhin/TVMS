@@ -1,0 +1,100 @@
+/* ==========================================
+   LIGHT THEME
+   ========================================== */
+
+:root,
+[data-theme='light'] {
+
+  --app-primary: #11732e;
+  --app-primary-dark: #0c5722;
+
+  --app-secondary: #d9a441;
+
+  --app-bg: #f5f7f5;
+
+  --app-surface: #ffffff;
+
+  --app-text: #1f2937;
+
+  --app-muted: #6b7280;
+
+  --app-danger: #b42318;
+
+  --app-border: #e5e7eb;
+
+  --app-card: #ffffff;
+
+}
+
+
+/* ==========================================
+   DARK THEME
+   ========================================== */
+
+[data-theme='dark'] {
+
+  --app-primary: #4caf68;
+
+  --app-primary-dark: #388e4f;
+
+  --app-secondary: #e0ad4f;
+
+  --app-bg: #111713;
+
+  --app-surface: #1a211c;
+
+  --app-text: #f3f4f6;
+
+  --app-muted: #a6ada8;
+
+  --app-danger: #ff6b6b;
+
+  --app-border: #303832;
+
+  --app-card: #1d261f;
+
+}
+
+.btn-app-primary {
+  background: var(--app-primary) !important;
+  color: #fff !important;
+  border: 1px solid var(--app-primary) !important;
+}
+
+.btn-app-primary:hover {
+  background: var(--app-primary-dark) !important;
+  border-color: var(--app-primary-dark) !important;
+}
+
+.btn-app-secondary {
+  background: var(--app-surface) !important;
+  color: var(--app-text) !important;
+  border: 1px solid var(--app-border) !important;
+}
+
+.btn-app-secondary:hover {
+  background: var(--app-card) !important;
+}
+
+.auth-form-section action-buttons button {
+  color: var(--app-text) !important;
+  background: transparent !important;
+}
+
+.auth-form-section action-buttons button:hover {
+  background: var(--app-card) !important;
+}
+
+.mat-mdc-menu-panel,
+.mat-mdc-menu-content {
+  background: var(--app-surface) !important;
+  color: var(--app-text) !important;
+}
+
+.mat-mdc-menu-item {
+  color: var(--app-text) !important;
+}
+
+.mat-mdc-menu-item:hover {
+  background: var(--app-card) !important;
+}

@@ -1,0 +1,21 @@
+
+{
+  "LOGIN": {
+    "TITLE": "Sign in to your account",
+    "USERNAME": "User Name",
+    "PASSWORD": "Password",
+    "BUTTON": "Login",
+    "NO_ACCOUNT": "Don't have an account?",
+    "REGISTER": "Register",
+    "FORGOT_PASSWORD": "Forgot password?"
+  },
+
+  "LANGUAGE": {
+    "ENGLISH": "English",
+    "SWAHILI": "Swahili"
+  },
+
+  "SYSTEM": {
+    "NAME": "Cashew Production Management System"
+  }
+}

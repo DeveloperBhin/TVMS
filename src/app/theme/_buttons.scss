@@ -1,0 +1,8 @@
+.btn-app-primary {
+  background: var(--app-primary);
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 18px;
+}
+.btn-app-primary:hover { background: var(--app-primary-dark); }

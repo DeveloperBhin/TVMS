@@ -1,0 +1,20 @@
+{
+  "LOGIN": {
+    "TITLE": "Ingia kwenye akaunti yako",
+    "USERNAME": "Jina la Mtumiaji",
+    "PASSWORD": "Nenosiri",
+    "BUTTON": "Ingia",
+    "NO_ACCOUNT": "Huna akaunti?",
+    "REGISTER": "Jisajili",
+    "FORGOT_PASSWORD": "Umesahau nenosiri?"
+  },
+
+  "LANGUAGE": {
+    "ENGLISH": "Kiingereza",
+    "SWAHILI": "Kiswahili"
+  },
+
+  "SYSTEM": {
+    "NAME": "Mfumo wa Usimamizi wa Uzalishaji wa Korosho"
+  }
+}
