@@ -40,5 +40,65 @@
   },
   "VALIDATION": {
   "REQUIRED": "is required"
+},
+
+  "FARMS": {
+    "DASHBOARD_TITLE": "Farm Dashboard",
+    "GREETING": "Good Morning, Farmer John",
+    "TOTAL_FARMS": "Total Farms",
+    "TOTAL_ACRES": "Total Acres",
+    "TOTAL_TREES": "Total Trees",
+    "ADD_FARM": "Add Farm",
+    "VIEW_FARM": "View Farm"
+  },
+
+  "TREES": {
+    "DASHBOARD_TITLE": "Tree Dashboard",
+    "GREETING": "Good Morning, Farmer John",
+    "AVAILABLE_TREES": "Available Trees",
+    "AVAILABLE_VARIETIES": "Available Varieties",
+    "TOTAL_PRODUCED": "Total Kgs Produced",
+    "ADD_TREE": "Add Tree",
+    "SEARCH": "Search...",
+    "TREE_ID": "Tree ID",
+    "BARCODE": "Barcode",
+    "VARIETY": "Variety",
+    "AGE": "Age",
+    "STATUS": "Status",
+    "PRODUCTION": "Production",
+    "ACTIONS": "Actions",
+    "HEALTHY": "Healthy"
+  },
+  "ADD_FARM": {
+  "TITLE": "Add Farm",
+  "FARM_NAME": "Farm Name",
+  "FARM_NAME_REQUIRED": "Farm name is required",
+  "PLANTING_DATE": "Planting Date",
+  "FARM_TYPE": "Farm Type",
+  "SELECT_FARM_TYPE": "Select Farm Type",
+  "NEW_FARM": "New Farm",
+  "PRODUCTION_FARM": "Production Farm",
+  "FARM_SIZE": "Farm Size",
+  "ACRES": "Acres",
+  "SUBMIT": "Submit"
+},
+"REGISTER_TREE": {
+  "TITLE": "Register Tree",
+  "FARM": "Farm",
+  "SELECT_FARM": "Select Farm",
+  "PLANTING_DATE": "Planting Date",
+  "VARIETY": "Variety",
+  "SELECT_VARIETY": "Select Variety",
+  "LATITUDE": "Tree Latitude",
+  "LATITUDE_PLACEHOLDER": "Tree Lat (0°)",
+  "LONGITUDE": "Tree Longitude",
+  "LONGITUDE_PLACEHOLDER": "Tree Long (0°)",
+  "STATUS": "Status",
+  "SELECT_STATUS": "Select Status",
+  "HEALTHY": "Healthy",
+  "DISEASED": "Diseased",
+  "DEAD": "Dead",
+  "SUBMIT": "Submit"
 }
+
 }

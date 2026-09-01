@@ -1,11 +1,380 @@
-<app-page-header
-  title="Farmers"
-  subtitle="Manage farmer profiles and farmer groups.">
-</app-page-header>
+<app-header
+  (menuToggle)="toggleSidebar()">
+</app-header>
 
-<div class="feature-card">
-  <h5>Farmers module</h5>
-  <p class="text-muted mb-0">
-    This is the starting page for farmers. Add list, form and detail pages inside this feature folder.
-  </p>
-</div>
+<div class="dashboard-layout">
+
+  <app-sidebar
+    [opened]="sidebarOpen"
+    (closeSidebar)="closeSidebar()">
+  </app-sidebar>
+
+
+  <div
+    *ngIf="sidebarOpen"
+    class="sidebar-backdrop"
+    (click)="closeSidebar()">
+  </div>
+
+
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-content">
+
+      <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- TITLE -->
+        <div class="mb-4">
+
+          <h2 class="fw-bold mb-0">
+            DASHBOARD
+          </h2>
+
+          <small class="text-muted">
+            Good Morning, Farmer John
+          </small>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+        <div class="row g-4 mb-5">
+
+          <!-- FARMS -->
+          <div class="col-12 col-md-4">
+
+            <div class="dashboard-card stat-card">
+
+              <div class="d-flex justify-content-between align-items-start">
+
+                <h4 class="text-primary mb-0">
+                  Farms
+                </h4>
+
+                <span class="stat-arrow">
+                  →
+                </span>
+
+              </div>
+
+
+              <div class="stat-icon-wrapper">
+
+                <span class="material-symbols-outlined">
+                  eco
+                </span>
+
+              </div>
+
+
+              <h2 class="stat-value">
+                3
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <!-- TREES -->
+          <div class="col-12 col-md-4">
+
+            <div class="dashboard-card stat-card">
+
+              <div class="d-flex justify-content-between align-items-start">
+
+                <h4 class="text-primary mb-0">
+                  Trees
+                </h4>
+
+                <span class="stat-arrow">
+                  →
+                </span>
+
+              </div>
+
+
+              <div class="stat-icon-wrapper">
+
+                <span class="material-symbols-outlined">
+                  park
+                </span>
+
+              </div>
+
+
+              <h2 class="stat-value">
+                1,250
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <!-- HARVEST -->
+          <div class="col-12 col-md-4">
+
+            <div class="dashboard-card stat-card">
+
+              <div class="d-flex justify-content-between align-items-start">
+
+                <h4 class="text-primary mb-0">
+                  Harvest
+                </h4>
+
+                <span class="stat-arrow">
+                  →
+                </span>
+
+              </div>
+
+
+              <div class="stat-icon-wrapper">
+
+                <span class="material-symbols-outlined">
+                  agriculture
+                </span>
+
+              </div>
+
+
+              <div class="d-flex align-items-end justify-content-center">
+
+                <h2 class="stat-value mb-0">
+                  12,050
+                </h2>
+
+                <small class="text-primary ms-1 mb-1">
+                  tons
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- LOWER SECTION -->
+        <div class="row g-4">
+
+          <!-- PRODUCTION -->
+          <div class="col-12 col-lg-7">
+
+            <div class="dashboard-card production-card">
+
+              <div class="card-title-row">
+
+                <div class="d-flex align-items-center gap-2">
+
+                  <span class="material-symbols-outlined text-primary">
+                    area_chart
+                  </span>
+
+                  <h5 class="text-primary mb-0">
+                    PRODUCTION OVERVIEW
+                  </h5>
+
+                </div>
+
+                <button class="more-btn">
+                  ⋮
+                </button>
+
+              </div>
+
+
+              <div class="production-status">
+
+                <span class="status-dot"></span>
+
+                On Track
+
+              </div>
+
+
+              <div class="production-chart">
+
+                <!-- 2022 -->
+                <div class="chart-item">
+
+                  <span class="percentage">
+                    23%
+                  </span>
+
+                  <div
+                    class="chart-bar"
+                    style="height: 76px;">
+                  </div>
+
+                  <span class="year">
+                    2022
+                  </span>
+
+                </div>
+
+
+                <!-- 2023 -->
+                <div class="chart-item">
+
+                  <span class="percentage">
+                    33%
+                  </span>
+
+                  <div
+                    class="chart-bar"
+                    style="height: 98px;">
+                  </div>
+
+                  <span class="year">
+                    2023
+                  </span>
+
+                </div>
+
+
+                <!-- 2024 -->
+                <div class="chart-item">
+
+                  <span class="percentage">
+                    52%
+                  </span>
+
+                  <div
+                    class="chart-bar"
+                    style="height: 120px;">
+                  </div>
+
+                  <span class="year">
+                    2024
+                  </span>
+
+                </div>
+
+
+                <!-- 2025 -->
+                <div class="chart-item">
+
+                  <span class="percentage">
+                    44%
+                  </span>
+
+                  <div
+                    class="chart-bar"
+                    style="height: 110px;">
+                  </div>
+
+                  <span class="year">
+                    2025
+                  </span>
+
+                </div>
+
+
+                <!-- 2026 -->
+                <div class="chart-item">
+
+                  <span class="percentage">
+                    63%
+                  </span>
+
+                  <div
+                    class="chart-bar"
+                    style="height: 130px;">
+                  </div>
+
+                  <span class="year">
+                    2026
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="growth-info">
+                <span class="text-primary">
+                  21% ↑
+                </span>
+
+                <small>
+                  vs last year
+                </small>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- UPCOMING ACTIVITIES -->
+<div class="col-12 col-lg-5 d-flex">
+            <div class="upcoming-card bg-primary text-white">
+
+              <h4 class="text-center mb-5">
+                UPCOMING ACTIVITIES
+              </h4>
+
+
+              <div class="activity-list">
+
+                <div class="activity-row">
+
+                  <span>
+                    Weeding
+                  </span>
+
+                  <span>
+                    Jan 15
+                  </span>
+
+                </div>
+
+
+                <div class="activity-row">
+
+                  <span>
+                    Pesticides Application
+                  </span>
+
+                  <span>
+                    Mar 05
+                  </span>
+
+                </div>
+
+
+                <div class="activity-row">
+
+                  <span>
+                    Pruning
+                  </span>
+
+                  <span>
+                    Oct 30
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+
+
+
+

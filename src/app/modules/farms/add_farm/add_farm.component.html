@@ -1,0 +1,156 @@
+<app-header></app-header>
+
+<div class="farm-layout">
+
+  <app-sidebar></app-sidebar>
+
+  <main class="farm-content">
+
+    <div class="container-fluid px-3 px-md-4 py-4">
+
+      <div class="add-farm-card">
+
+        <!-- TITLE -->
+        <div class="form-title">
+          <h2>
+            {{ 'ADD_FARM.TITLE' | translate }}
+          </h2>
+        </div>
+
+
+        <form
+          [formGroup]="farmForm"
+          (ngSubmit)="submitFarm()"
+        >
+
+          <div class="row g-4">
+
+            <!-- FARM NAME -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'ADD_FARM.FARM_NAME' | translate }}
+              </label>
+
+              <input
+                type="text"
+                class="farm-input"
+                formControlName="farmName"
+                [placeholder]="'ADD_FARM.FARM_NAME' | translate"
+              />
+
+              <small
+                class="field-error"
+                *ngIf="
+                  farmForm.get('farmName')?.touched &&
+                  farmForm.get('farmName')?.hasError('required')
+                "
+              >
+                {{ 'ADD_FARM.FARM_NAME_REQUIRED' | translate }}
+              </small>
+
+            </div>
+
+
+            <!-- PLANTING DATE -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'ADD_FARM.PLANTING_DATE' | translate }}
+              </label>
+
+              <input
+                type="date"
+                class="farm-input"
+                formControlName="plantingDate"
+              />
+
+            </div>
+
+
+            <!-- FARM TYPE -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'ADD_FARM.FARM_TYPE' | translate }}
+              </label>
+
+              <select
+                class="farm-input farm-select"
+                formControlName="farmType"
+              >
+
+                <option value="" disabled>
+                  {{ 'ADD_FARM.SELECT_FARM_TYPE' | translate }}
+                </option>
+
+                <option value="NEW">
+                  {{ 'ADD_FARM.NEW_FARM' | translate }}
+                </option>
+
+                <option value="PRODUCTION">
+                  {{ 'ADD_FARM.PRODUCTION_FARM' | translate }}
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- FARM SIZE -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'ADD_FARM.FARM_SIZE' | translate }}
+              </label>
+
+              <div class="input-with-unit">
+
+                <input
+                  type="number"
+                  min="0"
+                  class="farm-input"
+                  formControlName="farmSize"
+                  [placeholder]="'ADD_FARM.FARM_SIZE' | translate"
+                />
+
+                <span>
+                  {{ 'ADD_FARM.ACRES' | translate }}
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- BUTTON -->
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="submit-btn"
+              [disabled]="farmForm.invalid"
+            >
+              {{ 'ADD_FARM.SUBMIT' | translate }}
+            </button>
+             <button
+              type="submit"
+              class="submit-btn"
+              routerLink="/farms/add/success"
+            >
+              {{ 'ADD_FARM.SUBMIT' | translate }}
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

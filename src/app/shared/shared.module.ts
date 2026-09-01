@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -10,21 +11,29 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { FormComponent } from './components/form/form.component';
 import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { SidebarComponent } from '../libs/components/sidebar/sidebar.component';
+import { HeaderComponent } from '../libs/components/header/header.component';
 @NgModule({
   declarations: [
     FormComponent,
     ActionButtonsComponent,
     ImageSliderComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
+
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
+
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
@@ -32,11 +41,15 @@ import { TranslateModule } from '@ngx-translate/core';
     MatInputModule,
     MatMenuModule,
     MatSelectModule,
+
     TranslateModule
   ],
+
   exports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
+
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
@@ -44,11 +57,15 @@ import { TranslateModule } from '@ngx-translate/core';
     MatInputModule,
     MatMenuModule,
     MatSelectModule,
+
+    TranslateModule,
+
     FormComponent,
     ActionButtonsComponent,
     ImageSliderComponent,
     PageHeaderComponent,
-    TranslateModule
+    SidebarComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule {}

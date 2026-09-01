@@ -25,12 +25,16 @@ import {
 import {
   TranslateHttpLoader
 } from '@ngx-translate/http-loader';
+// import { HeaderComponent } from './libs/components/header/header.component';
+// import { SidebarComponent } from './libs/components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    // HeaderComponent,
+    // SidebarComponent
   ],
   imports: [
     BrowserModule,

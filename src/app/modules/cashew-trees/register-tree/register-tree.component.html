@@ -1,0 +1,197 @@
+<app-header></app-header>
+
+<div class="tree-layout">
+
+  <app-sidebar></app-sidebar>
+
+
+  <main class="tree-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+      <div class="register-tree-card">
+
+
+        <!-- TITLE -->
+        <div class="form-title">
+
+          <h2>
+            {{ 'REGISTER_TREE.TITLE' | translate }}
+          </h2>
+
+        </div>
+
+
+        <form
+          [formGroup]="treeForm"
+          (ngSubmit)="submitTree()"
+        >
+
+          <div class="row g-4">
+
+
+            <!-- FARM -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'REGISTER_TREE.FARM' | translate }}
+              </label>
+
+              <select
+                class="tree-input"
+                formControlName="farmId"
+              >
+
+                <option value="" disabled>
+                  {{ 'REGISTER_TREE.SELECT_FARM' | translate }}
+                </option>
+
+                <option
+                  *ngFor="let farm of farms"
+                  [value]="farm.id"
+                >
+                  {{ farm.name }}
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- PLANTING DATE -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'REGISTER_TREE.PLANTING_DATE' | translate }}
+              </label>
+
+              <input
+                type="date"
+                class="tree-input"
+                formControlName="plantingDate"
+              />
+
+            </div>
+
+
+            <!-- VARIETY -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'REGISTER_TREE.VARIETY' | translate }}
+              </label>
+
+              <select
+                class="tree-input"
+                formControlName="varietyId"
+              >
+
+                <option value="" disabled>
+                  {{ 'REGISTER_TREE.SELECT_VARIETY' | translate }}
+                </option>
+
+                <option
+                  *ngFor="let variety of varieties"
+                  [value]="variety.id"
+                >
+                  {{ variety.name }}
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- LATITUDE -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'REGISTER_TREE.LATITUDE' | translate }}
+              </label>
+
+              <input
+                type="number"
+                step="any"
+                class="tree-input"
+                formControlName="latitude"
+                [placeholder]="'REGISTER_TREE.LATITUDE_PLACEHOLDER' | translate"
+              />
+
+            </div>
+
+
+            <!-- LONGITUDE -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'REGISTER_TREE.LONGITUDE' | translate }}
+              </label>
+
+              <input
+                type="number"
+                step="any"
+                class="tree-input"
+                formControlName="longitude"
+                [placeholder]="'REGISTER_TREE.LONGITUDE_PLACEHOLDER' | translate"
+              />
+
+            </div>
+
+
+            <!-- STATUS -->
+            <div class="col-12 col-md-6">
+
+              <label class="form-label">
+                {{ 'REGISTER_TREE.STATUS' | translate }}
+              </label>
+
+              <select
+                class="tree-input"
+                formControlName="status"
+              >
+
+                <option value="" disabled>
+                  {{ 'REGISTER_TREE.SELECT_STATUS' | translate }}
+                </option>
+
+                <option value="HEALTHY">
+                  {{ 'REGISTER_TREE.HEALTHY' | translate }}
+                </option>
+
+                <option value="DISEASED">
+                  {{ 'REGISTER_TREE.DISEASED' | translate }}
+                </option>
+
+                <option value="DEAD">
+                  {{ 'REGISTER_TREE.DEAD' | translate }}
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="submit-btn"
+              [disabled]="treeForm.invalid"
+            >
+              {{ 'REGISTER_TREE.SUBMIT' | translate }}
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

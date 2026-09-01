@@ -40,5 +40,67 @@
   },
   "VALIDATION": {
   "REQUIRED": "inahitajika"
+},
+
+  "FARMS": {
+    "DASHBOARD_TITLE": "Dashibodi ya Shamba",
+    "GREETING": "Habari za Asubuhi, Mkulima John",
+    "TOTAL_FARMS": "Jumla ya Mashamba",
+    "TOTAL_ACRES": "Jumla ya Ekari",
+    "TOTAL_TREES": "Jumla ya Miti",
+    "ADD_FARM": "Ongeza Shamba",
+    "VIEW_FARM": "Angalia Shamba"
+  },
+  
+  "TREES": {
+    "DASHBOARD_TITLE": "Dashibodi ya Miti",
+    "GREETING": "Habari za Asubuhi, Mkulima John",
+    "AVAILABLE_TREES": "Miti Iliyopo",
+    "AVAILABLE_VARIETIES": "Aina za Korosho",
+    "TOTAL_PRODUCED": "Jumla ya Kilo Zilizozalishwa",
+    "ADD_TREE": "Ongeza Mti",
+    "SEARCH": "Tafuta...",
+    "TREE_ID": "Namba ya Mti",
+    "BARCODE": "Msimbo",
+    "VARIETY": "Aina",
+    "AGE": "Umri",
+    "STATUS": "Hali",
+    "PRODUCTION": "Uzalishaji",
+    "ACTIONS": "Vitendo",
+    "HEALTHY": "Mzima"
+  
+},
+"ADD_FARM": {
+  "TITLE": "Ongeza Shamba",
+  "FARM_NAME": "Jina la Shamba",
+  "FARM_NAME_REQUIRED": "Jina la shamba linahitajika",
+  "PLANTING_DATE": "Tarehe ya Kupanda",
+  "FARM_TYPE": "Aina ya Shamba",
+  "SELECT_FARM_TYPE": "Chagua Aina ya Shamba",
+  "NEW_FARM": "Shamba Jipya",
+  "PRODUCTION_FARM": "Shamba la Uzalishaji",
+  "FARM_SIZE": "Ukubwa wa Shamba",
+  "ACRES": "Ekari",
+  "SUBMIT": "Wasilisha"
+},
+"REGISTER_TREE": {
+  "TITLE": "Sajili Mti",
+  "FARM": "Shamba",
+  "SELECT_FARM": "Chagua Shamba",
+  "PLANTING_DATE": "Tarehe ya Kupanda",
+  "VARIETY": "Aina ya Korosho",
+  "SELECT_VARIETY": "Chagua Aina",
+  "LATITUDE": "Latitudo ya Mti",
+  "LATITUDE_PLACEHOLDER": "Latitudo ya Mti (0°)",
+  "LONGITUDE": "Longitudo ya Mti",
+  "LONGITUDE_PLACEHOLDER": "Longitudo ya Mti (0°)",
+  "STATUS": "Hali",
+  "SELECT_STATUS": "Chagua Hali",
+  "HEALTHY": "Mzima",
+  "DISEASED": "Una Ugonjwa",
+  "DEAD": "Umekufa",
+  "SUBMIT": "Wasilisha"
 }
+
+
 }

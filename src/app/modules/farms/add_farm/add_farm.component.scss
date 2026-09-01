@@ -1,0 +1,304 @@
+:host {
+  display: block;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+.farm-layout {
+  display: flex;
+  align-items: stretch;
+
+  min-height: calc(100vh - 58px);
+}
+
+.farm-content {
+  flex: 1;
+  min-width: 0;
+
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.add-farm-card {
+  width: min(100%, 1050px);
+
+  min-height: 620px;
+
+  margin: 15px auto 0;
+
+  padding: 25px 30px 35px;
+
+  background: var(--app-card);
+  color: var(--app-text);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 5px;
+
+  box-shadow:
+    2px 2px 2px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.form-title {
+  margin-bottom: 28px;
+
+  text-align: center;
+}
+
+.form-title h2 {
+  margin: 0;
+
+  color: var(--app-primary);
+
+  font-size: 27px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.form-label {
+  display: block;
+
+  margin: 0 0 6px 4px;
+
+  color: var(--app-text);
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.farm-input {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 18px;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  outline: none;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--app-primary) 15%,
+      var(--app-card)
+    );
+
+  color: var(--app-text);
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.farm-input::placeholder {
+  color: var(--app-text-secondary);
+}
+
+.farm-input:focus {
+  border-color: var(--app-primary);
+
+  box-shadow:
+    0 0 0 3px
+    color-mix(
+      in srgb,
+      var(--app-primary) 12%,
+      transparent
+    );
+}
+
+
+/* =========================
+   SELECT
+========================= */
+
+.farm-select {
+  cursor: pointer;
+}
+
+
+/* =========================
+   SIZE + UNIT
+========================= */
+
+.input-with-unit {
+  position: relative;
+}
+
+.input-with-unit .farm-input {
+  padding-right: 70px;
+}
+
+.input-with-unit span {
+  position: absolute;
+
+  top: 50%;
+  right: 18px;
+
+  transform: translateY(-50%);
+
+  color: var(--app-text-secondary);
+
+  font-size: 12px;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.field-error {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #d32f2f;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.form-actions {
+  margin-top: 90px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  min-width: 205px;
+
+  min-height: 58px;
+
+  padding: 10px 30px;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: var(--app-primary);
+
+  color: var(--app-on-primary, #ffffff);
+
+  font-family: 'Poppins', sans-serif;
+
+  font-size: 27px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 991px) {
+
+  .add-farm-card {
+    min-height: auto;
+
+    margin-top: 5px;
+
+    padding: 25px;
+  }
+
+  .form-actions {
+    margin-top: 60px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+  .farm-content {
+    width: 100%;
+  }
+
+  .add-farm-card {
+    margin: 0;
+
+    padding: 22px 16px;
+
+    border-radius: 12px;
+  }
+
+  .form-title {
+    margin-bottom: 25px;
+  }
+
+  .form-title h2 {
+    font-size: 22px;
+  }
+
+  .farm-input {
+    height: 48px;
+  }
+
+  .form-actions {
+    margin-top: 35px;
+  }
+
+  .submit-btn {
+    width: 100%;
+
+    min-height: 50px;
+
+    font-size: 18px;
+  }
+}

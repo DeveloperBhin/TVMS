@@ -1,0 +1,156 @@
+<aside class="dashboard-sidebar">
+
+  <div class="sidebar-content">
+
+    <!-- DASHBOARD -->
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="sidebar-link"
+    >
+      <span class="material-symbols-outlined">
+        dashboard
+      </span>
+
+      <span>
+        DASHBOARD
+      </span>
+    </a>
+
+
+    <!-- CASHEW MANAGEMENT -->
+    <div class="sidebar-group">
+
+      <button
+        type="button"
+        class="sidebar-link sidebar-dropdown"
+        (click)="toggleCashew()"
+      >
+
+        <span class="material-symbols-outlined">
+          agriculture
+        </span>
+
+        <span class="sidebar-label">
+          CASHEW MANAGEMENT
+        </span>
+
+        <span
+          class="material-symbols-outlined dropdown-icon"
+          [class.rotated]="cashewExpanded"
+        >
+          expand_more
+        </span>
+
+      </button>
+
+
+      <div
+        class="submenu"
+        *ngIf="cashewExpanded"
+      >
+
+        <a
+          routerLink="/farmers"
+          routerLinkActive="active"
+          class="submenu-link"
+        >
+          Farmers
+        </a>
+
+       
+
+        <a
+          routerLink="/farms"
+          routerLinkActive="active"
+          class="submenu-link"
+        >
+          Farm Activities
+        </a>
+         <a
+          routerLink="/cashew-trees"
+          routerLinkActive="active"
+          class="submenu-link"
+        >
+          Cashew Trees
+        </a>
+
+        <a
+          routerLink="/disease-management"
+          routerLinkActive="active"
+          class="submenu-link"
+        >
+          Disease Management
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+    <div class="sidebar-bottom">
+
+      <!-- USERS -->
+      <div class="sidebar-group">
+
+        <button
+          type="button"
+          class="sidebar-link sidebar-dropdown"
+          (click)="toggleUsers()"
+        >
+
+          <span class="material-symbols-outlined">
+            groups
+          </span>
+
+          <span class="sidebar-label">
+            USERS
+          </span>
+
+          <span
+            class="material-symbols-outlined dropdown-icon"
+            [class.rotated]="usersExpanded"
+          >
+            expand_more
+          </span>
+
+        </button>
+
+      </div>
+
+
+      <!-- SETTINGS -->
+      <div class="sidebar-group">
+
+        <button
+          type="button"
+          class="sidebar-link sidebar-dropdown"
+          (click)="toggleSettings()"
+        >
+
+          <span class="material-symbols-outlined">
+            settings
+          </span>
+
+          <span class="sidebar-label">
+            SETTINGS
+          </span>
+
+          <span
+            class="material-symbols-outlined dropdown-icon"
+            [class.rotated]="settingsExpanded"
+          >
+            expand_more
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</aside>

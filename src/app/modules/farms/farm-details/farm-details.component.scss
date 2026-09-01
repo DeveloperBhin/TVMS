@@ -1,0 +1,340 @@
+:host {
+  display: block;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+.farm-details-layout {
+  display: flex;
+  align-items: stretch;
+
+  min-height: calc(100vh - 58px);
+}
+
+.farm-details-content {
+  flex: 1;
+  min-width: 0;
+
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+.back-row {
+  width: min(100%, 1050px);
+
+  margin: 0 auto 12px;
+}
+
+.back-link {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: var(--app-text);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--app-primary);
+  }
+
+  .material-symbols-outlined {
+    font-size: 23px;
+  }
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.details-container {
+  width: min(100%, 1050px);
+
+  min-height: 620px;
+
+  margin: 0 auto;
+
+  padding: 16px 14px 0;
+
+  background: var(--app-card);
+
+  border: 1px solid var(--app-border);
+
+  box-shadow:
+    2px 2px 2px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.page-title {
+  margin: 0 0 12px;
+
+  color: var(--app-primary);
+
+  text-align: center;
+
+  font-size: 27px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   INFORMATION CARD
+========================= */
+
+.information-card {
+  padding: 8px 18px 25px;
+
+  background: var(--app-card);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 5px;
+
+  box-shadow:
+    1px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.information-card h2,
+.summary-card h2,
+.history-card h2 {
+  margin: 0 0 18px;
+
+  color: var(--app-primary);
+
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.farm-information-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(170px, 1fr)
+    minmax(300px, 1.6fr)
+    minmax(150px, 0.8fr);
+
+  gap: 22px 35px;
+}
+
+.information-item {
+  display: flex;
+  align-items: baseline;
+
+  gap: 8px;
+
+  color: var(--app-text);
+
+  font-size: 18px;
+}
+
+.information-item strong {
+  white-space: nowrap;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   BOTTOM
+========================= */
+
+.details-bottom-grid {
+  margin-top: 35px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 0.9fr)
+    minmax(320px, 1fr);
+
+  justify-content: space-between;
+
+  gap: 80px;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary-card {
+  min-height: 285px;
+
+  padding: 8px 10px 20px;
+
+  background: var(--app-card);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 5px;
+
+  box-shadow:
+    1px 2px 2px rgba(0, 0, 0, 0.16);
+}
+
+.summary-item {
+  margin-bottom: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: var(--app-text);
+}
+
+.summary-item span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.summary-item strong {
+  margin-top: 2px;
+
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   HISTORY
+========================= */
+
+.history-card {
+  min-height: 330px;
+
+  padding: 28px 10px 20px;
+
+  align-self: end;
+
+  background: var(--app-card);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 5px;
+
+  box-shadow:
+    1px 2px 2px rgba(0, 0, 0, 0.16);
+}
+
+.history-list {
+  margin-top: 70px;
+}
+
+.history-row {
+  padding: 12px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--app-text);
+
+  font-size: 16px;
+}
+
+.history-row strong {
+  font-weight: 500;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 991px) {
+
+  .farm-information-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .details-bottom-grid {
+    gap: 25px;
+  }
+
+  .information-item {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+  .farm-details-content {
+    width: 100%;
+  }
+
+  .details-container {
+    min-height: auto;
+
+    padding: 15px;
+
+    border-radius: 10px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .farm-information-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .information-item {
+    flex-wrap: wrap;
+
+    font-size: 14px;
+  }
+
+  .details-bottom-grid {
+    margin-top: 20px;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .summary-card,
+  .history-card {
+    min-height: auto;
+  }
+
+  .history-card {
+    padding: 15px;
+  }
+
+  .history-list {
+    margin-top: 20px;
+  }
+
+  .history-row {
+    padding: 10px 5px;
+  }
+}

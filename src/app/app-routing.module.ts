@@ -14,6 +14,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/farmers/farmers.module').then(m => m.FarmersModule)
       },
+       {
+        path: 'farms',
+        loadChildren: () =>
+          import('./modules/farms/farms.module').then(m => m.FarmsModule)
+      },
+        {
+        path: 'cashew-trees',
+        loadChildren: () =>
+          import('./modules/cashew-trees/cashew-trees.module').then(m => m.CashewTreesModule)
+      },
   {
     path: '',
     component: MainLayoutComponent,
