@@ -11,7 +11,7 @@ yarn-error.log
 .c9/
 *.launch
 .settings/
-.vscode/*
+.vscode/* 
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json

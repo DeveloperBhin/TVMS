@@ -18,6 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CashewTreesComponent } from './cashew-trees.component';
 import { RegisterTreeComponent } from './register-tree/register-tree.component';
+import { ScanTreeComponent } from './scan-tree/scan-tree.component';
 
 const routes: Routes = [
 
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterTreeComponent
+  },
+   {
+    path: 'scan',
+    component: ScanTreeComponent
   }
 
 ];

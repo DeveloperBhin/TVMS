@@ -19,6 +19,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/farms/farms.module').then(m => m.FarmsModule)
       },
+      // {
+      //   path: 'scan',
+      //   loadChildren: () =>
+      //     import('./modules/farms/farms.module').then(m => m.FarmsModule)
+      // },
         {
         path: 'cashew-trees',
         loadChildren: () =>
