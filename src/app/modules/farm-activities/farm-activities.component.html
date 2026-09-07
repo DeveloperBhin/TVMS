@@ -1,11 +1,292 @@
-<app-page-header
-  title="Farm Activities"
-  subtitle="Track weeding, pruning, sanitation and intercropping.">
-</app-page-header>
+<app-header></app-header>
 
-<div class="feature-card">
-  <h5>Farm Activities module</h5>
-  <p class="text-muted mb-0">
-    This is the starting page for farm activities. Add list, form and detail pages inside this feature folder.
-  </p>
+<div class="activities-layout">
+
+  <app-sidebar></app-sidebar>
+
+  <main class="activities-content">
+
+    <div class="activities-page">
+
+      <div class="page-actions">
+        <button
+          type="button"
+          class="add-activity-btn"
+          (click)="addActivity()"
+        >
+          + Add Activity
+        </button>
+      </div>
+
+      <div class="page-actions">
+        <button
+          type="button"
+          class="add-activity-btn"
+  routerLink="/farm-activities/add-activity"
+>
+          + Add Activity
+      </button>
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- WEEDING -->
+      <!-- ========================= -->
+
+      <section class="activity-section">
+
+        <h2 class="section-title">
+          WEEDING
+        </h2>
+
+        <div class="activity-card">
+
+          <div class="table-toolbar">
+
+            <div class="search-box">
+
+              <input
+                type="text"
+                placeholder="search ..."
+                [(ngModel)]="weedingSearch"
+              />
+
+              <mat-icon>
+                search
+              </mat-icon>
+
+            </div>
+
+          </div>
+
+
+          <div class="table-responsive">
+
+            <table class="activity-table">
+
+              <thead>
+
+                <tr>
+                  <th class="number-column">No</th>
+                  <th>Farm</th>
+                  <th>Date</th>
+                  <th>Cost</th>
+                  <th>Status</th>
+                  <th class="actions-column">Actions</th>
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+                <tr
+                  *ngFor="
+                    let activity of filteredWeedingActivities;
+                    let i = index
+                  "
+                >
+
+                  <td>
+                    {{ i + 1 }}
+                  </td>
+
+                  <td>
+                    {{ activity.farm }}
+                  </td>
+
+                  <td>
+                    {{ activity.date }}
+                  </td>
+
+                  <td>
+                    {{ activity.cost }}
+                  </td>
+
+                  <td>
+                    {{ activity.status }}
+                  </td>
+
+                  <td class="actions-cell">
+
+                    <button
+                      type="button"
+                      class="more-btn"
+                      [matMenuTriggerFor]="weedingMenu"
+                    >
+
+                      <mat-icon>
+                        more_vert
+                      </mat-icon>
+
+                    </button>
+
+                    <mat-menu #weedingMenu="matMenu">
+
+                      <button mat-menu-item>
+                        <mat-icon>visibility</mat-icon>
+                        <span>View</span>
+                      </button>
+
+                      <button mat-menu-item>
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit</span>
+                      </button>
+
+                      <button mat-menu-item>
+                        <mat-icon>delete</mat-icon>
+                        <span>Delete</span>
+                      </button>
+
+                    </mat-menu>
+
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================= -->
+      <!-- HARVESTING -->
+      <!-- ========================= -->
+
+      <section class="activity-section harvesting-section">
+
+        <h2 class="section-title">
+          HARVESTING
+        </h2>
+
+        <div class="activity-card">
+
+          <div class="table-toolbar">
+
+            <div class="search-box">
+
+              <input
+                type="text"
+                placeholder="search ..."
+                [(ngModel)]="harvestingSearch"
+              />
+
+              <mat-icon>
+                search
+              </mat-icon>
+
+            </div>
+
+          </div>
+
+
+          <div class="table-responsive">
+
+            <table class="activity-table harvesting-table">
+
+              <thead>
+
+                <tr>
+                  <th class="number-column">No</th>
+                  <th>Farm</th>
+                  <th>Date</th>
+                  <th>Cost</th>
+                  <th>Status</th>
+                  <th>Harvested</th>
+                  <th class="actions-column">Actions</th>
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+                <tr
+                  *ngFor="
+                    let activity of filteredHarvestingActivities;
+                    let i = index
+                  "
+                >
+
+                  <td>
+                    {{ i + 1 }}
+                  </td>
+
+                  <td>
+                    {{ activity.farm }}
+                  </td>
+
+                  <td>
+                    {{ activity.date }}
+                  </td>
+
+                  <td>
+                    {{ activity.cost }}
+                  </td>
+
+                  <td>
+                    {{ activity.status }}
+                  </td>
+
+                  <td>
+                    {{ activity.harvested }}
+                  </td>
+
+                  <td class="actions-cell">
+
+                    <button
+                      type="button"
+                      class="more-btn"
+                      [matMenuTriggerFor]="harvestingMenu"
+                    >
+
+                      <mat-icon>
+                        more_vert
+                      </mat-icon>
+
+                    </button>
+
+                    <mat-menu #harvestingMenu="matMenu">
+
+                      <button mat-menu-item>
+                        <mat-icon>visibility</mat-icon>
+                        <span>View</span>
+                      </button>
+
+                      <button mat-menu-item>
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit</span>
+                      </button>
+
+                      <button mat-menu-item>
+                        <mat-icon>delete</mat-icon>
+                        <span>Delete</span>
+                      </button>
+
+                    </mat-menu>
+
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
 </div>

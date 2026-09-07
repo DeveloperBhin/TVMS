@@ -1,0 +1,264 @@
+.activity-layout {
+  display: flex;
+
+  min-height: calc(100vh - 58px);
+
+  background: var(--app-bg);
+}
+
+
+.activity-content {
+  flex: 1;
+
+  min-width: 0;
+
+  padding:
+    48px
+    95px;
+}
+
+
+.add-activity-card {
+  width: 100%;
+
+  min-height: 595px;
+
+  padding:
+    20px
+    26px
+    40px;
+
+  background: var(--app-card);
+
+  border:
+    1px
+    solid
+    #cecece;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+
+.activity-title {
+  margin:
+    0
+    0
+    24px;
+
+  text-align: center;
+
+  color: var(--app-primary);
+
+  font-size: 28px;
+
+  font-weight: 600;
+}
+
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    0
+    68px;
+
+  padding:
+    0
+    0;
+}
+
+
+.form-column {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 45px;
+}
+
+
+.activity-input {
+  width: 100%;
+
+  height: 41px;
+
+  padding:
+    0
+    38px;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #d9eadf;
+
+  color: #7d8581;
+
+  font-family: inherit;
+
+  font-size: 20px;
+
+  font-weight: 500;
+}
+
+
+.activity-input::placeholder {
+  color: #7d8581;
+
+  opacity: 1;
+}
+
+
+.activity-input:focus {
+  box-shadow:
+    0 0 0 2px
+    rgba(17, 115, 46, 0.20);
+}
+
+
+select.activity-input {
+  cursor: pointer;
+}
+
+
+/* =========================
+   SUBMIT
+========================= */
+
+.form-actions {
+  margin-top: 92px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  padding-right: 12px;
+}
+
+
+.submit-btn {
+  min-width: 200px;
+
+  height: 58px;
+
+  padding:
+    0
+    34px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #006b24;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 28px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+
+.submit-btn:hover {
+  opacity: 0.92;
+}
+
+
+.submit-btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 992px) {
+
+  .activity-content {
+    padding:
+      35px
+      30px;
+  }
+
+
+  .form-grid {
+    gap: 35px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .activity-content {
+    padding:
+      20px
+      15px;
+  }
+
+
+  .add-activity-card {
+    min-height: auto;
+
+    padding:
+      20px;
+  }
+
+
+  .form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+
+  .form-column {
+    gap: 25px;
+  }
+
+
+  .activity-title {
+    font-size: 23px;
+  }
+
+
+  .activity-input {
+    font-size: 16px;
+
+    padding:
+      0
+      18px;
+  }
+
+
+  .form-actions {
+    margin-top: 40px;
+
+    padding-right: 0;
+  }
+
+
+  .submit-btn {
+    width: 100%;
+
+    font-size: 22px;
+  }
+
+}

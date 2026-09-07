@@ -1,0 +1,137 @@
+<app-header></app-header>
+
+<div class="activity-layout">
+
+  <app-sidebar></app-sidebar>
+
+  <main class="activity-content">
+
+    <div class="add-activity-card">
+
+      <h2 class="activity-title">
+        ADD ACTIVITY
+      </h2>
+
+      <form
+        [formGroup]="activityForm"
+        (ngSubmit)="submitActivity()"
+      >
+
+        <div class="form-grid">
+
+          <!-- LEFT COLUMN -->
+          <div class="form-column">
+
+            <!-- ACTIVITY TYPE -->
+            <select
+              class="activity-input"
+              formControlName="activityType"
+            >
+              <option value="" disabled>
+                Activity Type
+              </option>
+
+              <option value="WEEDING">
+                Weeding
+              </option>
+
+              <option value="HARVESTING">
+                Harvesting
+              </option>
+
+              <option value="PRUNING">
+                Pruning
+              </option>
+
+              <option value="SANITATION">
+                Sanitation
+              </option>
+
+              <option value="INTERCROPPING">
+                Intercropping
+              </option>
+            </select>
+
+
+            <!-- FARM -->
+            <select
+              class="activity-input"
+              formControlName="farmId"
+            >
+              <option value="" disabled>
+                Farm
+              </option>
+
+              <option
+                *ngFor="let farm of farms"
+                [value]="farm.id"
+              >
+                {{ farm.name }}
+              </option>
+            </select>
+
+
+            <!-- COST -->
+            <input
+              type="number"
+              class="activity-input"
+              formControlName="cost"
+              placeholder="Cost"
+            />
+
+          </div>
+
+
+          <!-- RIGHT COLUMN -->
+          <div class="form-column">
+
+            <!-- DATE -->
+            <input
+              type="date"
+              class="activity-input"
+              formControlName="date"
+            />
+
+
+            <!-- DESCRIPTION -->
+            <input
+              type="text"
+              class="activity-input"
+              formControlName="description"
+              placeholder="Description"
+            />
+
+
+            <!-- HARVEST AMOUNT -->
+            <input
+              *ngIf="activityForm.get('activityType')?.value === 'HARVESTING'"
+              type="number"
+              class="activity-input"
+              formControlName="amountHarvested"
+              placeholder="Amount harvested"
+            />
+
+          </div>
+
+        </div>
+
+
+        <div class="form-actions">
+
+          <button
+            type="submit"
+            class="submit-btn"
+            [disabled]="activityForm.invalid"
+          >
+            Submit
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </main>
+
+</div>
