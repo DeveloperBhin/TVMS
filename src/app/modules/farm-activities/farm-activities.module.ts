@@ -7,7 +7,7 @@ import { FarmActivitiesComponent } from './farm-activities.component';
 
 import { SharedModule } from '../../shared/shared.module';
 import { AddActivityComponent } from './pages/add-activity/add-activity.component';
-import { AddActivitySucessComponent } from './pages/add_activity_sucess/add_activity_sucess-form-fields';
+import { AddActivitySucessComponent } from './pages/add_activity_sucess/add_activity_sucess.component';
 
 
 @NgModule({
