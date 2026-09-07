@@ -1,256 +1,432 @@
-:host {
-  display: block;
-}
-
-
-/* =========================
-   LAYOUT
-========================= */
-
 .tree-layout {
   display: flex;
-  align-items: stretch;
-
-  min-height: calc(100vh - 58px);
+  min-height: calc(100vh - 52px);
+  background: var(--app-bg);
 }
 
 .tree-content {
   flex: 1;
   min-width: 0;
-
-  background: var(--app-bg);
-  color: var(--app-text);
 }
 
-
-/* =========================
-   CARD
-========================= */
-
-.register-tree-card {
-  width: min(100%, 1050px);
-
-  min-height: 620px;
-
-  margin: 15px auto 0;
-
-  padding: 25px 30px 35px;
-
-  background: var(--app-card);
-  color: var(--app-text);
-
-  border: 1px solid var(--app-border);
-  border-radius: 5px;
-
-  box-shadow:
-    2px 2px 2px rgba(0, 0, 0, 0.18);
-}
-
-
-/* =========================
-   TITLE
-========================= */
-
-.form-title {
-  margin-bottom: 30px;
-
-  text-align: center;
-}
-
-.form-title h2 {
-  margin: 0;
-
-  color: var(--app-primary);
-
-  font-size: 27px;
-  font-weight: 500;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================
-   LABELS
-========================= */
-
-.form-label {
-  display: block;
-
-  margin: 0 0 6px 4px;
-
-  color: var(--app-text);
-
-  font-size: 13px;
-  font-weight: 500;
-}
-
-
-/* =========================
-   INPUTS
-========================= */
-
-.tree-input {
-  width: 100%;
-  height: 44px;
-
-  padding: 0 18px;
-
-  border: 1px solid transparent;
-  border-radius: 9px;
-
-  outline: none;
-
-  background:
-    color-mix(
-      in srgb,
-      var(--app-primary) 15%,
-      var(--app-card)
-    );
-
-  color: var(--app-text);
-
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.tree-input::placeholder {
-  color: var(--app-text-secondary);
-}
-
-.tree-input:focus {
-  border-color: var(--app-primary);
-
-  box-shadow:
-    0 0 0 3px
-    color-mix(
-      in srgb,
-      var(--app-primary) 12%,
-      transparent
-    );
-}
-
-select.tree-input {
-  cursor: pointer;
-}
-
-
-/* =========================
-   ACTION
-========================= */
-
-.form-actions {
-  margin-top: 90px;
+.scan-section {
+  min-height: calc(100vh - 52px);
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 145px;
 }
 
-.submit-btn {
-  min-width: 205px;
-  min-height: 58px;
+.scanner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  padding: 10px 30px;
+  width: 100%;
+  max-width: 380px;
+}
 
-  border: 0;
-  border-radius: 9px;
+.scanner-box {
+  width: 320px;
+  height: 315px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #cfcfcf;
+
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+
+/* CAMERA */
+
+.camera-preview {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: none;
+
+  z-index: 1;
+}
+
+.camera-preview.show-camera {
+  display: block;
+}
+
+
+/* PLACEHOLDER */
+
+.scanner-placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background: #ffffff;
+
+  z-index: 1;
+}
+
+
+/* BARCODE */
+
+.barcode-area {
+  width: 220px;
+  height: 158px;
+
+  background: #ededed;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+}
+
+.barcode-area span {
+  display: block;
+
+  height: 105px;
+
+  background: #118b2c;
+}
+
+.barcode-area span:nth-child(1) {
+  width: 18px;
+}
+
+.barcode-area span:nth-child(2) {
+  width: 10px;
+}
+
+.barcode-area span:nth-child(3) {
+  width: 22px;
+}
+
+.barcode-area span:nth-child(4) {
+  width: 7px;
+}
+
+.barcode-area span:nth-child(5) {
+  width: 10px;
+}
+
+.barcode-area span:nth-child(6) {
+  width: 21px;
+}
+
+.barcode-area span:nth-child(7) {
+  width: 11px;
+}
+
+.barcode-area span:nth-child(8) {
+  width: 10px;
+}
+
+
+/* CORNERS */
+
+.corner {
+  position: absolute;
+
+  width: 65px;
+  height: 65px;
+
+  border-style: solid;
+  border-color: #000000;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.top-left {
+  top: 17px;
+  left: 20px;
+
+  border-width: 12px 0 0 12px;
+
+  border-top-left-radius: 8px;
+}
+
+.top-right {
+  top: 17px;
+  right: 20px;
+
+  border-width: 12px 12px 0 0;
+
+  border-top-right-radius: 8px;
+}
+
+.bottom-left {
+  bottom: 22px;
+  left: 20px;
+
+  border-width: 0 0 12px 12px;
+
+  border-bottom-left-radius: 8px;
+}
+
+.bottom-right {
+  right: 20px;
+  bottom: 22px;
+
+  border-width: 0 12px 12px 0;
+
+  border-bottom-right-radius: 8px;
+}
+
+
+/* MOVING BLUE LINE */
+
+.scan-line {
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+
+  height: 8px;
+
+  background: #3326ff;
+
+  border-radius: 10px;
+
+  z-index: 6;
+
+  box-shadow:
+    0 0 10px rgba(51, 38, 255, 0.6);
+
+  animation: scanMove 2s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+
+  0% {
+    top: 55px;
+  }
+
+  50% {
+    top: 250px;
+  }
+
+  100% {
+    top: 55px;
+  }
+
+}
+
+
+/* BUTTON */
+
+.scan-button {
+  margin-top: 22px;
+
+  min-width: 180px;
+  height: 46px;
+
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: none;
+
+  border-radius: 6px;
 
   background: var(--app-primary);
 
-  color: var(--app-on-primary, #ffffff);
+  color: #ffffff;
 
-  font-family: 'Poppins', sans-serif;
+  font-family: inherit;
 
-  font-size: 27px;
+  font-size: 14px;
   font-weight: 500;
 
   cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
-.submit-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.submit-btn:disabled {
-  opacity: 0.5;
-
-  cursor: not-allowed;
+.scan-button:hover {
+  opacity: 0.9;
 }
 
 
-/* =========================
-   TABLET
-========================= */
+/* SCANNING MESSAGE */
 
-@media (max-width: 991px) {
+.scanning-message {
+  margin-top: 18px;
 
-  .register-tree-card {
-    min-height: auto;
+  display: flex;
+  align-items: center;
 
-    margin-top: 5px;
+  gap: 8px;
 
-    padding: 25px;
+  font-size: 14px;
+
+  color: var(--app-text);
+}
+
+.scanner-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--app-primary);
+
+  animation: scannerPulse 1s infinite;
+}
+
+@keyframes scannerPulse {
+
+  0% {
+    opacity: 0.3;
   }
 
-  .form-actions {
-    margin-top: 60px;
+  50% {
+    opacity: 1;
   }
+
+  100% {
+    opacity: 0.3;
+  }
+
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* RESULT */
 
-@media (max-width: 767px) {
+.scan-result {
+  width: 320px;
 
-  .tree-content {
-    width: 100%;
+  margin-top: 18px;
+
+  padding: 13px 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  background: var(--app-card);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 7px;
+
+  color: var(--app-text);
+
+  box-sizing: border-box;
+}
+
+.success-icon {
+  color: var(--app-primary);
+}
+
+.scan-result > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  min-width: 0;
+}
+
+.scan-result small {
+  opacity: 0.7;
+}
+
+.scan-result strong {
+  overflow-wrap: anywhere;
+}
+
+
+/* ERROR */
+
+.scan-error {
+  width: 320px;
+
+  margin-top: 16px;
+
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  border: 1px solid #dc3545;
+
+  border-radius: 6px;
+
+  color: #dc3545;
+
+  font-size: 13px;
+
+  box-sizing: border-box;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .scan-section {
+    padding-top: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  .register-tree-card {
-    margin: 0;
-
-    padding: 22px 16px;
-
-    min-height: auto;
-
-    border-radius: 12px;
+  .scanner-box {
+    width: 290px;
+    height: 290px;
   }
 
-  .form-title {
-    margin-bottom: 25px;
+  .scan-result,
+  .scan-error {
+    width: 290px;
   }
 
-  .form-title h2 {
-    font-size: 22px;
+  @keyframes scanMove {
+
+    0% {
+      top: 50px;
+    }
+
+    50% {
+      top: 225px;
+    }
+
+    100% {
+      top: 50px;
+    }
+
   }
 
-  .tree-input {
-    height: 48px;
-  }
-
-  .form-actions {
-    margin-top: 35px;
-  }
-
-  .submit-btn {
-    width: 100%;
-
-    min-height: 50px;
-
-    font-size: 18px;
-  }
 }

@@ -4,189 +4,145 @@
 
   <app-sidebar></app-sidebar>
 
-
   <main class="tree-content">
 
-    <div class="container-fluid px-3 px-lg-4 py-4">
+    <div class="scan-section">
 
-      <div class="register-tree-card">
+      <div class="scanner-wrapper">
+
+        <div
+          class="scanner-box"
+          [class.active]="isScanning"
+        >
+
+          <!-- CAMERA -->
+          <video
+            #video
+            class="camera-preview"
+            autoplay
+            muted
+            playsinline
+            [class.show-camera]="isScanning"
+          ></video>
 
 
-        <!-- TITLE -->
-        <div class="form-title">
+          <!-- PLACEHOLDER -->
+          <div
+            class="scanner-placeholder"
+            *ngIf="!isScanning && !scannedValue"
+          >
 
-          <h2>
-            {{ 'REGISTER_TREE.TITLE' | translate }}
-          </h2>
+            <div class="barcode-area">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+          </div>
+
+
+          <!-- CORNERS -->
+          <div class="corner top-left"></div>
+          <div class="corner top-right"></div>
+          <div class="corner bottom-left"></div>
+          <div class="corner bottom-right"></div>
+
+
+          <!-- MOVING BLUE LINE -->
+          <div
+            class="scan-line"
+            *ngIf="isScanning"
+          ></div>
 
         </div>
 
 
-        <form
-          [formGroup]="treeForm"
-          (ngSubmit)="submitTree()"
+        <!-- START SCAN BUTTON -->
+        <button
+          *ngIf="!isScanning && !scannedValue"
+          type="button"
+          class="scan-button"
+          (click)="startScanner()"
         >
 
-          <div class="row g-4">
+          <mat-icon>document_scanner</mat-icon>
+
+          Start Scan
+
+        </button>
 
 
-            <!-- FARM -->
-            <div class="col-12 col-md-6">
+        <!-- SCANNING TEXT -->
+        <div
+          class="scanning-message"
+          *ngIf="isScanning"
+        >
 
-              <label class="form-label">
-                {{ 'REGISTER_TREE.FARM' | translate }}
-              </label>
+          <span class="scanner-dot"></span>
 
-              <select
-                class="tree-input"
-                formControlName="farmId"
-              >
+          Scanning...
 
-                <option value="" disabled>
-                  {{ 'REGISTER_TREE.SELECT_FARM' | translate }}
-                </option>
-
-                <option
-                  *ngFor="let farm of farms"
-                  [value]="farm.id"
-                >
-                  {{ farm.name }}
-                </option>
-
-              </select>
-
-            </div>
+        </div>
 
 
-            <!-- PLANTING DATE -->
-            <div class="col-12 col-md-6">
+        <!-- RESULT -->
+        <div
+          class="scan-result"
+          *ngIf="scannedValue"
+        >
 
-              <label class="form-label">
-                {{ 'REGISTER_TREE.PLANTING_DATE' | translate }}
-              </label>
+          <mat-icon class="success-icon">
+            check_circle
+          </mat-icon>
 
-              <input
-                type="date"
-                class="tree-input"
-                formControlName="plantingDate"
-              />
+          <div>
 
-            </div>
+            <small>
+              Barcode detected
+            </small>
 
-
-            <!-- VARIETY -->
-            <div class="col-12 col-md-6">
-
-              <label class="form-label">
-                {{ 'REGISTER_TREE.VARIETY' | translate }}
-              </label>
-
-              <select
-                class="tree-input"
-                formControlName="varietyId"
-              >
-
-                <option value="" disabled>
-                  {{ 'REGISTER_TREE.SELECT_VARIETY' | translate }}
-                </option>
-
-                <option
-                  *ngFor="let variety of varieties"
-                  [value]="variety.id"
-                >
-                  {{ variety.name }}
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <!-- LATITUDE -->
-            <div class="col-12 col-md-6">
-
-              <label class="form-label">
-                {{ 'REGISTER_TREE.LATITUDE' | translate }}
-              </label>
-
-              <input
-                type="number"
-                step="any"
-                class="tree-input"
-                formControlName="latitude"
-                [placeholder]="'REGISTER_TREE.LATITUDE_PLACEHOLDER' | translate"
-              />
-
-            </div>
-
-
-            <!-- LONGITUDE -->
-            <div class="col-12 col-md-6">
-
-              <label class="form-label">
-                {{ 'REGISTER_TREE.LONGITUDE' | translate }}
-              </label>
-
-              <input
-                type="number"
-                step="any"
-                class="tree-input"
-                formControlName="longitude"
-                [placeholder]="'REGISTER_TREE.LONGITUDE_PLACEHOLDER' | translate"
-              />
-
-            </div>
-
-
-            <!-- STATUS -->
-            <div class="col-12 col-md-6">
-
-              <label class="form-label">
-                {{ 'REGISTER_TREE.STATUS' | translate }}
-              </label>
-
-              <select
-                class="tree-input"
-                formControlName="status"
-              >
-
-                <option value="" disabled>
-                  {{ 'REGISTER_TREE.SELECT_STATUS' | translate }}
-                </option>
-
-                <option value="HEALTHY">
-                  {{ 'REGISTER_TREE.HEALTHY' | translate }}
-                </option>
-
-                <option value="DISEASED">
-                  {{ 'REGISTER_TREE.DISEASED' | translate }}
-                </option>
-
-                <option value="DEAD">
-                  {{ 'REGISTER_TREE.DEAD' | translate }}
-                </option>
-
-              </select>
-
-            </div>
+            <strong>
+              {{ scannedValue }}
+            </strong>
 
           </div>
 
+        </div>
 
-          <!-- SUBMIT -->
-          <div class="form-actions">
 
-            <button
-              type="submit"
-              class="submit-btn"
-              [disabled]="treeForm.invalid"
-            >
-              {{ 'REGISTER_TREE.SUBMIT' | translate }}
-            </button>
+        <!-- SCAN AGAIN -->
+        <button
+          *ngIf="scannedValue"
+          type="button"
+          class="scan-button"
+          (click)="scanAgain()"
+        >
 
-          </div>
+          <mat-icon>document_scanner</mat-icon>
 
-        </form>
+          Scan Again
+
+        </button>
+
+
+        <!-- ERROR -->
+        <div
+          class="scan-error"
+          *ngIf="scanError"
+        >
+
+          <mat-icon>error_outline</mat-icon>
+
+          {{ scanError }}
+
+        </div>
 
       </div>
 

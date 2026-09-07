@@ -29,6 +29,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/cashew-trees/cashew-trees.module').then(m => m.CashewTreesModule)
       },
+      {
+        path: 'farm-activities',
+        loadChildren: () =>
+          import('./modules/farm-activities/farm-activities.module').then(m => m.FarmActivitiesModule)
+      },
   {
     path: '',
     component: MainLayoutComponent,
