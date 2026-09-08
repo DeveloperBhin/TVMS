@@ -1,40 +1,65 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { environment } from '@env/environment';
-import { AuthResponse, LoginRequest, RegisterRequest } from './auth.models';
 
-@Injectable({ providedIn: 'root' })
+import { ApiService } from '../services/api.service';
+
+import {
+  LoginRequest,
+  LoginResponse,
+  RegisterApiRequest,
+  RegisterResponse
+} from './auth.models';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
-  private readonly endpoint = `${environment.apiUrl}/auth`;
-  private readonly tokenKey = 'access_token';
-  private readonly userKey = 'user_info';
+
+  private readonly TOKEN_KEY = 'cpms_token';
 
   constructor(
-    private http: HttpClient,
+    private api: ApiService,
     private router: Router
   ) {}
 
-  login(payload: LoginRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.endpoint}/login`, payload).pipe(
-      tap(response => this.persistSession(response))
-    );
+  login(
+    request: LoginRequest
+  ): Observable<LoginResponse> {
+
+    return this.api
+      .post<LoginResponse>(
+        '/auth/login',
+        request
+      )
+      .pipe(
+        tap(response => {
+
+          if (response.token) {
+            localStorage.setItem(
+              this.TOKEN_KEY,
+              response.token
+            );
+          }
+
+        })
+      );
   }
 
-  register(payload: RegisterRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.endpoint}/register`, payload).pipe(
-      tap(response => this.persistSession(response))
-    );
-  }
+  register(
+    request: RegisterApiRequest
+  ): Observable<RegisterResponse> {
 
-  persistSession(response: AuthResponse): void {
-    localStorage.setItem(this.tokenKey, response.token);
-    localStorage.setItem(this.userKey, JSON.stringify(response.user));
+    return this.api.post<RegisterResponse>(
+      '/auth/register',
+      request
+    );
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+    return localStorage.getItem(
+      this.TOKEN_KEY
+    );
   }
 
   isAuthenticated(): boolean {
@@ -42,8 +67,13 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
-    localStorage.removeItem(this.userKey);
-    this.router.navigate(['/auth/login']);
+
+    localStorage.removeItem(
+      this.TOKEN_KEY
+    );
+
+    this.router.navigate([
+      '/auth/login'
+    ]);
   }
 }

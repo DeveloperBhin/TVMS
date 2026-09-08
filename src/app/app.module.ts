@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './core/layouts/auth-layout/auth-layout.component';
-import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { AuthInterceptor } from './core/authentication/auth.interceptor';
 import { farmReducer } from './store/farms/farm.reducer';
 import { FarmEffects } from './store/farms/farm.effects';
 import { HttpClient } from '@angular/common/http';

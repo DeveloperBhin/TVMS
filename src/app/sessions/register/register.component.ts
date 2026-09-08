@@ -58,34 +58,56 @@ export class RegisterComponent implements OnInit {
   /**
    * Submit registration
    */
-  register(payload: RegisterRequest): void {
+ register(payload: RegisterRequest): void {
 
-    if (payload.password !== payload.confirmPassword) {
-      window.alert('Passwords do not match.');
-      return;
-    }
+  if (payload.password !== payload.confirmPassword) {
+    window.alert('Passwords do not match.');
+    return;
+  }
 
-    this.isSubmitting = true;
+  this.isSubmitting = true;
 
-    this.authService.register(payload)
-      .pipe(
-        catchError(() => {
-          this.isSubmitting = false;
-          return of(null);
-        })
-      )
-      .subscribe(response => {
+  const request = {
+    fullName: payload.fullName,
+    username: payload.username,
+    email: payload.email,
+    phoneNumber: payload.phoneNumber,
+    password: payload.password
+  };
+
+  this.authService
+    .register(request)
+    .pipe(
+      catchError(error => {
 
         this.isSubmitting = false;
 
-        if (!response) {
-          window.alert('Registration failed.');
-          return;
-        }
+        console.error(
+          'Registration error:',
+          error
+        );
 
-        this.router.navigateByUrl('/dashboard');
-      });
-  }
+        return of(null);
+      })
+    )
+    .subscribe(response => {
+
+      this.isSubmitting = false;
+
+      if (!response) {
+        window.alert('Registration failed.');
+        return;
+      }
+
+      window.alert('Registration successful.');
+
+      this.router.navigateByUrl(
+        '/auth/login'
+      );
+
+    });
+
+}
 
   /**
    * Update application options

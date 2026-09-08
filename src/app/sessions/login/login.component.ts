@@ -1,8 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
-import { ActionButton, ANIMATION_ICON, FormParameters } from '@shared';
-import { AppSettings, AppSettingsService, AuthService, LoginRequest } from '@core';
+
+import {
+  ActionButton,
+  FormParameters
+} from '@shared';
+
+import {
+  AppSettings,
+  AppSettingsService,
+  AuthService,
+  LoginRequest
+} from '@core';
+
 import { loginFormFields } from './login-form-fields';
 
 @Component({
@@ -11,11 +22,17 @@ import { loginFormFields } from './login-form-fields';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   animation = 'move-left';
+
   isSubmitting = false;
+
   showRegister = true;
+
   fp!: FormParameters<LoginRequest>;
+
   utilityButtons: ActionButton[] = [];
+
   options = this.appSettings.getOptions();
 
   constructor(
@@ -25,117 +42,166 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.setActionButtons();
+
     this.setFormParameters();
   }
 
+  /**
+   * Login form configuration
+   */
   setFormParameters(): void {
+
     this.fp = {
       fields: loginFormFields,
       showTitle: false,
       innerClass: 'p-0',
-      onSubmit: value => this.onSubmit(value as unknown as LoginRequest)
+
+      onSubmit: value =>
+        this.onSubmit(
+          value as unknown as LoginRequest
+        )
     };
   }
 
+  /**
+   * Login
+   */
   onSubmit(formValue: LoginRequest): void {
+
+    if (this.isSubmitting) {
+      return;
+    }
+
     this.isSubmitting = true;
 
-    this.authService.login(formValue)
-      .pipe(catchError(() => {
-        this.isSubmitting = false;
-        return of(null);
-      }))
+    this.authService
+      .login(formValue)
+      .pipe(
+        catchError(error => {
+
+          console.error(
+            'Login error:',
+            error
+          );
+
+          this.isSubmitting = false;
+
+          return of(null);
+        })
+      )
       .subscribe(response => {
+
         this.isSubmitting = false;
 
         if (!response) {
-          window.alert('Wrong Username or Password.');
+
+          window.alert(
+            'Wrong Username or Password.'
+          );
+
           return;
         }
 
-        this.router.navigateByUrl('/dashboard');
+        // JWT has already been stored
+        // by AuthService.login()
+
+        this.router.navigateByUrl(
+          '/dashboard'
+        );
       });
   }
 
-  updateOptions(options: AppSettings): void {
+  /**
+   * Update application settings
+   */
+  updateOptions(
+    options: AppSettings
+  ): void {
+
     this.options = options;
-    this.appSettings.setOptions(options);
+
+    this.appSettings.setOptions(
+      options
+    );
   }
 
-setActionButtons(): void {
+  /**
+   * Theme and language buttons
+   */
+  setActionButtons(): void {
 
-  this.utilityButtons = [
+    this.utilityButtons = [
 
-    {
-      type: 'icon',
+      // Theme
+      {
+        type: 'icon',
 
-      iconMapper: () =>
-        this.appSettings.getResolvedTheme() === 'dark'
-          ? 'light_mode'
-          : 'dark_mode',
+        iconMapper: () =>
+          this.appSettings.getResolvedTheme() === 'dark'
+            ? 'light_mode'
+            : 'dark_mode',
 
-      onClick: () => {
+        onClick: () => {
 
-        const current =
-          this.appSettings.getResolvedTheme();
+          const current =
+            this.appSettings.getResolvedTheme();
 
-        this.appSettings.setTheme(
-          current === 'dark'
-            ? 'light'
-            : 'dark'
-        );
+          this.appSettings.setTheme(
+            current === 'dark'
+              ? 'light'
+              : 'dark'
+          );
 
-        this.options =
-          this.appSettings.getOptions();
+          this.options =
+            this.appSettings.getOptions();
+        }
+      },
+
+      // Language
+      {
+        type: 'icon',
+
+        icon: 'language',
+
+        buttons: [
+
+          {
+            type: 'button',
+
+            label: 'English',
+
+            onClick: () => {
+
+              this.appSettings
+                .setLanguage('en');
+
+              this.options =
+                this.appSettings
+                  .getOptions();
+            }
+          },
+
+          {
+            type: 'button',
+
+            label: 'Kiswahili',
+
+            onClick: () => {
+
+              this.appSettings
+                .setLanguage('sw');
+
+              this.options =
+                this.appSettings
+                  .getOptions();
+            }
+          }
+
+        ]
       }
-    },
 
-  {
-  type: 'icon',
-
-  icon: 'language',
-
-  buttons: [
-
-    {
-      type: 'button',
-
-      label: 'English',
-
-      onClick: () => {
-
-        this.appSettings
-          .setLanguage('en');
-
-        this.options =
-          this.appSettings
-            .getOptions();
-
-      }
-    },
-
-    {
-      type: 'button',
-
-      label: 'Kiswahili',
-
-      onClick: () => {
-
-        this.appSettings
-          .setLanguage('sw');
-
-        this.options =
-          this.appSettings
-            .getOptions();
-
-      }
-    }
-
-  ]
-}
-
-  ];
-
-}
+    ];
+  }
 }
