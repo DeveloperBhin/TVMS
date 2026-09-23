@@ -12,29 +12,26 @@ const routes: Routes = [
     {
         path: 'drivers',
         loadChildren: () =>
-          import('./modules/drivers/drivers.module').then(m => m.FarmersModule)
+          import('./modules/drivers/drivers.module').then(m => m.DriversModule)
       },
        {
-        path: 'farms',
+        path: 'supervisor',
         loadChildren: () =>
-          import('./modules/farms/farms.module').then(m => m.FarmsModule)
+          import('./modules/centerSupervisor/centerSupervisor.module').then(m => m.CenterSupervisorModule)
       },
+      //  {
+      //   path: 'farms',
+      //   loadChildren: () =>
+      //     import('./modules/farms/farms.module').then(m => m.FarmsModule)
+      // },
       // {
       //   path: 'scan',
       //   loadChildren: () =>
       //     import('./modules/farms/farms.module').then(m => m.FarmsModule)
       // },
         {
-        path: 'cashew-trees',
-        loadChildren: () =>
-          import('./modules/cashew-trees/cashew-trees.module').then(m => m.CashewTreesModule)
-      },
-      {
-        path: 'farm-activities',
-        loadChildren: () =>
-          import('./modules/farm-activities/farm-activities.module').then(m => m.FarmActivitiesModule)
-      },
-  {
+       
+  
     path: '',
     component: MainLayoutComponent,
     canActivate: [AuthGuard],
@@ -47,68 +44,27 @@ const routes: Routes = [
       {
         path: 'farmers',
         loadChildren: () =>
-          import('./modules/drivers/drivers.module').then(m => m.FarmersModule)
+          import('./modules/drivers/drivers.module').then(m => m.DriversModule)
       },
-      {
-        path: 'farms',
-        loadChildren: () =>
-          import('./modules/farms/farms.module').then(m => m.FarmsModule)
-      },
-      {
-        path: 'cashew-trees',
-        loadChildren: () =>
-          import('./modules/cashew-trees/cashew-trees.module').then(m => m.CashewTreesModule)
-      },
-      {
-        path: 'farm-activities',
-        loadChildren: () =>
-          import('./modules/farm-activities/farm-activities.module').then(m => m.FarmActivitiesModule)
-      },
-      {
-        path: 'production-plans',
-        loadChildren: () =>
-          import('./modules/production-plans/production-plans.module').then(m => m.ProductionPlansModule)
-      },
-      {
-        path: 'input-management',
-        loadChildren: () =>
-          import('./modules/input-management/input-management.module').then(m => m.InputManagementModule)
-      },
+      // {
+      //   path: 'farms',
+      //   loadChildren: () =>
+      //     import('./modules/farms/farms.module').then(m => m.FarmsModule)
+      // },
+     
+      
       {
         path: 'disease-management',
         loadChildren: () =>
           import('./modules/disease-management/disease-management.module').then(m => m.DiseaseManagementModule)
       },
-      {
-        path: 'spraying',
-        loadChildren: () =>
-          import('./modules/spraying/spraying.module').then(m => m.SprayingModule)
-      },
-      {
-        path: 'harvesting',
-        loadChildren: () =>
-          import('./modules/harvesting/harvesting.module').then(m => m.HarvestingModule)
-      },
-      {
-        path: 'post-harvest',
-        loadChildren: () =>
-          import('./modules/post-harvest/post-harvest.module').then(m => m.PostHarvestModule)
-      },
-      {
-        path: 'production',
-        loadChildren: () =>
-          import('./modules/production/production.module').then(m => m.ProductionModule)
-      },
+    
       {
         path: 'warehouses',
         loadChildren: () =>
           import('./modules/warehouses/warehouses.module').then(m => m.WarehousesModule)
       },
-      {
-        path: 'sales',
-        loadChildren: () =>
-          import('./modules/sales/sales.module').then(m => m.SalesModule)
-      },
+      
       {
         path: 'reports',
         loadChildren: () =>

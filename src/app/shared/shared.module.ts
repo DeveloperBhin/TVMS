@@ -26,7 +26,7 @@ import { HeaderComponent } from '../libs/components/header/header.component';
     ImageSliderComponent,
     PageHeaderComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
 
   imports: [

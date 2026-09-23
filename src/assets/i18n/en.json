@@ -115,6 +115,156 @@
     "USERS": "Users",
     "SETTINGS": "Settings",
     "PROFILE": "Profile"
+  },
+  "DASHBOARD": {
+  "ASSIGNED_VEHICLE": "Assigned Vehicle",
+  "CURRENT_MILEAGE": "Current Mileage",
+  "PENDING_REQUESTS": "Pending Requests",
+  "APPROVED_PERMITS": "Approved Permits",
+
+  "OPERATIONAL": "Operational",
+  "YEAR": "Year",
+  "STATION": "Station",
+  "NEW_MAINTENANCE_REQUEST": "New Maintenance Request",
+
+  "CHASSIS_NUMBER": "Chassis Number",
+  "ROUTINE_SERVICE": "Routine Service",
+  "ASSIGNED_DRIVER": "Assigned Driver",
+  "REMAINING": "remaining",
+
+  "MAINTENANCE_HISTORY": "Maintenance Requests & Permit History",
+  "MAINTENANCE_HISTORY_SUBTITLE": "Track request status and download approved permits",
+  "TOTAL_REQUESTS": "Total Requests",
+
+  "REQUEST_NO": "Ref / Request No.",
+  "SERVICE_TYPE": "Service Type",
+  "REASON_DESCRIPTION": "Reason / Description",
+  "DATE": "Date",
+  "COST_TSH": "Cost (TSH)",
+  "APPROVAL_STATUS": "Approval Status",
+  "ACTION": "Action",
+
+  "ROUTINE_SERVICE_TYPE": "Routine Service",
+  "KILOMETER_BASED": "Kilometer Based",
+  "BREAKDOWN_REPAIR": "Fault / Breakdown Repair",
+  "EMERGENCY_SERVICE": "Emergency Service",
+
+  "APPROVED": "Approved",
+  "CENTER_SUPERVISOR": "Center Supervisor",
+  "CENTER_DIRECTOR": "Center Director",
+  "IT_AM_HQ": "IT / AM (HQ)",
+  "PERMIT_PENDING": "Permit Pending",
+
+  "USER_COPY": "User Copy",
+  "DOWNLOAD_PERMIT": "Download Permit"
+},
+
+  "MAINTENANCE_REQUEST": {
+    "TITLE": "Submit Service or Maintenance Request",
+    "ASSIGNED_VEHICLE": "Assigned Vehicle",
+    "SERVICE_TYPE": "Service Type",
+    "SELECT_SERVICE_TYPE": "Select service type",
+    "ROUTINE_SERVICE": "Routine Service (KM Based)",
+    "BREAKDOWN_REPAIR": "Fault / Breakdown Repair",
+    "EMERGENCY_SERVICE": "Emergency Service",
+    "OTHER": "Other",
+    "CURRENT_MILEAGE": "Current Mileage (KM)",
+    "CURRENT_MILEAGE_PLACEHOLDER": "Enter current mileage",
+    "DESCRIPTION": "Reason / Maintenance Description",
+    "DESCRIPTION_PLACEHOLDER": "Describe the fault or items that need replacement (e.g. Oil, Oil Filter, Brake Pads, etc.)",
+    "ESTIMATED_COST": "Estimated Cost (TSh)",
+    "COST_PLACEHOLDER": "Example: 450,000",
+    "SERVICE_TYPE_REQUIRED": "Service type is required",
+    "MILEAGE_REQUIRED": "Current mileage is required",
+    "DESCRIPTION_REQUIRED": "Maintenance description is required",
+    "INVALID_COST": "Enter a valid estimated cost",
+    "SUBMIT": "Submit Request"
+  },
+
+  "COMMON": {
+    "CANCEL": "Cancel",
+    "CLOSE": "Close"
+  },
+  "CENTER_SUPERVISOR": {
+  "DASHBOARD": "Dashboard",
+  "ROLE": "Center Supervisor",
+
+  "WELCOME_MESSAGE": "Welcome to TARI-VMS. This system is also available on the mobile application.",
+
+  "SUMMARY": "Summary of activities according to your role.",
+
+  "DOWNLOAD_REPORT": "Download Center Report",
+
+  "TOTAL_VEHICLES": "Total Vehicles",
+  "OPERATIONAL_VEHICLES": "Operational",
+  "OUT_OF_SERVICE": "Out of Service",
+  "PENDING_REQUESTS": "Pending Requests",
+  "NEED_DECISION": "require your decision",
+
+  "RECENT_REQUESTS": "Recent Requests",
+  "VEHICLES": "Vehicles",
+  "REQUESTS": "Requests",
+
+  "VIEW_ALL": "View All",
+
+  "ROUTINE_SERVICE": "Routine Service (KM-based)",
+  "BREAKDOWN_REPAIR": "Breakdown Repair",
+  "EMERGENCY_SERVICE": "Emergency Service",
+
+  "PENDING": "Pending",
+  "APPROVED": "Approved",
+
+  "OPERATIONAL": "Operational",
+  "UNDER_SERVICE": "Under Service"
+},
+"VEHICLES": {
+  "TITLE": "Vehicles",
+  "DESCRIPTION": "Your center's driver vehicles. Only the Check No is used to identify drivers.",
+  "SEARCH": "Search...",
+  "VEHICLE_NUMBER": "Vehicle Number",
+  "TYPE_MODEL": "Type / Model",
+  "MILEAGE": "Fuel / Mileage (KM)",
+  "STATUS": "Status",
+  "CENTER": "Center",
+  "CHECK_NO": "Check No",
+  "OPERATIONAL": "Operational",
+  "UNDER_SERVICE": "Under Service",
+  "NO_VEHICLES": "No vehicles found"
+},
+
+  "APPROVAL": {
+    "TITLE": "Approvals",
+    "DESCRIPTION": "Review each request that requires your approval.",
+
+    "REQUESTED_BY": "Requested by",
+
+    "DRIVER_REQUESTED": "Driver Requested",
+    "CENTER_SUPERVISOR": "Center Supervisor",
+    "CENTER_DIRECTOR": "Center Director",
+
+    "RECOMMEND": "Recommend",
+    "REJECT": "Reject",
+
+    "STATUS_PENDING": "Pending",
+    "STATUS_APPROVED": "Approved",
+    "STATUS_REJECTED": "Rejected",
+
+    "SERVICE_ROUTINE": "Routine Service (KM-based)",
+    "SERVICE_REPAIR": "Fault Repair",
+    "SERVICE_EMERGENCY": "Emergency Service",
+
+    "DATE_TODAY_0842": "Today, 08:42",
+    "DATE_YESTERDAY_1410": "Yesterday, 14:10",
+    "DATE_TODAY_0715": "Today, 07:15",
+
+    "DESCRIPTION_ROUTINE": "The vehicle has reached 85,000 KM and requires routine service before the trip to Dodoma.",
+    "DESCRIPTION_REPAIR": "The rear brakes are making noise and require urgent inspection.",
+    "DESCRIPTION_EMERGENCY": "The vehicle has broken down on the way from the farm and requires emergency assistance.",
+
+    "NO_APPROVALS": "No Pending Approvals",
+    "NO_APPROVALS_DESCRIPTION": "There are currently no requests requiring your approval."
   }
+
+
 
 }

@@ -116,7 +116,156 @@
     "USERS": "Watumiaji",
     "SETTINGS": "Mipangilio",
     "PROFILE": "Wasifu"
+  },
+  "DASHBOARD": {
+  "ASSIGNED_VEHICLE": "Gari Nililopewa",
+  "CURRENT_MILEAGE": "Maili ya Sasa",
+  "PENDING_REQUESTS": "Maombi Yanayosubiri",
+  "APPROVED_PERMITS": "Vibali Vilivyoidhinishwa",
+
+  "OPERATIONAL": "Inafanya Kazi",
+  "YEAR": "Mwaka",
+  "STATION": "Kituo",
+  "NEW_MAINTENANCE_REQUEST": "Tuma Ombi la Matengenezo",
+
+  "CHASSIS_NUMBER": "Namba ya Chassis",
+  "ROUTINE_SERVICE": "Huduma ya Kawaida",
+  "ASSIGNED_DRIVER": "Dereva Aliyekabidhiwa",
+  "REMAINING": "zimebaki",
+
+  "MAINTENANCE_HISTORY": "Historia ya Maombi ya Matengenezo na Vibali",
+  "MAINTENANCE_HISTORY_SUBTITLE": "Angalia hatua ya ombi na pakua kibali kilichoidhinishwa",
+  "TOTAL_REQUESTS": "Jumla ya Maombi",
+
+  "REQUEST_NO": "Rejea / Na. ya Ombi",
+  "SERVICE_TYPE": "Aina ya Huduma",
+  "REASON_DESCRIPTION": "Sababu / Maelezo",
+  "DATE": "Tarehe",
+  "COST_TSH": "Gharama (TSH)",
+  "APPROVAL_STATUS": "Hatua ya Idhini",
+  "ACTION": "Vitendo",
+
+  "ROUTINE_SERVICE_TYPE": "Huduma ya Kawaida",
+  "KILOMETER_BASED": "Kulingana na Kilomita",
+  "BREAKDOWN_REPAIR": "Hitilafu / Matengenezo",
+  "EMERGENCY_SERVICE": "Huduma ya Dharura",
+
+  "APPROVED": "Imeidhinishwa",
+  "CENTER_SUPERVISOR": "Msimamizi wa Kituo",
+  "CENTER_DIRECTOR": "Mkurugenzi wa Kituo",
+  "IT_AM_HQ": "IT / AM (Makao Makuu)",
+  "PERMIT_PENDING": "Kibali Bado",
+
+  "USER_COPY": "Nakala ya Mtumiaji",
+  "DOWNLOAD_PERMIT": "Pakua Kibali"
+},
+
+  "MAINTENANCE_REQUEST": {
+    "TITLE": "Tuma Ombi la Huduma au Matengenezo",
+    "ASSIGNED_VEHICLE": "Gari Lililotengwa",
+    "SERVICE_TYPE": "Aina ya Huduma",
+    "SELECT_SERVICE_TYPE": "Chagua aina ya huduma",
+    "ROUTINE_SERVICE": "Huduma ya Kawaida (Kulingana na KM)",
+    "BREAKDOWN_REPAIR": "Hitilafu / Matengenezo",
+    "EMERGENCY_SERVICE": "Huduma ya Dharura",
+    "OTHER": "Nyingine",
+    "CURRENT_MILEAGE": "Maili ya Sasa (KM)",
+    "CURRENT_MILEAGE_PLACEHOLDER": "Weka maili ya sasa",
+    "DESCRIPTION": "Sababu / Maelezo ya Matengenezo",
+    "DESCRIPTION_PLACEHOLDER": "Eleza hitilafu au vitu vinavyohitaji kubadilishwa (mfano: Oil, Oil Filter, Brake Pads, n.k.)",
+    "ESTIMATED_COST": "Makadirio ya Gharama (TSh)",
+    "COST_PLACEHOLDER": "Mfano: 450,000",
+    "SERVICE_TYPE_REQUIRED": "Aina ya huduma inahitajika",
+    "MILEAGE_REQUIRED": "Maili ya sasa inahitajika",
+    "DESCRIPTION_REQUIRED": "Maelezo ya matengenezo yanahitajika",
+    "INVALID_COST": "Weka makadirio sahihi ya gharama",
+    "SUBMIT": "Wasilisha Ombi"
+  },
+
+  "COMMON": {
+    "CANCEL": "Sitisha",
+    "CLOSE": "Funga"
+  },
+  "CENTER_SUPERVISOR": {
+  "DASHBOARD": "Dashibodi",
+  "ROLE": "Msimamizi wa Kituo",
+
+  "WELCOME_MESSAGE": "Karibu TARI-VMS. Mfumo huu unapatikana pia kwenye programu ya simu.",
+
+  "SUMMARY": "Muhtasari wa shughuli kulingana na jukumu lako.",
+
+  "DOWNLOAD_REPORT": "Ripoti ya Kituo Chako",
+
+  "TOTAL_VEHICLES": "Jumla ya Magari",
+  "OPERATIONAL_VEHICLES": "Yanayofanya Kazi",
+  "OUT_OF_SERVICE": "Nje ya Huduma",
+  "PENDING_REQUESTS": "Maombi Yanayosubiri",
+  "NEED_DECISION": "yanahitaji uamuzi wako",
+
+  "RECENT_REQUESTS": "Maombi ya Karibuni",
+  "VEHICLES": "Magari",
+  "REQUESTS": "Maombi",
+
+  "VIEW_ALL": "Angalia Zote",
+
+  "ROUTINE_SERVICE": "Huduma ya Kawaida (KM-based)",
+  "BREAKDOWN_REPAIR": "Ukarabati wa Hitilafu",
+  "EMERGENCY_SERVICE": "Huduma ya Dharura",
+
+  "PENDING": "Inasubiri",
+  "APPROVED": "Imeidhinishwa",
+
+  "OPERATIONAL": "Inafanya Kazi",
+  "UNDER_SERVICE": "Chini ya Huduma"
+},
+"VEHICLES": {
+  "TITLE": "Magari",
+  "DESCRIPTION": "Kwa faragha ya madereva, jina halionyeshwi — Check No pekee ndiyo inayotumika kuwatambua.",
+  "SEARCH": "Tafuta...",
+  "VEHICLE_NUMBER": "Namba ya Gari",
+  "TYPE_MODEL": "Aina / Model",
+  "MILEAGE": "Mafuta / Mwendo (KM)",
+  "STATUS": "Hali",
+  "CENTER": "Kituo",
+  "CHECK_NO": "Check No",
+  "OPERATIONAL": "Inafanya Kazi",
+  "UNDER_SERVICE": "Chini ya Huduma",
+  "NO_VEHICLES": "Hakuna magari yaliyopatikana"
+},
+
+  "APPROVAL": {
+    "TITLE": "Ukaguzi",
+    "DESCRIPTION": "Fuatilia hatua za uidhinishaji wa kila ombi.",
+
+    "REQUESTED_BY": "Ombi la",
+
+    "DRIVER_REQUESTED": "Dereva Ameomba",
+    "CENTER_SUPERVISOR": "Msimamizi wa Kituo",
+    "CENTER_DIRECTOR": "Mkurugenzi wa Kituo",
+
+    "RECOMMEND": "Pendekeza",
+    "REJECT": "Kataa",
+
+    "STATUS_PENDING": "Inasubiri",
+    "STATUS_APPROVED": "Imeidhinishwa",
+    "STATUS_REJECTED": "Imekataliwa",
+
+    "SERVICE_ROUTINE": "Huduma ya Kawaida (KM-based)",
+    "SERVICE_REPAIR": "Ukarabati wa Hitilafu",
+    "SERVICE_EMERGENCY": "Huduma ya Dharura",
+
+    "DATE_TODAY_0842": "Leo, 08:42",
+    "DATE_YESTERDAY_1410": "Jana, 14:10",
+    "DATE_TODAY_0715": "Leo, 07:15",
+
+    "DESCRIPTION_ROUTINE": "Gari limefikisha KM 85,000 - linahitaji service ya kawaida kabla ya safari ya Dodoma.",
+    "DESCRIPTION_REPAIR": "Breki za nyuma zinatoa mlio - inahitaji ukaguzi wa haraka.",
+    "DESCRIPTION_EMERGENCY": "Gari limesimama njiani kutoka shambani - linahitaji msaada wa dharura.",
+
+    "NO_APPROVALS": "Hakuna Uidhinishaji Unaosubiri",
+    "NO_APPROVALS_DESCRIPTION": "Kwa sasa hakuna maombi yanayohitaji uidhinishaji wako."
   }
+
 
 
 

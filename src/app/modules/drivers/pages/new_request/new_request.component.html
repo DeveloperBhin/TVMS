@@ -1,0 +1,257 @@
+<app-header
+  (menuToggle)="toggleSidebar()">
+</app-header>
+
+<div class="request-layout">
+
+  <!-- SIDEBAR -->
+  <app-sidebar
+    [opened]="sidebarOpen"
+    (closeSidebar)="closeSidebar()">
+  </app-sidebar>
+
+  <!-- MOBILE BACKDROP -->
+  <div
+    *ngIf="sidebarOpen"
+    class="sidebar-backdrop"
+    (click)="closeSidebar()">
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="request-content">
+
+    <div class="container-fluid px-3 px-md-4 py-4">
+
+      <div class="maintenance-request-card">
+
+        <!-- HEADER -->
+        <div class="request-header">
+
+          <div class="request-title-wrapper">
+
+            <div class="request-title-icon">
+              <span class="material-symbols-outlined">
+                build
+              </span>
+            </div>
+
+            <h2>
+              {{ 'MAINTENANCE_REQUEST.TITLE' | translate }}
+            </h2>
+
+          </div>
+
+          <button
+            type="button"
+            class="close-btn"
+            routerLink="/dashboard">
+
+            <span class="material-symbols-outlined">
+              close
+            </span>
+
+          </button>
+
+        </div>
+
+        <div class="request-divider"></div>
+
+
+        <!-- FORM -->
+        <form
+          [formGroup]="requestForm"
+          (ngSubmit)="submitRequest()">
+
+          <!-- ASSIGNED VEHICLE -->
+          <div class="form-group">
+
+            <label class="form-label">
+              {{ 'MAINTENANCE_REQUEST.ASSIGNED_VEHICLE' | translate }}
+            </label>
+
+            <input
+              type="text"
+              class="form-control-custom readonly-input"
+              formControlName="vehicle"
+              readonly>
+
+          </div>
+
+
+          <!-- SERVICE TYPE + MILEAGE -->
+          <div class="row g-4">
+
+            <div class="col-12 col-md-6">
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  {{ 'MAINTENANCE_REQUEST.SERVICE_TYPE' | translate }}
+                </label>
+
+                <select
+                  class="form-control-custom form-select-custom"
+                  formControlName="serviceType">
+
+                  <option value="" disabled>
+                    {{ 'MAINTENANCE_REQUEST.SELECT_SERVICE_TYPE' | translate }}
+                  </option>
+
+                  <option value="ROUTINE_SERVICE">
+                    {{ 'MAINTENANCE_REQUEST.ROUTINE_SERVICE' | translate }}
+                  </option>
+
+                  <option value="BREAKDOWN_REPAIR">
+                    {{ 'MAINTENANCE_REQUEST.BREAKDOWN_REPAIR' | translate }}
+                  </option>
+
+                  <option value="EMERGENCY_SERVICE">
+                    {{ 'MAINTENANCE_REQUEST.EMERGENCY_SERVICE' | translate }}
+                  </option>
+
+                  <option value="OTHER">
+                    {{ 'MAINTENANCE_REQUEST.OTHER' | translate }}
+                  </option>
+
+                </select>
+
+                <small
+                  class="field-error"
+                  *ngIf="
+                    requestForm.get('serviceType')?.touched &&
+                    requestForm.get('serviceType')?.hasError('required')
+                  ">
+                  {{ 'MAINTENANCE_REQUEST.SERVICE_TYPE_REQUIRED' | translate }}
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6">
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  {{ 'MAINTENANCE_REQUEST.CURRENT_MILEAGE' | translate }}
+                </label>
+
+                <div class="input-with-unit">
+
+                  <input
+                    type="number"
+                    class="form-control-custom"
+                    formControlName="currentMileage"
+                    readonly>
+
+                  <span class="input-unit">
+                    KM
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- DESCRIPTION -->
+          <div class="form-group">
+
+            <label class="form-label">
+              {{ 'MAINTENANCE_REQUEST.DESCRIPTION' | translate }}
+            </label>
+
+            <textarea
+              rows="5"
+              class="form-control-custom description-input"
+              formControlName="description"
+              [placeholder]="
+                'MAINTENANCE_REQUEST.DESCRIPTION_PLACEHOLDER'
+                | translate
+              ">
+            </textarea>
+
+            <small
+              class="field-error"
+              *ngIf="
+                requestForm.get('description')?.touched &&
+                requestForm.get('description')?.hasError('required')
+              ">
+              {{ 'MAINTENANCE_REQUEST.DESCRIPTION_REQUIRED' | translate }}
+            </small>
+
+          </div>
+
+
+          <!-- ESTIMATED COST -->
+          <div class="form-group">
+
+            <label class="form-label">
+              {{ 'MAINTENANCE_REQUEST.ESTIMATED_COST' | translate }}
+            </label>
+
+            <div class="input-with-prefix">
+
+              <span class="currency-prefix">
+                TSh
+              </span>
+
+              <input
+                type="number"
+                min="0"
+                class="form-control-custom cost-input"
+                formControlName="estimatedCost"
+                [placeholder]="
+                  'MAINTENANCE_REQUEST.COST_PLACEHOLDER'
+                  | translate
+                ">
+
+            </div>
+
+          </div>
+
+
+          <div class="request-divider bottom-divider"></div>
+
+
+          <!-- ACTIONS -->
+          <div class="form-actions">
+
+            <button
+              type="button"
+              class="cancel-btn"
+              routerLink="/dashboard">
+
+              {{ 'COMMON.CANCEL' | translate }}
+
+            </button>
+
+
+            <button
+              type="submit"
+              class="submit-btn"
+              [disabled]="requestForm.invalid">
+
+              <span class="material-symbols-outlined">
+                send
+              </span>
+
+              {{ 'MAINTENANCE_REQUEST.SUBMIT' | translate }}
+
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

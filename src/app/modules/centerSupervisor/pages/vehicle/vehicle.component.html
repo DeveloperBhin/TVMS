@@ -1,0 +1,304 @@
+<app-header
+  (menuToggle)="toggleSidebar()">
+</app-header>
+
+<div class="vehicle-layout">
+
+  <app-sidebar
+    [opened]="sidebarOpen"
+    (closeSidebar)="closeSidebar()">
+  </app-sidebar>
+
+  <div
+    *ngIf="sidebarOpen"
+    class="sidebar-backdrop"
+    (click)="closeSidebar()">
+  </div>
+
+  <main class="vehicle-content">
+
+    <div class="vehicle-container">
+
+      <!-- ======================================
+           PAGE HEADER
+      ======================================= -->
+      <div class="page-header">
+
+        <div class="page-header-left">
+
+          <h1>
+            {{ 'VEHICLES.TITLE' | translate }}
+          </h1>
+
+          <div class="page-role">
+
+            <span>
+              {{ 'CENTER_SUPERVISOR.ROLE' | translate }}
+            </span>
+
+            <span class="separator">
+              •
+            </span>
+
+            <span>
+              TARI Makutupora
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="station-badge">
+
+          <span class="material-symbols-outlined">
+            location_on
+          </span>
+
+          <span>
+            TARI Makutupora
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ======================================
+           TITLE / DESCRIPTION
+      ======================================= -->
+      <div class="vehicles-heading">
+
+        <h2>
+          {{ 'VEHICLES.TITLE' | translate }}
+        </h2>
+
+        <p>
+          {{ 'VEHICLES.DESCRIPTION' | translate }}
+        </p>
+
+      </div>
+
+
+      <!-- ======================================
+           SEARCH
+      ======================================= -->
+      <div class="search-wrapper">
+
+        <span class="material-symbols-outlined">
+          search
+        </span>
+
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="filterVehicles()"
+          [placeholder]="'VEHICLES.SEARCH' | translate"
+        />
+
+      </div>
+
+
+      <!-- ======================================
+           VEHICLES TABLE
+      ======================================= -->
+      <div class="vehicles-table-card">
+
+        <div class="table-responsive">
+
+          <table class="vehicles-table">
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  {{ 'VEHICLES.VEHICLE_NUMBER' | translate }}
+                </th>
+
+                <th>
+                  {{ 'VEHICLES.TYPE_MODEL' | translate }}
+                </th>
+
+                <th>
+                  {{ 'VEHICLES.MILEAGE' | translate }}
+                </th>
+
+                <th>
+                  {{ 'VEHICLES.STATUS' | translate }}
+                </th>
+
+                <th>
+                  {{ 'VEHICLES.CENTER' | translate }}
+                </th>
+
+                <th class="check-column">
+                  {{ 'VEHICLES.CHECK_NO' | translate }}
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              <tr
+                *ngFor="let vehicle of filteredVehicles"
+                class="vehicle-row"
+              >
+
+                <!-- VEHICLE NUMBER -->
+                <td>
+
+                  <div class="vehicle-number">
+
+                    <strong>
+                      {{ vehicle.registrationNumber }}
+                    </strong>
+
+                    <small>
+                      {{ vehicle.chassisNumber }}
+                    </small>
+
+                  </div>
+
+                </td>
+
+
+                <!-- TYPE / MODEL -->
+                <td>
+
+                  <div class="vehicle-model">
+
+                    <strong>
+                      {{ vehicle.model }}
+                    </strong>
+
+                    <small>
+                      {{ vehicle.year }}
+                    </small>
+
+                  </div>
+
+                </td>
+
+
+                <!-- MILEAGE -->
+                <td>
+
+                  <span class="mileage">
+                    {{ vehicle.mileage | number }} km
+                  </span>
+
+                </td>
+
+
+                <!-- STATUS -->
+                <td>
+
+                  <div class="status-wrapper">
+
+                    <span
+                      class="status-badge"
+                      [class.operational]="
+                        vehicle.status === 'OPERATIONAL'
+                      "
+                      [class.service]="
+                        vehicle.status === 'UNDER_SERVICE'
+                      "
+                    >
+
+                      <span
+                        class="material-symbols-outlined"
+                      >
+                        {{
+                          vehicle.status === 'OPERATIONAL'
+                            ? 'check'
+                            : 'build'
+                        }}
+                      </span>
+
+                      {{
+                        getStatusTranslation(vehicle.status)
+                        | translate
+                      }}
+
+                    </span>
+
+
+                    <small
+                      *ngIf="vehicle.statusDescription"
+                      class="status-description"
+                    >
+                      {{ vehicle.statusDescription }}
+                    </small>
+
+                  </div>
+
+                </td>
+
+
+                <!-- CENTER -->
+                <td>
+
+                  <div class="center-name">
+
+                    <span>
+                      TARI
+                    </span>
+
+                    <span>
+                      Makutupora
+                    </span>
+
+                  </div>
+
+                </td>
+
+
+                <!-- CHECK NUMBER -->
+                <td class="check-column">
+
+                  <span class="check-number">
+                    {{ vehicle.checkNumber }}
+                  </span>
+
+                </td>
+
+              </tr>
+
+
+              <!-- EMPTY RESULT -->
+              <tr *ngIf="filteredVehicles.length === 0">
+
+                <td
+                  colspan="6"
+                  class="empty-state"
+                >
+
+                  <span class="material-symbols-outlined">
+                    search_off
+                  </span>
+
+                  <p>
+                    {{ 'VEHICLES.NO_VEHICLES' | translate }}
+                  </p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

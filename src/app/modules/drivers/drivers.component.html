@@ -4,27 +4,36 @@
 
 <div class="dashboard-layout">
 
-  <!-- SIDEBAR -->
+  <!-- =========================
+       SIDEBAR
+  ========================== -->
   <app-sidebar
     [opened]="sidebarOpen"
     (closeSidebar)="closeSidebar()">
   </app-sidebar>
 
-  <!-- MOBILE BACKDROP -->
+
+  <!-- =========================
+       MOBILE BACKDROP
+  ========================== -->
   <div
     *ngIf="sidebarOpen"
     class="sidebar-backdrop"
     (click)="closeSidebar()">
   </div>
 
-  <!-- MAIN CONTENT -->
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
   <main class="dashboard-content">
 
     <div class="container-fluid px-3 px-lg-4 py-4">
 
-      <!-- ========================= -->
-      <!-- TOP STATISTICS -->
-      <!-- ========================= -->
+
+      <!-- =====================================================
+           TOP STATISTICS
+      ====================================================== -->
 
       <div class="row g-3 mb-4">
 
@@ -42,7 +51,7 @@
             <div class="stat-content">
 
               <span class="stat-label">
-                ASSIGNED VEHICLE
+                {{ 'DASHBOARD.ASSIGNED_VEHICLE' | translate }}
               </span>
 
               <h3 class="stat-number">
@@ -70,7 +79,7 @@
             <div class="stat-content">
 
               <span class="stat-label">
-                CURRENT MILEAGE
+                {{ 'DASHBOARD.CURRENT_MILEAGE' | translate }}
               </span>
 
               <h3 class="stat-number">
@@ -98,7 +107,7 @@
             <div class="stat-content">
 
               <span class="stat-label">
-                PENDING REQUESTS
+                {{ 'DASHBOARD.PENDING_REQUESTS' | translate }}
               </span>
 
               <h3 class="stat-number warning">
@@ -126,7 +135,7 @@
             <div class="stat-content">
 
               <span class="stat-label">
-                APPROVED PERMITS
+                {{ 'DASHBOARD.APPROVED_PERMITS' | translate }}
               </span>
 
               <h3 class="stat-number success">
@@ -142,14 +151,15 @@
       </div>
 
 
-      <!-- ========================= -->
-      <!-- ASSIGNED VEHICLE -->
-      <!-- ========================= -->
+      <!-- =====================================================
+           ASSIGNED VEHICLE
+      ====================================================== -->
 
       <div class="dashboard-card vehicle-card mb-4">
 
         <div class="vehicle-header">
 
+          <!-- VEHICLE TITLE -->
           <div class="vehicle-title-section">
 
             <div class="vehicle-main-icon">
@@ -160,6 +170,7 @@
 
             </div>
 
+
             <div>
 
               <div class="d-flex align-items-center gap-2 flex-wrap">
@@ -168,24 +179,34 @@
                   STK 4492
                 </h3>
 
+
                 <span class="status-badge operational">
 
                   <span class="status-dot"></span>
 
-                  Operational
+                  {{ 'DASHBOARD.OPERATIONAL' | translate }}
 
                 </span>
 
               </div>
 
+
               <p class="vehicle-description mb-0">
 
                 Toyota Land Cruiser Prado
+
                 <span>•</span>
-                Year: 2021
+
+                {{ 'DASHBOARD.YEAR' | translate }}:
+                2021
+
                 <span>•</span>
-                Station:
-                <strong>TARI Makutupora</strong>
+
+                {{ 'DASHBOARD.STATION' | translate }}:
+
+                <strong>
+                  TARI Makutupora
+                </strong>
 
               </p>
 
@@ -194,33 +215,35 @@
           </div>
 
 
-          <!-- NEW REQUEST -->
-
+          <!-- NEW MAINTENANCE REQUEST -->
           <button
             type="button"
-            class="new-request-btn">
+            class="new-request-btn"
+            routerLink="/drivers/request">
 
             <span class="material-symbols-outlined">
               add_circle
             </span>
 
-            New Maintenance Request
+            {{ 'DASHBOARD.NEW_MAINTENANCE_REQUEST' | translate }}
 
           </button>
 
         </div>
 
 
-        <!-- VEHICLE DETAILS -->
+        <!-- =================================================
+             VEHICLE DETAILS
+        ================================================== -->
 
         <div class="vehicle-details-grid">
 
-          <!-- CHASSIS -->
 
+          <!-- CHASSIS NUMBER -->
           <div class="detail-box">
 
             <span class="detail-label">
-              Chassis Number
+              {{ 'DASHBOARD.CHASSIS_NUMBER' | translate }}
             </span>
 
             <strong class="detail-value">
@@ -230,12 +253,11 @@
           </div>
 
 
-          <!-- MILEAGE -->
-
+          <!-- CURRENT MILEAGE -->
           <div class="detail-box">
 
             <span class="detail-label">
-              Current Mileage
+              {{ 'DASHBOARD.CURRENT_MILEAGE' | translate }}
             </span>
 
             <strong class="detail-value">
@@ -245,12 +267,11 @@
           </div>
 
 
-          <!-- SERVICE -->
-
+          <!-- ROUTINE SERVICE -->
           <div class="detail-box">
 
             <span class="detail-label">
-              Routine Service
+              {{ 'DASHBOARD.ROUTINE_SERVICE' | translate }}
             </span>
 
             <strong class="detail-value service-warning">
@@ -258,18 +279,18 @@
             </strong>
 
             <small class="service-distance">
-              2,150 KM remaining
+              2,150 KM
+              {{ 'DASHBOARD.REMAINING' | translate }}
             </small>
 
           </div>
 
 
-          <!-- DRIVER -->
-
+          <!-- ASSIGNED DRIVER -->
           <div class="detail-box">
 
             <span class="detail-label">
-              Assigned Driver
+              {{ 'DASHBOARD.ASSIGNED_DRIVER' | translate }}
             </span>
 
             <strong class="detail-value text-success">
@@ -283,71 +304,79 @@
       </div>
 
 
-      <!-- ========================= -->
-      <!-- REQUEST HISTORY -->
-      <!-- ========================= -->
+      <!-- =====================================================
+           MAINTENANCE REQUEST HISTORY
+      ====================================================== -->
 
       <div class="dashboard-card history-card">
 
-        <!-- HEADER -->
 
+        <!-- HEADER -->
         <div class="history-header">
 
           <div>
 
             <h4 class="history-title">
-              Maintenance Requests & Permit History
+              {{ 'DASHBOARD.MAINTENANCE_HISTORY' | translate }}
             </h4>
 
             <p class="history-subtitle">
-              Track request status and download approved permits
+              {{ 'DASHBOARD.MAINTENANCE_HISTORY_SUBTITLE' | translate }}
             </p>
 
           </div>
 
+
           <div class="request-count">
-            Total Requests: 4
+
+            {{ 'DASHBOARD.TOTAL_REQUESTS' | translate }}:
+            4
+
           </div>
 
         </div>
 
 
-        <!-- DESKTOP TABLE -->
+        <!-- =================================================
+             REQUEST TABLE
+        ================================================== -->
 
         <div class="table-responsive">
 
           <table class="table maintenance-table">
 
+
+            <!-- TABLE HEADER -->
             <thead>
 
               <tr>
 
                 <th>
-                  REF / REQUEST NO.
+                  {{ 'DASHBOARD.REQUEST_NO' | translate }}
                 </th>
 
                 <th>
-                  SERVICE TYPE
+                  {{ 'DASHBOARD.SERVICE_TYPE' | translate }}
                 </th>
 
                 <th>
-                  REASON / DESCRIPTION
+                  {{ 'DASHBOARD.REASON_DESCRIPTION' | translate }}
                 </th>
 
                 <th>
-                  DATE
+                  {{ 'DASHBOARD.DATE' | translate }}
                 </th>
 
                 <th>
-                  COST (TSH)
+                  {{ 'DASHBOARD.COST_TSH' | translate }}
                 </th>
 
                 <th>
-                  APPROVAL STATUS
+                  {{ 'DASHBOARD.APPROVAL_STATUS' | translate }}
                 </th>
 
                 <th class="text-end">
-                  ACTION
+                  {{ 'DASHBOARD.ACTION' | translate }}
                 </th>
 
               </tr>
@@ -355,12 +384,17 @@
             </thead>
 
 
+            <!-- TABLE BODY -->
             <tbody>
 
-              <!-- REQUEST 1 -->
+
+              <!-- =================================================
+                   REQUEST 1
+              ================================================== -->
 
               <tr>
 
+                <!-- REQUEST NUMBER -->
                 <td>
 
                   <strong>
@@ -370,36 +404,42 @@
                 </td>
 
 
+                <!-- SERVICE TYPE -->
                 <td>
 
                   <strong>
-                    Routine Service
+                    {{ 'DASHBOARD.ROUTINE_SERVICE_TYPE' | translate }}
                   </strong>
 
                   <small>
-                    Kilometer Based
+                    {{ 'DASHBOARD.KILOMETER_BASED' | translate }}
                   </small>
 
                 </td>
 
 
+                <!-- DESCRIPTION -->
                 <td>
 
-                  Changing Engine Oil,
-                  Oil Filter and Fuel Filter
+                  {{ 'DASHBOARD.REQUEST_001_DESCRIPTION' | translate }}
 
                 </td>
 
 
+                <!-- DATE -->
                 <td>
 
-                  15 September
+                  15
+                  {{ 'MONTHS.SEPTEMBER' | translate }}
+
                   <br>
+
                   2026
 
                 </td>
 
 
+                <!-- COST -->
                 <td>
 
                   <strong>
@@ -409,6 +449,7 @@
                 </td>
 
 
+                <!-- APPROVAL -->
                 <td>
 
                   <span class="approval-badge approved">
@@ -417,13 +458,14 @@
                       check
                     </span>
 
-                    Approved
+                    {{ 'DASHBOARD.APPROVED' | translate }}
 
                   </span>
 
                 </td>
 
 
+                <!-- ACTION -->
                 <td>
 
                   <div class="table-actions">
@@ -436,22 +478,22 @@
                         badge
                       </span>
 
-                      User Copy
+                      {{ 'DASHBOARD.USER_COPY' | translate }}
 
                     </button>
 
 
-                    <button
-                      type="button"
-                      class="action-btn download">
+                  <button
+  type="button"
+  class="action-btn download"
+  (click)="downloadPermit('REQ-2026-001')"
+>
+  <span class="material-symbols-outlined">
+    download
+  </span>
 
-                      <span class="material-symbols-outlined">
-                        download
-                      </span>
-
-                      Download Permit
-
-                    </button>
+  {{ 'DASHBOARD.DOWNLOAD_PERMIT' | translate }}
+</button>
 
                   </div>
 
@@ -460,10 +502,13 @@
               </tr>
 
 
-              <!-- REQUEST 2 -->
+              <!-- =================================================
+                   REQUEST 2
+              ================================================== -->
 
               <tr>
 
+                <!-- REQUEST NUMBER -->
                 <td>
 
                   <strong>
@@ -473,32 +518,38 @@
                 </td>
 
 
+                <!-- SERVICE TYPE -->
                 <td>
 
                   <strong>
-                    Fault / Breakdown Repair
+                    {{ 'DASHBOARD.BREAKDOWN_REPAIR' | translate }}
                   </strong>
 
                 </td>
 
 
+                <!-- DESCRIPTION -->
                 <td>
 
-                  Brake booster failure
-                  and gearbox oil leak
+                  {{ 'DASHBOARD.REQUEST_002_DESCRIPTION' | translate }}
 
                 </td>
 
 
+                <!-- DATE -->
                 <td>
 
-                  17 September
+                  17
+                  {{ 'MONTHS.SEPTEMBER' | translate }}
+
                   <br>
+
                   2026
 
                 </td>
 
 
+                <!-- COST -->
                 <td>
 
                   <strong>
@@ -508,6 +559,7 @@
                 </td>
 
 
+                <!-- APPROVAL -->
                 <td>
 
                   <span class="approval-badge pending">
@@ -516,17 +568,18 @@
                       schedule
                     </span>
 
-                    Center Supervisor
+                    {{ 'DASHBOARD.CENTER_SUPERVISOR' | translate }}
 
                   </span>
 
                 </td>
 
 
+                <!-- ACTION -->
                 <td class="text-end">
 
                   <span class="permit-pending">
-                    Permit Pending
+                    {{ 'DASHBOARD.PERMIT_PENDING' | translate }}
                   </span>
 
                 </td>
@@ -534,10 +587,13 @@
               </tr>
 
 
-              <!-- REQUEST 3 -->
+              <!-- =================================================
+                   REQUEST 3
+              ================================================== -->
 
               <tr>
 
+                <!-- REQUEST NUMBER -->
                 <td>
 
                   <strong>
@@ -547,36 +603,42 @@
                 </td>
 
 
+                <!-- SERVICE TYPE -->
                 <td>
 
                   <strong>
-                    Routine Service
+                    {{ 'DASHBOARD.ROUTINE_SERVICE_TYPE' | translate }}
                   </strong>
 
                   <small>
-                    Kilometer Based
+                    {{ 'DASHBOARD.KILOMETER_BASED' | translate }}
                   </small>
 
                 </td>
 
 
+                <!-- DESCRIPTION -->
                 <td>
 
-                  Routine 180,000 KM
-                  major maintenance
+                  {{ 'DASHBOARD.REQUEST_003_DESCRIPTION' | translate }}
 
                 </td>
 
 
+                <!-- DATE -->
                 <td>
 
-                  16 September
+                  16
+                  {{ 'MONTHS.SEPTEMBER' | translate }}
+
                   <br>
+
                   2026
 
                 </td>
 
 
+                <!-- COST -->
                 <td>
 
                   <strong>
@@ -586,6 +648,7 @@
                 </td>
 
 
+                <!-- APPROVAL -->
                 <td>
 
                   <span class="approval-badge pending">
@@ -594,17 +657,18 @@
                       schedule
                     </span>
 
-                    Center Director
+                    {{ 'DASHBOARD.CENTER_DIRECTOR' | translate }}
 
                   </span>
 
                 </td>
 
 
+                <!-- ACTION -->
                 <td class="text-end">
 
                   <span class="permit-pending">
-                    Permit Pending
+                    {{ 'DASHBOARD.PERMIT_PENDING' | translate }}
                   </span>
 
                 </td>
@@ -612,10 +676,13 @@
               </tr>
 
 
-              <!-- REQUEST 4 -->
+              <!-- =================================================
+                   REQUEST 4
+              ================================================== -->
 
               <tr>
 
+                <!-- REQUEST NUMBER -->
                 <td>
 
                   <strong>
@@ -625,32 +692,38 @@
                 </td>
 
 
+                <!-- SERVICE TYPE -->
                 <td>
 
                   <strong>
-                    Emergency Service
+                    {{ 'DASHBOARD.EMERGENCY_SERVICE' | translate }}
                   </strong>
 
                 </td>
 
 
+                <!-- DESCRIPTION -->
                 <td>
 
-                  Suspension repair after
-                  field trip damage
+                  {{ 'DASHBOARD.REQUEST_004_DESCRIPTION' | translate }}
 
                 </td>
 
 
+                <!-- DATE -->
                 <td>
 
-                  17 September
+                  17
+                  {{ 'MONTHS.SEPTEMBER' | translate }}
+
                   <br>
+
                   2026
 
                 </td>
 
 
+                <!-- COST -->
                 <td>
 
                   <strong>
@@ -660,6 +733,7 @@
                 </td>
 
 
+                <!-- APPROVAL -->
                 <td>
 
                   <span class="approval-badge pending">
@@ -668,17 +742,18 @@
                       schedule
                     </span>
 
-                    IT / AM (HQ)
+                    {{ 'DASHBOARD.IT_AM_HQ' | translate }}
 
                   </span>
 
                 </td>
 
 
+                <!-- ACTION -->
                 <td class="text-end">
 
                   <span class="permit-pending">
-                    Permit Pending
+                    {{ 'DASHBOARD.PERMIT_PENDING' | translate }}
                   </span>
 
                 </td>
