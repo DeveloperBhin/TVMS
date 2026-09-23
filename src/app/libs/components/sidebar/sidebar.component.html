@@ -1,164 +1,261 @@
-<aside class="dashboard-sidebar">
-
+<aside
+  class="dashboard-sidebar"
+  [class.opened]="opened"
+>
   <div class="sidebar-content">
 
-    <!-- DASHBOARD -->
-    <a
-      routerLink="/dashboard"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="sidebar-link"
-    >
-      <span class="material-symbols-outlined">
-        dashboard
-      </span>
+    <!-- =========================
+         BRAND
+    ========================== -->
+    <div class="sidebar-brand">
 
-      <span>
-        DASHBOARD
-      </span>
-    </a>
+      <div class="sidebar-brand-logo">
+        <img
+          src="assets/images/logo.png"
+          alt="TARI Logo"
+        />
+      </div>
 
+      <div class="brand-text">
+        <strong>
+          TARI-VMS
+        </strong>
 
-    <!-- CASHEW MANAGEMENT -->
-    <div class="sidebar-group">
-
-      <button
-        type="button"
-        class="sidebar-link sidebar-dropdown"
-        (click)="toggleCashew()"
-      >
-
-        <span class="material-symbols-outlined">
-          agriculture
+        <span>
+          {{ 'SIDEBAR.VEHICLE_MANAGEMENT' | translate }}
         </span>
-
-        <span class="sidebar-label">
-          CASHEW MANAGEMENT
-        </span>
-
-        <span
-          class="material-symbols-outlined dropdown-icon"
-          [class.rotated]="cashewExpanded"
-        >
-          expand_more
-        </span>
-
-      </button>
-
-
-      <div
-        class="submenu"
-        *ngIf="cashewExpanded"
-      >
-
-        <a
-          routerLink="/farmers"
-          routerLinkActive="active"
-          class="submenu-link"
-        >
-          Farmers
-        </a>
-
-       
-
-        <a
-          routerLink="/farms"
-          routerLinkActive="active"
-          class="submenu-link"
-        >
-          Farm
-        </a>
-         <a
-          routerLink="/cashew-trees"
-          routerLinkActive="active"
-          class="submenu-link"
-        >
-          Cashew Trees
-        </a>
-
-        <a
-          routerLink="/farm-activities"
-          routerLinkActive="active"
-          class="submenu-link"
-        >
-          Farm Activities
-        </a>
-
-          <a
-  routerLink="/cashew-trees/scan"
-          routerLinkActive="active"
-          class="submenu-link"
-        >
-          Scan
-        </a>
-
       </div>
 
     </div>
 
 
-    <!-- BOTTOM -->
+    <div class="sidebar-divider"></div>
+
+
+    <!-- =========================
+         MAIN NAVIGATION
+    ========================== -->
+    <nav class="sidebar-nav">
+
+      <!-- DASHBOARD -->
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          grid_view
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.DASHBOARD' | translate }}
+        </span>
+      </a>
+
+
+      <!-- VEHICLES -->
+      <a
+        routerLink="/vehicles"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          local_shipping
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.VEHICLES' | translate }}
+        </span>
+      </a>
+
+
+      <!-- REQUESTS -->
+      <a
+        routerLink="/requests"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          assignment
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.REQUESTS' | translate }}
+        </span>
+
+        <span class="sidebar-badge">
+          1
+        </span>
+      </a>
+
+
+      <!-- REPORTS -->
+      <a
+        routerLink="/reports"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          description
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.REPORTS' | translate }}
+        </span>
+      </a>
+
+
+      <!-- DRIVERS -->
+      <a
+        routerLink="/drivers"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          badge
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.DRIVERS' | translate }}
+        </span>
+      </a>
+
+
+      <!-- INSPECTIONS -->
+      <a
+        routerLink="/inspections"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          fact_check
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.INSPECTIONS' | translate }}
+        </span>
+      </a>
+
+
+      <!-- MAINTENANCE -->
+      <a
+        routerLink="/maintenance"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          build
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.MAINTENANCE' | translate }}
+        </span>
+      </a>
+
+
+      <!-- ACCIDENTS -->
+      <a
+        routerLink="/accidents"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          car_crash
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.ACCIDENTS' | translate }}
+        </span>
+      </a>
+
+
+      <!-- FUEL -->
+      <a
+        routerLink="/fuel"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          local_gas_station
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.FUEL' | translate }}
+        </span>
+      </a>
+
+    </nav>
+
+
+    <!-- =========================
+         BOTTOM NAVIGATION
+    ========================== -->
     <div class="sidebar-bottom">
 
+      <div class="sidebar-bottom-divider"></div>
+
+
       <!-- USERS -->
-      <div class="sidebar-group">
+      <a
+        routerLink="/users"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          group
+        </span>
 
-        <button
-          type="button"
-          class="sidebar-link sidebar-dropdown"
-          (click)="toggleUsers()"
-        >
-
-          <span class="material-symbols-outlined">
-            groups
-          </span>
-
-          <span class="sidebar-label">
-            USERS
-          </span>
-
-          <span
-            class="material-symbols-outlined dropdown-icon"
-            [class.rotated]="usersExpanded"
-          >
-            expand_more
-          </span>
-
-        </button>
-
-      </div>
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.USERS' | translate }}
+        </span>
+      </a>
 
 
       <!-- SETTINGS -->
-      <div class="sidebar-group">
+      <a
+        routerLink="/settings"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          settings
+        </span>
 
-        <button
-          type="button"
-          class="sidebar-link sidebar-dropdown"
-          (click)="toggleSettings()"
-        >
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.SETTINGS' | translate }}
+        </span>
+      </a>
 
-          <span class="material-symbols-outlined">
-            settings
-          </span>
 
-          <span class="sidebar-label">
-            SETTINGS
-          </span>
+      <!-- PROFILE -->
+      <a
+        routerLink="/profile"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          account_circle
+        </span>
 
-          <span
-            class="material-symbols-outlined dropdown-icon"
-            [class.rotated]="settingsExpanded"
-          >
-            expand_more
-          </span>
-
-        </button>
-
-      </div>
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.PROFILE' | translate }}
+        </span>
+      </a>
 
     </div>
 
   </div>
-
 </aside>

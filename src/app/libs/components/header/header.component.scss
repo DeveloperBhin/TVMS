@@ -1,20 +1,30 @@
 :host {
   display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
 
 /* =========================
    HEADER
 ========================= */
+
 .app-header {
-  background: var(--app-primary);
+  height: 72px;
 
-  color: var(--app-on-primary, #ffffff);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
 
-  box-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 0 24px;
+
+  background: var(--app-card);
+  color: var(--app-text);
+
+  border-bottom: 1px solid var(--app-border);
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
 }
-
 
 /* =========================
    LEFT
@@ -23,63 +33,94 @@
 .header-left {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 14px;
 }
 
 .menu-btn {
-  display: none;
-
   width: 42px;
   height: 42px;
-
-  align-items: center;
-  justify-content: center;
 
   padding: 0;
 
   border: none;
-
-  border-radius: 50%;
+  border-radius: 8px;
 
   background: transparent;
+  color: var(--app-text);
 
-  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   cursor: pointer;
 
   transition: background-color 0.2s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-
-  .material-symbols-outlined {
-    font-size: 28px;
-  }
 }
 
+.menu-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.menu-btn .material-symbols-outlined {
+  font-size: 26px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.brand-logo {
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo img {
+  display: block;
+
+  width: auto;
+  height: 50px;
+
+  object-fit: contain;
+}
 
 /* =========================
    CENTER
 ========================= */
 
 .header-center {
+  min-width: 0;
+
   display: flex;
-  align-items: center;
   justify-content: center;
 
-  h1 {
-    margin: 0;
-
-    font-family: 'Poppins', sans-serif;
-
-    font-size: 21px;
-    font-weight: 700;
-
-    letter-spacing: 0.4px;
-  }
+  padding: 0 25px;
 }
 
+.system-title {
+  text-align: center;
+}
+
+.system-title h1 {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  color: var(--app-text);
+}
+
+.system-title p {
+  margin: 3px 0 0;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  color: var(--app-text-muted);
+}
 
 /* =========================
    RIGHT
@@ -88,129 +129,282 @@
 .header-right {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 
   gap: 10px;
 }
 
+/* =========================
+   NOTIFICATION
+========================= */
+
 .header-icon-btn {
+  position: relative;
+
   width: 42px;
   height: 42px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 
   padding: 0;
 
   border: none;
-
   border-radius: 50%;
 
   background: transparent;
+  color: var(--app-text-muted);
 
-  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   cursor: pointer;
 
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
+.header-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--app-primary);
+}
+
+.header-icon-btn .material-symbols-outlined {
+  font-size: 23px;
+}
+
+.notification-dot {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #19a66a;
+
+  border: 2px solid var(--app-card);
+}
+
+/* =========================
+   USER
+========================= */
+
 .user-btn {
-  min-height: 42px;
+  min-height: 48px;
+
+  padding: 4px 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--app-text);
 
   display: flex;
   align-items: center;
 
-  gap: 7px;
-
-  padding: 5px 9px;
-
-  border: none;
-
-  border-radius: 8px;
-
-  background: transparent;
-
-  color: #ffffff;
-
-  font-family: 'Poppins', sans-serif;
+  gap: 9px;
 
   cursor: pointer;
 
   transition: background-color 0.2s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
 }
 
-.user-icon {
-  font-size: 29px;
+.user-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #e6f7ed;
+  color: #08783e;
+
+  border: 1px solid #bce8ce;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================
+   USER DETAILS
+========================= */
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  min-width: 0;
 }
 
 .user-name {
-  font-size: 13px;
-  font-weight: 500;
+  max-width: 150px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: var(--app-text);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role {
+  max-width: 150px;
+
+  margin-top: 1px;
+
+  font-size: 9px;
+  font-weight: 400;
+
+  color: var(--app-text-muted);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .arrow-icon {
   font-size: 19px;
+
+  color: var(--app-text-muted);
 }
 
+/* =========================
+   DARK MODE
+========================= */
+
+:host-context(.dark-theme) .menu-btn:hover,
+:host-context(.dark-theme) .header-icon-btn:hover,
+:host-context(.dark-theme) .user-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
 
 /* =========================
    TABLET
 ========================= */
 
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
 
   .app-header {
     padding: 0 16px;
   }
 
-}
+  .system-title h1 {
+    font-size: 14px;
+  }
 
+  .system-title p {
+    font-size: 10px;
+  }
+
+  .user-role {
+    display: none;
+  }
+
+}
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
 
   .app-header {
-    height: 58px;
+    height: 64px;
 
-    padding: 0 10px;
+    grid-template-columns: auto 1fr auto;
 
-    grid-template-columns: 50px 1fr auto;
+    padding: 0 12px;
   }
 
-  .menu-btn {
-    display: inline-flex;
+  .header-left {
+    gap: 6px;
   }
 
-  .header-center h1 {
-    font-size: 18px;
+  .brand-logo {
+    height: 44px;
   }
 
-  .user-name,
+  .brand-logo img {
+    height: 40px;
+  }
+
+  .header-center {
+    padding: 0 8px;
+  }
+
+  .system-title h1 {
+    font-size: 12px;
+  }
+
+  .system-title p {
+    font-size: 9px;
+  }
+
+  .user-details,
   .arrow-icon {
     display: none;
+  }
+
+  .user-btn {
+    padding: 3px;
+  }
+
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 575.98px) {
+
+  .brand-logo {
+    display: none;
+  }
+
+  .system-title h1 {
+    font-size: 11px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 230px;
+  }
+
+  .system-title p {
+    white-space: nowrap;
   }
 
   .header-right {
     gap: 2px;
   }
 
-  .header-icon-btn,
-  .user-btn {
-    width: 40px;
-    height: 40px;
+  .header-icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .user-avatar {
+    width: 34px;
+    height: 34px;
   }
 
 }

@@ -100,7 +100,24 @@
   "DISEASED": "Una Ugonjwa",
   "DEAD": "Umekufa",
   "SUBMIT": "Wasilisha"
-}
+},
+
+  "SIDEBAR": {
+    "VEHICLE_MANAGEMENT": "USIMAMIZI WA MAGARI",
+    "DASHBOARD": "Dashibodi",
+    "VEHICLES": "Magari",
+    "REQUESTS": "Maombi",
+    "REPORTS": "Ripoti",
+    "DRIVERS": "Madereva",
+    "INSPECTIONS": "Ukaguzi",
+    "MAINTENANCE": "Matengenezo",
+    "ACCIDENTS": "Ajali",
+    "FUEL": "Mafuta",
+    "USERS": "Watumiaji",
+    "SETTINGS": "Mipangilio",
+    "PROFILE": "Wasifu"
+  }
+
 
 
 }

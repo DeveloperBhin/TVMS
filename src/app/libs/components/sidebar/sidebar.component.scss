@@ -1,348 +1,445 @@
 :host {
   display: block;
+
+  /* Important:
+     allow the host to stretch to the full height
+     provided by .dashboard-layout
+  */
   align-self: stretch;
 
-  min-height: calc(100vh - 58px);
+  background: #062819;
 }
 
-
-/* =========================
+/* =========================================================
    SIDEBAR
-========================= */
+========================================================= */
 
 .dashboard-sidebar {
   width: 240px;
   min-width: 240px;
 
-  min-height: calc(100vh - 58px);
+  /*
+   * DO NOT use:
+   * height: 100vh;
+   * height: calc(100vh - 72px);
+   *
+   * The sidebar now follows the height of its parent/body.
+   */
   height: 100%;
+  min-height: 100%;
 
-  background: var(--app-card);
-  color: var(--app-text);
+  background: #062819;
+  color: #ffffff;
 
-  border-right: 1px solid var(--app-border);
+  box-sizing: border-box;
 
-  box-shadow:
-    2px 0 5px rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+  overflow-x: hidden;
 }
 
-
-/* =========================
-   SIDEBAR CONTENT
-========================= */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .sidebar-content {
-  min-height: calc(100vh - 58px);
+  width: 100%;
+
+  /*
+   * Stretch with the sidebar.
+   */
   height: 100%;
+  min-height: 100%;
 
   display: flex;
   flex-direction: column;
+
+  padding: 10px 10px 18px;
+
+  box-sizing: border-box;
+
+  background: #062819;
 }
 
+/* =========================================================
+   BRAND
+========================================================= */
 
-/* =========================
-   LINKS
-========================= */
+.sidebar-brand {
+  width: 100%;
+  min-height: 64px;
 
-.sidebar-link {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 7px 8px 10px;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+}
+
+.sidebar-brand-logo {
+  width: 35px;
+  min-width: 35px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.sidebar-brand-logo img {
+  display: block;
+
+  width: 35px;
+  height: 44px;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.brand-text {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  line-height: 1.15;
+}
+
+.brand-text strong {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+}
+
+.brand-text span {
+  margin-top: 4px;
+
+  color: #9db6aa;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-size: 8px;
+  font-weight: 500;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.sidebar-divider {
+  width: calc(100% - 16px);
+  height: 1px;
+
+  margin: 0 8px 10px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
+.sidebar-nav {
   width: 100%;
 
-  min-height: 59px;
+  display: flex;
+  flex-direction: column;
 
-  padding: 12px 18px;
+  gap: 5px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.sidebar-link {
+  position: relative;
+
+  width: 100%;
+  min-height: 43px;
 
   display: flex;
   align-items: center;
 
   gap: 12px;
 
-  color: var(--app-text);
+  padding: 0 13px;
 
-  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 
-  font-size: 15px;
-  font-weight: 500;
+  border: none;
+  outline: none;
 
-  text-align: left;
-  text-decoration: none;
+  border-radius: 8px;
 
   background: transparent;
+  color: #c7d8cf;
 
-  border: 0;
-
-  border-bottom:
-    1px solid var(--app-border);
-
-  cursor: pointer;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-
-  &:hover {
-    color: var(--app-primary);
-
-    background:
-      color-mix(
-        in srgb,
-        var(--app-primary) 8%,
-        transparent
-      );
-  }
-
-  &.active {
-    color: var(--app-primary);
-
-    background:
-      color-mix(
-        in srgb,
-        var(--app-primary) 6%,
-        transparent
-      );
-  }
-}
-
-
-/* =========================
-   ICON
-========================= */
-
-.sidebar-link > .material-symbols-outlined:first-child {
-  width: 30px;
-
-  flex-shrink: 0;
-
-  font-size: 25px;
-
-  color: inherit;
-}
-
-
-/* =========================
-   LABEL
-========================= */
-
-.sidebar-label {
-  flex: 1;
-
-  line-height: 1.3;
-}
-
-
-/* =========================
-   DROPDOWN BUTTON
-========================= */
-
-.sidebar-dropdown {
-  appearance: none;
-}
-
-
-/* =========================
-   DROPDOWN ICON
-========================= */
-
-.dropdown-icon {
-  margin-left: auto;
-
-  font-size: 19px !important;
-
-  color: var(--app-text-secondary);
-
-  transition:
-    transform 0.25s ease,
-    color 0.2s ease;
-}
-
-.dropdown-icon.rotated {
-  transform: rotate(180deg);
-}
-
-
-/* =========================
-   SUB MENU
-========================= */
-
-.submenu {
-  background: var(--app-bg);
-
-  border-bottom:
-    1px solid var(--app-border);
-}
-
-.submenu-link {
-  min-height: 43px;
-
-  padding:
-    11px 15px
-    11px 61px;
-
-  display: flex;
-  align-items: center;
-
-  color: var(--app-text-secondary);
+  font-family: 'Poppins', sans-serif;
 
   font-size: 13px;
   font-weight: 500;
 
   text-decoration: none;
 
+  cursor: pointer;
+
   transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
-
-  &:hover {
-    color: var(--app-primary);
-
-    background:
-      color-mix(
-        in srgb,
-        var(--app-primary) 7%,
-        var(--app-card)
-      );
-  }
-
-  &.active {
-    color: var(--app-primary);
-
-    background:
-      color-mix(
-        in srgb,
-        var(--app-primary) 12%,
-        var(--app-card)
-      );
-
-    font-weight: 600;
-  }
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+}
 
-/* =========================
-   BOTTOM SECTION
-========================= */
+/* =========================================================
+   ICONS
+========================================================= */
+
+.sidebar-link .material-symbols-outlined {
+  width: 21px;
+  min-width: 21px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #b8cec2;
+
+  font-size: 20px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  flex-shrink: 0;
+}
+
+.sidebar-link:hover .material-symbols-outlined {
+  color: #ffffff;
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.sidebar-label {
+  min-width: 0;
+
+  flex: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.sidebar-link.active {
+  background: #187a4c;
+  color: #ffffff;
+
+  font-weight: 600;
+}
+
+.sidebar-link.active .material-symbols-outlined {
+  color: #ffffff;
+}
+
+.sidebar-link.active:hover {
+  background: #1d8655;
+}
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.sidebar-badge {
+  min-width: 19px;
+  height: 19px;
+
+  padding: 0 5px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+
+  border-radius: 20px;
+
+  background: #e6ae25;
+  color: #18271f;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
 
 .sidebar-bottom {
+  width: 100%;
+
+  /*
+   * Push Users / Settings / Profile downward
+   * when enough vertical space exists.
+   */
   margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding-top: 30px;
+
+  flex-shrink: 0;
 }
 
+.sidebar-bottom-divider {
+  width: calc(100% - 16px);
+  height: 1px;
 
-/* =========================
-   TABLET
-========================= */
+  margin: 0 8px 10px;
 
-@media (max-width: 991px) and (min-width: 768px) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 991.98px) {
 
   :host {
-    min-height: calc(100vh - 58px);
+    background: transparent;
   }
 
   .dashboard-sidebar {
-    width: 75px;
-    min-width: 75px;
-
-    min-height: calc(100vh - 58px);
-  }
-
-  .sidebar-content {
-    min-height: calc(100vh - 58px);
-  }
-
-  .sidebar-link {
-    justify-content: center;
-
-    padding: 15px 8px;
-  }
-
-  .sidebar-label,
-  .sidebar-link > span:not(.material-symbols-outlined),
-  .dropdown-icon {
-    display: none;
-  }
-
-  .submenu {
-    display: none;
-  }
-}
-
-
-/* =========================
-   MOBILE DRAWER
-========================= */
-
-@media (max-width: 767px) {
-
-  :host {
     position: fixed;
 
-    top: 0;
+    top: 64px;
     left: 0;
 
-    width: 260px;
+    width: 240px;
+    min-width: 240px;
 
-    min-height: 100vh;
-    height: 100vh;
-
-    z-index: 1100;
-
-    transform: translateX(-100%);
-
-    transition:
-      transform 0.3s ease;
-  }
-
-  :host(.sidebar-open) {
-    transform: translateX(0);
-  }
-
-
-  .dashboard-sidebar {
-    width: 260px;
-    min-width: 260px;
-
-    min-height: 100vh;
-    height: 100vh;
+    /*
+     * On mobile we DO want viewport height,
+     * because the sidebar becomes an overlay.
+     */
+    height: calc(100vh - 64px);
+    min-height: calc(100vh - 64px);
 
     overflow-y: auto;
 
-    background: var(--app-card);
+    transform: translateX(-100%);
+
+    transition: transform 0.25s ease;
+
+    z-index: 1200;
 
     box-shadow:
-      4px 0 18px rgba(0, 0, 0, 0.22);
+      8px 0 25px rgba(0, 0, 0, 0.22);
   }
 
+  .dashboard-sidebar.opened {
+    transform: translateX(0);
+  }
 
   .sidebar-content {
-    min-height: 100vh;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
+  }
+}
 
-    display: flex;
-    flex-direction: column;
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .dashboard-sidebar {
+    width: 230px;
+    min-width: 230px;
   }
 
+  .sidebar-content {
+    padding: 8px 8px 16px;
+  }
+
+  .sidebar-brand {
+    min-height: 60px;
+  }
+
+  .sidebar-brand-logo {
+    width: 32px;
+    min-width: 32px;
+    height: 40px;
+  }
+
+  .sidebar-brand-logo img {
+    width: 32px;
+    height: 40px;
+  }
+
+  .brand-text strong {
+    font-size: 14px;
+  }
+
+  .brand-text span {
+    font-size: 7px;
+  }
 
   .sidebar-link {
-    justify-content: flex-start;
+    min-height: 42px;
 
-    padding: 12px 18px;
+    padding: 0 12px;
+
+    font-size: 12px;
   }
 
-
-  .sidebar-label {
-    display: inline;
-  }
-
-
-  .dropdown-icon {
-    display: inline-block;
-  }
-
-
-  .submenu {
-    display: block;
-  }
-
-
-  .sidebar-bottom {
-    margin-top: auto;
+  .sidebar-link .material-symbols-outlined {
+    font-size: 19px;
   }
 }

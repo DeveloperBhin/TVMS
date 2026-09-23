@@ -1,10 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  HostBinding,
-  Input,
-  Output
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,20 +8,24 @@ import {
 export class SidebarComponent {
 
   @Input() opened = false;
-
   @Output() closeSidebar = new EventEmitter<void>();
 
-  cashewExpanded = false;
+  vehiclesExpanded = true;
+  maintenanceExpanded = false;
+  reportsExpanded = false;
   usersExpanded = false;
   settingsExpanded = false;
 
-  @HostBinding('class.sidebar-open')
-  get isOpen(): boolean {
-    return this.opened;
+  toggleVehicles(): void {
+    this.vehiclesExpanded = !this.vehiclesExpanded;
   }
 
-  toggleCashew(): void {
-    this.cashewExpanded = !this.cashewExpanded;
+  toggleMaintenance(): void {
+    this.maintenanceExpanded = !this.maintenanceExpanded;
+  }
+
+  toggleReports(): void {
+    this.reportsExpanded = !this.reportsExpanded;
   }
 
   toggleUsers(): void {

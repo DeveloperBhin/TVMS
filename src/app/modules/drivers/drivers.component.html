@@ -1,0 +1,700 @@
+<app-header
+  (menuToggle)="toggleSidebar()">
+</app-header>
+
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <app-sidebar
+    [opened]="sidebarOpen"
+    (closeSidebar)="closeSidebar()">
+  </app-sidebar>
+
+  <!-- MOBILE BACKDROP -->
+  <div
+    *ngIf="sidebarOpen"
+    class="sidebar-backdrop"
+    (click)="closeSidebar()">
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+      <!-- ========================= -->
+      <!-- TOP STATISTICS -->
+      <!-- ========================= -->
+
+      <div class="row g-3 mb-4">
+
+        <!-- ASSIGNED VEHICLE -->
+        <div class="col-12 col-sm-6 col-xl-3">
+
+          <div class="dashboard-card stat-card">
+
+            <div class="stat-icon vehicle-icon">
+              <span class="material-symbols-outlined">
+                directions_car
+              </span>
+            </div>
+
+            <div class="stat-content">
+
+              <span class="stat-label">
+                ASSIGNED VEHICLE
+              </span>
+
+              <h3 class="stat-number">
+                STK 4492
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CURRENT MILEAGE -->
+        <div class="col-12 col-sm-6 col-xl-3">
+
+          <div class="dashboard-card stat-card">
+
+            <div class="stat-icon mileage-icon">
+              <span class="material-symbols-outlined">
+                speed
+              </span>
+            </div>
+
+            <div class="stat-content">
+
+              <span class="stat-label">
+                CURRENT MILEAGE
+              </span>
+
+              <h3 class="stat-number">
+                142,850 KM
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PENDING REQUESTS -->
+        <div class="col-12 col-sm-6 col-xl-3">
+
+          <div class="dashboard-card stat-card">
+
+            <div class="stat-icon request-icon">
+              <span class="material-symbols-outlined">
+                schedule
+              </span>
+            </div>
+
+            <div class="stat-content">
+
+              <span class="stat-label">
+                PENDING REQUESTS
+              </span>
+
+              <h3 class="stat-number warning">
+                1
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- APPROVED PERMITS -->
+        <div class="col-12 col-sm-6 col-xl-3">
+
+          <div class="dashboard-card stat-card">
+
+            <div class="stat-icon permit-icon">
+              <span class="material-symbols-outlined">
+                check_circle
+              </span>
+            </div>
+
+            <div class="stat-content">
+
+              <span class="stat-label">
+                APPROVED PERMITS
+              </span>
+
+              <h3 class="stat-number success">
+                3
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- ASSIGNED VEHICLE -->
+      <!-- ========================= -->
+
+      <div class="dashboard-card vehicle-card mb-4">
+
+        <div class="vehicle-header">
+
+          <div class="vehicle-title-section">
+
+            <div class="vehicle-main-icon">
+
+              <span class="material-symbols-outlined">
+                directions_car
+              </span>
+
+            </div>
+
+            <div>
+
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+
+                <h3 class="vehicle-registration mb-0">
+                  STK 4492
+                </h3>
+
+                <span class="status-badge operational">
+
+                  <span class="status-dot"></span>
+
+                  Operational
+
+                </span>
+
+              </div>
+
+              <p class="vehicle-description mb-0">
+
+                Toyota Land Cruiser Prado
+                <span>•</span>
+                Year: 2021
+                <span>•</span>
+                Station:
+                <strong>TARI Makutupora</strong>
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- NEW REQUEST -->
+
+          <button
+            type="button"
+            class="new-request-btn">
+
+            <span class="material-symbols-outlined">
+              add_circle
+            </span>
+
+            New Maintenance Request
+
+          </button>
+
+        </div>
+
+
+        <!-- VEHICLE DETAILS -->
+
+        <div class="vehicle-details-grid">
+
+          <!-- CHASSIS -->
+
+          <div class="detail-box">
+
+            <span class="detail-label">
+              Chassis Number
+            </span>
+
+            <strong class="detail-value">
+              TR-KD-99238472
+            </strong>
+
+          </div>
+
+
+          <!-- MILEAGE -->
+
+          <div class="detail-box">
+
+            <span class="detail-label">
+              Current Mileage
+            </span>
+
+            <strong class="detail-value">
+              142,850 KM
+            </strong>
+
+          </div>
+
+
+          <!-- SERVICE -->
+
+          <div class="detail-box">
+
+            <span class="detail-label">
+              Routine Service
+            </span>
+
+            <strong class="detail-value service-warning">
+              145,000 KM
+            </strong>
+
+            <small class="service-distance">
+              2,150 KM remaining
+            </small>
+
+          </div>
+
+
+          <!-- DRIVER -->
+
+          <div class="detail-box">
+
+            <span class="detail-label">
+              Assigned Driver
+            </span>
+
+            <strong class="detail-value text-success">
+              Check No. CHK-88421
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- REQUEST HISTORY -->
+      <!-- ========================= -->
+
+      <div class="dashboard-card history-card">
+
+        <!-- HEADER -->
+
+        <div class="history-header">
+
+          <div>
+
+            <h4 class="history-title">
+              Maintenance Requests & Permit History
+            </h4>
+
+            <p class="history-subtitle">
+              Track request status and download approved permits
+            </p>
+
+          </div>
+
+          <div class="request-count">
+            Total Requests: 4
+          </div>
+
+        </div>
+
+
+        <!-- DESKTOP TABLE -->
+
+        <div class="table-responsive">
+
+          <table class="table maintenance-table">
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  REF / REQUEST NO.
+                </th>
+
+                <th>
+                  SERVICE TYPE
+                </th>
+
+                <th>
+                  REASON / DESCRIPTION
+                </th>
+
+                <th>
+                  DATE
+                </th>
+
+                <th>
+                  COST (TSH)
+                </th>
+
+                <th>
+                  APPROVAL STATUS
+                </th>
+
+                <th class="text-end">
+                  ACTION
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              <!-- REQUEST 1 -->
+
+              <tr>
+
+                <td>
+
+                  <strong>
+                    REQ-2026-001
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    Routine Service
+                  </strong>
+
+                  <small>
+                    Kilometer Based
+                  </small>
+
+                </td>
+
+
+                <td>
+
+                  Changing Engine Oil,
+                  Oil Filter and Fuel Filter
+
+                </td>
+
+
+                <td>
+
+                  15 September
+                  <br>
+                  2026
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    480,000
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <span class="approval-badge approved">
+
+                    <span class="material-symbols-outlined">
+                      check
+                    </span>
+
+                    Approved
+
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <div class="table-actions">
+
+                    <button
+                      type="button"
+                      class="action-btn user-copy">
+
+                      <span class="material-symbols-outlined">
+                        badge
+                      </span>
+
+                      User Copy
+
+                    </button>
+
+
+                    <button
+                      type="button"
+                      class="action-btn download">
+
+                      <span class="material-symbols-outlined">
+                        download
+                      </span>
+
+                      Download Permit
+
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+              <!-- REQUEST 2 -->
+
+              <tr>
+
+                <td>
+
+                  <strong>
+                    REQ-2026-002
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    Fault / Breakdown Repair
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  Brake booster failure
+                  and gearbox oil leak
+
+                </td>
+
+
+                <td>
+
+                  17 September
+                  <br>
+                  2026
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    1,250,000
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <span class="approval-badge pending">
+
+                    <span class="material-symbols-outlined">
+                      schedule
+                    </span>
+
+                    Center Supervisor
+
+                  </span>
+
+                </td>
+
+
+                <td class="text-end">
+
+                  <span class="permit-pending">
+                    Permit Pending
+                  </span>
+
+                </td>
+
+              </tr>
+
+
+              <!-- REQUEST 3 -->
+
+              <tr>
+
+                <td>
+
+                  <strong>
+                    REQ-2026-003
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    Routine Service
+                  </strong>
+
+                  <small>
+                    Kilometer Based
+                  </small>
+
+                </td>
+
+
+                <td>
+
+                  Routine 180,000 KM
+                  major maintenance
+
+                </td>
+
+
+                <td>
+
+                  16 September
+                  <br>
+                  2026
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    650,000
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <span class="approval-badge pending">
+
+                    <span class="material-symbols-outlined">
+                      schedule
+                    </span>
+
+                    Center Director
+
+                  </span>
+
+                </td>
+
+
+                <td class="text-end">
+
+                  <span class="permit-pending">
+                    Permit Pending
+                  </span>
+
+                </td>
+
+              </tr>
+
+
+              <!-- REQUEST 4 -->
+
+              <tr>
+
+                <td>
+
+                  <strong>
+                    REQ-2026-004
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    Emergency Service
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  Suspension repair after
+                  field trip damage
+
+                </td>
+
+
+                <td>
+
+                  17 September
+                  <br>
+                  2026
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    890,000
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <span class="approval-badge pending">
+
+                    <span class="material-symbols-outlined">
+                      schedule
+                    </span>
+
+                    IT / AM (HQ)
+
+                  </span>
+
+                </td>
+
+
+                <td class="text-end">
+
+                  <span class="permit-pending">
+                    Permit Pending
+                  </span>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

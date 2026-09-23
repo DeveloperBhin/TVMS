@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-farmers',
-  templateUrl: './farmers.component.html',
-  styleUrls: ['./farmers.component.scss']
+  templateUrl: './drivers.component.html',
+  styleUrls: ['./drivers.component.scss']
 
 })
-export class FarmersComponent {
+export class DriversComponent {
 
    sidebarOpen = false;
 

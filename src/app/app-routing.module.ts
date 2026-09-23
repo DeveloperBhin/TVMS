@@ -10,9 +10,9 @@ const routes: Routes = [
       import('./sessions/sessions.module').then(m => m.SessionsModule)
   },
     {
-        path: 'farmers',
+        path: 'drivers',
         loadChildren: () =>
-          import('./modules/farmers/farmers.module').then(m => m.FarmersModule)
+          import('./modules/drivers/drivers.module').then(m => m.FarmersModule)
       },
        {
         path: 'farms',
@@ -47,7 +47,7 @@ const routes: Routes = [
       {
         path: 'farmers',
         loadChildren: () =>
-          import('./modules/farmers/farmers.module').then(m => m.FarmersModule)
+          import('./modules/drivers/drivers.module').then(m => m.FarmersModule)
       },
       {
         path: 'farms',

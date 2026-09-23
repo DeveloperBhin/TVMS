@@ -99,6 +99,22 @@
   "DISEASED": "Diseased",
   "DEAD": "Dead",
   "SUBMIT": "Submit"
-}
+},
+
+  "SIDEBAR": {
+    "VEHICLE_MANAGEMENT": "VEHICLE MANAGEMENT",
+    "DASHBOARD": "Dashboard",
+    "VEHICLES": "Vehicles",
+    "REQUESTS": "Requests",
+    "REPORTS": "Reports",
+    "DRIVERS": "Drivers",
+    "INSPECTIONS": "Inspections",
+    "MAINTENANCE": "Maintenance",
+    "ACCIDENTS": "Accidents",
+    "FUEL": "Fuel",
+    "USERS": "Users",
+    "SETTINGS": "Settings",
+    "PROFILE": "Profile"
+  }
 
 }
