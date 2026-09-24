@@ -114,7 +114,8 @@
     "FUEL": "Fuel",
     "USERS": "Users",
     "SETTINGS": "Settings",
-    "PROFILE": "Profile"
+    "PROFILE": "Profile",
+    "REGISTER":"Register"
   },
   "DASHBOARD": {
   "ASSIGNED_VEHICLE": "Assigned Vehicle",
@@ -446,7 +447,8 @@
     "LOGIN_FAILED": "Unable to sign in. Please try again.",
     "REGISTRATION_FAILED": "Registration failed. Please try again.",
     "OPTIONS_LOAD_FAILED": "Unable to load roles or centers.",
-    "RETRY": "Retry"
+    "RETRY": "Retry",
+    "FORGOT_PASSWORD":"Forgot password ?"
   }
 
 

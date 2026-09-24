@@ -115,7 +115,9 @@
     "FUEL": "Mafuta",
     "USERS": "Watumiaji",
     "SETTINGS": "Mipangilio",
-    "PROFILE": "Wasifu"
+    "PROFILE": "Wasifu",
+        "REGISTER":"Sajili"
+
   },
   "DASHBOARD": {
   "ASSIGNED_VEHICLE": "Gari Nililopewa",
@@ -442,7 +444,9 @@
     "LOGIN_FAILED": "Imeshindikana kuingia. Tafadhali jaribu tena.",
     "REGISTRATION_FAILED": "Usajili umeshindikana. Tafadhali jaribu tena.",
     "OPTIONS_LOAD_FAILED": "Imeshindikana kupakia nafasi au vituo.",
-    "RETRY": "Jaribu Tena"
+    "RETRY": "Jaribu Tena",
+    "FORGOT_PASSWORD":"Umesahau nenosiri ?"
+
   }
 
 

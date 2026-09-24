@@ -221,6 +221,20 @@
         </span>
       </a>
 
+      <a
+        routerLink="/auth/register"
+        routerLinkActive="active"
+        class="sidebar-link"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined">
+          group
+        </span>
+
+        <span class="sidebar-label">
+          {{ 'SIDEBAR.REGISTER' | translate }}
+        </span>
+      </a>
 
       <!-- SETTINGS -->
       <a
