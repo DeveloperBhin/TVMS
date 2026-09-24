@@ -1,0 +1,207 @@
+
+<app-header
+  (menuToggle)="toggleSidebar()">
+</app-header>
+
+<div class="vehicle-layout">
+  <app-sidebar
+    [opened]="sidebarOpen"
+    (closeSidebar)="closeSidebar()">
+  </app-sidebar>
+
+  <div
+    *ngIf="sidebarOpen"
+    class="sidebar-backdrop"
+    (click)="closeSidebar()">
+  </div>
+
+  <main class="vehicle-content">
+    <div class="vehicle-container">
+
+      <!-- Page heading and center selector -->
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>{{ 'VEHICLES.TITLE' | translate }}</h1>
+
+          <div class="page-role">
+            <span>
+              {{ 'VEHICLES.TO_ROLE' | translate }}
+            </span>
+            <span class="separator">·</span>
+            <span>
+              {{ 'VEHICLES.HEAD_OFFICE' | translate }}
+            </span>
+          </div>
+        </div>
+
+        <div class="center-selector">
+          <span class="material-symbols-outlined">
+            location_on
+          </span>
+
+          <select
+            [formControl]="centerControl"
+            [attr.aria-label]="
+              'VEHICLES.SELECT_CENTER' | translate
+            ">
+            <option
+              *ngFor="let center of centers"
+              [value]="center">
+              {{ center }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section heading and download -->
+      <div class="vehicles-heading">
+        <div>
+          <h2>{{ 'VEHICLES.TITLE' | translate }}</h2>
+          <p>
+            {{ 'VEHICLES.DESCRIPTION' | translate }}
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="download-btn"
+          (click)="downloadVehicles()">
+          <span class="material-symbols-outlined">
+            download
+          </span>
+          {{ 'VEHICLES.DOWNLOAD_VIEW' | translate }}
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrapper">
+        <span class="material-symbols-outlined">
+          search
+        </span>
+        <input
+          type="search"
+          [formControl]="searchControl"
+          [placeholder]="'VEHICLES.SEARCH' | translate"
+          [attr.aria-label]="'VEHICLES.SEARCH' | translate">
+      </div>
+
+      <!-- Vehicle table -->
+      <div class="vehicles-table-card">
+        <div class="table-responsive">
+          <table class="vehicles-table">
+            <thead>
+              <tr>
+                <th>
+                  {{ 'VEHICLES.VEHICLE_NUMBER' | translate }}
+                </th>
+                <th>
+                  {{ 'VEHICLES.TYPE_MODEL' | translate }}
+                </th>
+                <th>
+                  {{ 'VEHICLES.MILEAGE' | translate }}
+                </th>
+                <th>
+                  {{ 'VEHICLES.STATUS' | translate }}
+                </th>
+                <th>
+                  {{ 'VEHICLES.CENTER' | translate }}
+                </th>
+                <th>
+                  {{ 'VEHICLES.CHECK_NO' | translate }}
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let vehicle of filteredVehicles">
+                <td>
+                  <div class="vehicle-number">
+                    <strong>
+                      {{ vehicle.registrationNumber }}
+                    </strong>
+                    <small>
+                      {{ vehicle.chassisNumber }}
+                    </small>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="vehicle-model">
+                    <strong>{{ vehicle.model }}</strong>
+                    <small>{{ vehicle.year }}</small>
+                  </div>
+                </td>
+
+                <td>
+                  <span class="mileage">
+                    {{ vehicle.mileage | number }} km
+                  </span>
+                </td>
+
+                <td>
+                  <div class="status-wrapper">
+                    <span
+                      class="status-badge"
+                      [class.operational]="
+                        vehicle.status === 'OPERATIONAL'
+                      "
+                      [class.service]="
+                        vehicle.status === 'UNDER_SERVICE'
+                      "
+                      [class.inactive]="
+                        vehicle.status === 'INACTIVE'
+                      ">
+                      <span class="material-symbols-outlined">
+                        {{
+                          vehicle.status === 'OPERATIONAL'
+                            ? 'check'
+                            : 'build'
+                        }}
+                      </span>
+                      {{
+                        getStatusTranslation(vehicle.status)
+                          | translate
+                      }}
+                    </span>
+
+                    <small
+                      *ngIf="vehicle.statusDescription"
+                      class="status-description">
+                      {{
+                        vehicle.statusDescription | translate
+                      }}
+                    </small>
+                  </div>
+                </td>
+
+                <td>
+                  <span class="center-name">
+                    {{ vehicle.center }}
+                  </span>
+                </td>
+
+                <td>
+                  <span class="check-number">
+                    {{ vehicle.checkNumber }}
+                  </span>
+                </td>
+              </tr>
+
+              <tr *ngIf="filteredVehicles.length === 0">
+                <td colspan="6" class="empty-state">
+                  <span class="material-symbols-outlined">
+                    search_off
+                  </span>
+                  <p>
+                    {{ 'VEHICLES.NO_VEHICLES' | translate }}
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

@@ -264,7 +264,150 @@
 
     "NO_APPROVALS": "Hakuna Uidhinishaji Unaosubiri",
     "NO_APPROVALS_DESCRIPTION": "Kwa sasa hakuna maombi yanayohitaji uidhinishaji wako."
+  },
+  
+
+  "CENTER_DIRECTOR": {
+    "DASHBOARD": "Dashibodi",
+    "ROLE": "Mkurugenzi wa Kituo",
+    "WELCOME_MESSAGE": "Karibu TARI-VMS. Mfumo huu unapatikana pia kwenye programu ya simu.",
+    "SUMMARY": "Muhtasari wa shughuli kulingana na jukumu lako.",
+    "DOWNLOAD_REPORT": "Ripoti ya Kituo Chako",
+    "TOTAL_VEHICLES": "Jumla ya Magari",
+    "OPERATIONAL": "Inafanya Kazi",
+    "UNDER_SERVICE": "Chini ya Huduma",
+    "PENDING_REQUESTS": "Maombi Yanosubiri",
+    "NEED_DECISION": "yanahitaji uamuzi wako",
+    "RECENT_REQUESTS": "Maombi ya Karibuni",
+    "VIEW_ALL": "Angalia Zote",
+    "REQUESTS": "Maombi",
+    "ROUTINE_SERVICE": "Huduma ya Kawaida (KM-based)",
+    "BREAKDOWN_REPAIR": "Ukarabati wa Hitilafu",
+    "EMERGENCY_SERVICE": "Huduma ya Dharura",
+    "PENDING": "Inasubiri",
+    "APPROVED": "Imeidhinishwa",
+    "REJECTED": "Imekataliwa"
+
+  },
+ 
+  
+  "APPROVAL": {
+    "TITLE": "Maombi",
+    "DESCRIPTION": "Fuatilia na utoe uamuzi wa mwisho kwa kila ombi.",
+    "REQUESTED_BY": "Ombi la",
+    "DRIVER_REQUESTED": "Dereva Ameomba",
+    "CENTER_SUPERVISOR": "Msimamizi wa Kituo",
+    "CENTER_DIRECTOR": "Mkurugenzi wa Kituo",
+    "PENDING": "Inasubiri",
+    "APPROVED": "Imeidhinishwa",
+    "REJECTED": "Imekataliwa",
+    "APPROVE": "Idhinisha",
+    "REJECT": "Kataa",
+    "NO_APPROVALS": "Hakuna maombi",
+    "NO_APPROVALS_DESCRIPTION": "Hakuna maombi ya kuonyesha kwa sasa.",
+    "ROUTINE_SERVICE": "Huduma ya Kawaida (KM-based)",
+    "BREAKDOWN_REPAIR": "Ukarabati wa Hitilafu",
+    "DESC_1001": "Gari limefikisha KM 85,000 - linahitaji service ya kawaida kabla ya safari ya Dodoma.",
+    "DESC_1002": "Breki za nyuma zinatoa mlio - zinahitaji ukaguzi wa haraka."
+  },
+
+  "TRANSPORT_OFFICER": {
+    "DASHBOARD": "Dashibodi",
+    "ROLE": "Afisa Usafirishaji (TO)",
+    "WELCOME_MESSAGE": "Karibu TARI-VMS. Mfumo huu unapatikana pia kwenye programu ya simu.",
+    "SUMMARY": "Muhtasari wa shughuli kulingana na jukumu lako.",
+    "DOWNLOAD_REPORT": "Ripoti ya Vituo Vyote",
+    "TOTAL_CENTERS": "Vituo Vyote",
+    "TOTAL_VEHICLES": "Jumla ya Magari (Nchi Nzima)",
+    "OUT_OF_SERVICE": "Nje ya Huduma",
+    "PENDING_REQUESTS": "Maombi Yanayosubiri Uamuzi",
+    "AWAITING_DECISION": "kwenye zamu yako",
+    "RECENT_REQUESTS": "Maombi ya Karibuni",
+    "VEHICLES": "Magari",
+    "VIEW_ALL": "Angalia Zote",
+    "REQUESTS": "Maombi",
+    "ROUTINE_SERVICE": "Huduma ya Kawaida (KM-based)",
+    "BREAKDOWN_REPAIR": "Ukarabati wa Hitilafu",
+    "EMERGENCY_SERVICE": "Huduma ya Dharura",
+    "PENDING": "Inasubiri",
+    "APPROVED": "Imeidhinishwa",
+    "REJECTED": "Imekataliwa",
+    "OPERATIONAL": "Inafanya Kazi",
+    "UNDER_SERVICE": "Chini ya Huduma",
+    "NO_REQUESTS": "Hakuna maombi kwa sasa.",
+    "NO_VEHICLES": "Hakuna magari kwa sasa."
+  },
+  
+
+  "ADMIN_MANAGER": {
+    "DASHBOARD": "Dashibodi",
+    "ROLE": "Meneja wa Utawala (AM)",
+    "SUMMARY": "Muhtasari wa shughuli kulingana na jukumu lako.",
+    "DOWNLOAD_REPORT": "Ripoti ya Vituo Vyote",
+
+    "TOTAL_CENTERS": "Vituo Vyote",
+    "TOTAL_VEHICLES": "Jumla ya Magari (Nchi Nzima)",
+    "UNDER_SERVICE": "Nje ya Huduma",
+    "PENDING_REQUESTS": "Maombi Yanayosubiri Uamuzi",
+    "NEED_DECISION": "Kwenye zamu yako",
+
+    "RECENT_REQUESTS": "Maombi ya Karibuni",
+    "VEHICLES": "Magari",
+    "VIEW_ALL": "Angalia Zote",
+
+    "ROUTINE_SERVICE": "Huduma ya Kawaida (KM-based)",
+    "BREAKDOWN_REPAIR": "Ukarabati wa Hitilafu",
+    "EMERGENCY_SERVICE": "Huduma ya Dharura",
+
+    "STATUS_PENDING": "Inasubiri",
+    "STATUS_APPROVED": "Imeidhinishwa",
+    "STATUS_REJECTED": "Imekataliwa",
+    "STATUS_OPERATIONAL": "Inafanya Kazi",
+    "STATUS_UNDER_SERVICE": "Chini ya Huduma",
+
+    "NO_REQUESTS": "Hakuna maombi ya karibuni.",
+    "NO_VEHICLES": "Hakuna magari yanayopatikana."
+  },
+  
+
+  "CENTERS": {
+    "TITLE": "Vituo Vyote",
+    "SUMMARY_TITLE": "Muhtasari wa Vituo",
+    "SUMMARY_DESCRIPTION": "Vituo 21 vya TARI nchini kote.",
+    "CENTER": "Kituo",
+    "VEHICLES": "Magari",
+    "OPERATIONAL": "Yanayofanya Kazi",
+    "UNDER_SERVICE": "Nje ya Huduma",
+    "PENDING_REQUESTS": "Maombi Yanayosubiri",
+    "VIEW": "Angalia",
+    "NO_CENTERS": "Hakuna vituo vinavyopatikana."
+  },
+
+  "DIRECTOR_HR": {
+    "DASHBOARD": "Dashibodi",
+    "ROLE": "Mkurugenzi wa Rasilimali Watu (DRAM)",
+    "HEAD_OFFICE": "Makao Makuu",
+    "WELCOME_MESSAGE": "Karibu TARI-VMS. Mfumo huu unapatikana pia kwenye programu ya simu.",
+    "SUMMARY": "Muhtasari wa shughuli kulingana na jukumu lako.",
+    "DOWNLOAD_REPORT": "Ripoti ya Vituo Vyote",
+    "TOTAL_CENTERS": "Vituo Vyote",
+    "TOTAL_VEHICLES": "Magari Yote Nchini",
+    "OPERATIONAL": "Yanayofanya Kazi",
+    "OPERATIONAL_PERCENT": "68%",
+    "MONTHLY_REQUESTS": "Maombi ya Mwezi Huu",
+    "RECENT_REQUESTS": "Maombi ya Karibuni",
+    "VEHICLES": "Magari",
+    "VIEW_ALL": "Angalia Zote",
+    "NO_REQUESTS": "Hakuna maombi ya karibuni.",
+    "NO_VEHICLES": "Hakuna magari yanayopatikana."
   }
+
+
+
+
+
+
+
 
 
 

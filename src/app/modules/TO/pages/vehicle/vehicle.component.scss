@@ -1,0 +1,377 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f5faf8;
+  font-family: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.vehicle-layout {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: calc(100vh - 72px);
+}
+
+.vehicle-content {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  background: #f5faf8;
+}
+
+.vehicle-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px 22px 32px;
+}
+
+/* Page header */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.page-header-left h1 {
+  margin: 0;
+  color: #16243a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.page-role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 2px;
+  color: #667085;
+  font-size: 12px;
+}
+
+.separator {
+  color: #98a2b3;
+}
+
+/* Center selector */
+
+.center-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 160px;
+  padding: 0 11px;
+  border: 1px solid #dce5e0;
+  border-radius: 22px;
+  background: #fff;
+  color: #344054;
+}
+
+.center-selector .material-symbols-outlined {
+  font-size: 17px;
+}
+
+.center-selector select {
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Heading and actions */
+
+.vehicles-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.vehicles-heading h2 {
+  margin: 0;
+  color: #16243a;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.vehicles-heading p {
+  margin: 4px 0 0;
+  color: #667085;
+  font-size: 12px;
+}
+
+.download-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #176b43;
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background: #105533;
+}
+
+.download-btn .material-symbols-outlined {
+  font-size: 17px;
+}
+
+/* Search */
+
+.search-wrapper {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+  margin-bottom: 12px;
+}
+
+.search-wrapper .material-symbols-outlined {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #7b8794;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.search-wrapper input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px 0 38px;
+  border: 1px solid #d5dfda;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #16243a;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.search-wrapper input:focus {
+  border-color: #16804a;
+  box-shadow: 0 0 0 3px rgba(22, 128, 74, .1);
+}
+
+/* Table */
+
+.vehicles-table-card {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #dfe7e2;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(15, 45, 30, .04);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.vehicles-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.vehicles-table th:nth-child(1) { width: 16%; }
+.vehicles-table th:nth-child(2) { width: 22%; }
+.vehicles-table th:nth-child(3) { width: 16%; }
+.vehicles-table th:nth-child(4) { width: 20%; }
+.vehicles-table th:nth-child(5) { width: 16%; }
+.vehicles-table th:nth-child(6) { width: 10%; }
+
+.vehicles-table thead {
+  background: #f7faf8;
+}
+
+.vehicles-table th {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e4ebe7;
+  color: #5f6b66;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.vehicles-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #edf0ee;
+  color: #344054;
+  font-size: 12px;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.vehicles-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.vehicles-table tbody tr:hover {
+  background: #fbfdfc;
+}
+
+.vehicle-number,
+.vehicle-model,
+.status-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.vehicle-number strong,
+.vehicle-model strong {
+  color: #101828;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vehicle-number small,
+.vehicle-model small {
+  color: #7a8695;
+  font-size: 10px;
+}
+
+.mileage {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.center-name {
+  font-size: 12px;
+}
+
+/* Status */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge .material-symbols-outlined {
+  font-size: 13px;
+}
+
+.status-badge.operational {
+  background: #e4f7eb;
+  color: #16804c;
+}
+
+.status-badge.service {
+  background: #fff1d6;
+  color: #b76a00;
+}
+
+.status-badge.inactive {
+  background: #f2f4f7;
+  color: #667085;
+}
+
+.status-description {
+  color: #667085;
+  font-size: 10px;
+}
+
+.check-number {
+  display: inline-block;
+  padding: 4px 7px;
+  border-radius: 5px;
+  background: #f4f6f5;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.empty-state {
+  padding: 36px 16px !important;
+  text-align: center;
+  color: #667085;
+}
+
+.empty-state .material-symbols-outlined {
+  font-size: 30px;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+/* Responsive */
+
+@media (max-width: 991.98px) {
+  .vehicle-container {
+    padding: 18px;
+  }
+
+  .vehicles-table {
+    min-width: 850px;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    display: block;
+    background: rgba(0, 0, 0, .45);
+    z-index: 998;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .vehicle-layout {
+    min-height: calc(100vh - 64px);
+  }
+
+  .vehicle-container {
+    padding: 16px 14px 24px;
+  }
+
+  .page-header,
+  .vehicles-heading {
+    align-items: flex-start;
+  }
+
+  .search-wrapper {
+    width: 100%;
+  }
+
+  .vehicles-table {
+    min-width: 800px;
+  }
+}

@@ -1,97 +1,77 @@
+
 :host {
   display: block;
   min-height: 100vh;
-  background: #f5f7f6;
+  background: #f4faf8;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* =========================================
-   PAGE LAYOUT
-========================================= */
+/* PAGE LAYOUT */
 
 .approval-layout {
   display: flex;
   align-items: stretch;
   width: 100%;
   min-height: calc(100vh - 72px);
-  background: #f5f7f6;
+  background: #f4faf8;
 }
-
-/* =========================================
-   MAIN CONTENT
-========================================= */
 
 .approval-content {
   flex: 1;
   min-width: 0;
-  background: #f5f7f6;
   padding: 0;
+  background: #f4faf8;
 }
-
-/* =========================================
-   CONTAINER
-========================================= */
 
 .approval-container {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 22px 24px 35px;
+  padding: 20px 24px 28px;
   box-sizing: border-box;
 }
 
-/* =========================================
-   PAGE HEADER
-========================================= */
+/* PAGE HEADER */
 
 .page-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  width: 100%;
-  gap: 20px;
-  margin: 0 0 20px;
-}
-
-.page-header-left {
-  min-width: 0;
+  gap: 16px;
+  margin-bottom: 18px;
 }
 
 .page-header-left h1 {
   margin: 0;
-  color: #101828;
-  font-size: 25px;
+  color: #16243a;
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .page-role {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
+  gap: 8px;
+  margin-top: 3px;
   color: #667085;
   font-size: 12px;
 }
 
-.separator,
-.meta-separator {
+.separator {
   color: #98a2b3;
 }
-
-/* =========================================
-   STATION BADGE
-========================================= */
 
 .station-badge {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
   gap: 6px;
-  padding: 7px 13px;
-  border: 1px solid #d8e0dc;
-  border-radius: 20px;
-  background: #ffffff;
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border: 1px solid #dce5e0;
+  border-radius: 24px;
+  background: #fff;
   color: #475467;
   font-size: 11px;
   font-weight: 500;
@@ -101,18 +81,16 @@
   font-size: 16px;
 }
 
-/* =========================================
-   HEADING
-========================================= */
+/* SECTION HEADING */
 
 .approval-heading {
-  margin: 0 0 14px;
+  margin-bottom: 13px;
 }
 
 .approval-heading h2 {
   margin: 0;
-  color: #101828;
-  font-size: 22px;
+  color: #16243a;
+  font-size: 21px;
   font-weight: 700;
 }
 
@@ -122,45 +100,36 @@
   font-size: 12px;
 }
 
-/* =========================================
-   APPROVAL LIST
-========================================= */
+/* APPROVAL LIST */
 
 .approval-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100%;
 }
 
-/* =========================================
-   APPROVAL CARD
-========================================= */
+/* APPROVAL CARD */
 
 .approval-card {
   width: 100%;
-  padding: 16px 18px 14px;
-  border: 1px solid #dfe5e2;
-  border-radius: 11px;
-  background: #ffffff;
-  box-shadow:
-    0 2px 5px rgba(15, 45, 30, 0.04);
+  padding: 15px 16px 14px;
+  border: 1px solid #dfe7e3;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
   box-sizing: border-box;
 }
 
-/* =========================================
-   CARD HEADER
-========================================= */
+/* CARD HEADER */
 
 .approval-card-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
+  gap: 12px;
 }
 
 .approval-information {
-  flex: 1;
   min-width: 0;
 }
 
@@ -169,53 +138,45 @@
   color: #101828;
   font-size: 13px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .approval-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 3px;
+  gap: 5px;
+  margin-top: 2px;
   color: #667085;
-  font-size: 9px;
+  font-size: 10px;
 }
 
-/* =========================================
-   CHECK NUMBER
-========================================= */
-
 .check-number {
-  display: inline-flex;
-  align-items: center;
   padding: 2px 6px;
   border-radius: 4px;
-  background: #f3f5f4;
+  background: #f2f4f3;
   color: #344054;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 600;
 }
 
-/* =========================================
-   STATUS
-========================================= */
+/* STATUS */
 
 .approval-status {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   gap: 4px;
-  padding: 5px 10px;
+  flex-shrink: 0;
+  padding: 4px 9px;
   border-radius: 20px;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .approval-status .material-symbols-outlined {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .approval-status.pending {
@@ -224,94 +185,86 @@
 }
 
 .approval-status.approved {
-  background: #e4f7eb;
-  color: #16804c;
+  background: #e3f7eb;
+  color: #167347;
 }
 
 .approval-status.rejected {
-  background: #fde8e8;
+  background: #feeceb;
   color: #c62828;
 }
 
-/* =========================================
-   DESCRIPTION
-========================================= */
+/* DESCRIPTION */
 
 .approval-description {
-  width: 100%;
   margin-top: 10px;
   padding: 9px 12px;
   border-radius: 7px;
-  background: #f5f7f6;
+  background: #f4f7f6;
   color: #344054;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.5;
-  box-sizing: border-box;
 }
 
-/* =========================================
-   TIMELINE
-========================================= */
+/* TIMELINE */
 
 .approval-timeline {
   position: relative;
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  width: calc(100% - 160px);
-  margin: 18px auto 8px;
+  width: 78%;
+  max-width: 720px;
+  margin: 14px auto 8px;
 }
 
-/* BASE LINE */
-
-.timeline-line {
-  position: absolute;
-  top: 11px;
-  left: 11px;
-  right: 11px;
-  height: 2px;
-  background: #d5ddd9;
-  z-index: 0;
-}
-
-/* COMPLETED LINE */
-
+.timeline-line,
 .timeline-progress {
   position: absolute;
-  top: 11px;
-  left: 11px;
+  top: 10px;
+  left: 0;
   height: 2px;
-  max-width: calc(100% - 22px);
-  background: #16804c;
-  z-index: 1;
-  transition: width 0.3s ease;
 }
 
-/* =========================================
-   APPROVAL STEP
-========================================= */
+.timeline-line {
+  width: 100%;
+  background: #d9e1dd;
+}
+
+.timeline-progress {
+  background: #198754;
+  transition: width 0.25s ease;
+}
 
 .approval-step {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 150px;
+  gap: 5px;
+  width: 110px;
   text-align: center;
 }
 
+.approval-step:first-of-type {
+  margin-left: -55px;
+}
+
+.approval-step:last-of-type {
+  margin-right: -55px;
+}
+
 .step-circle {
-  width: 24px;
-  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #cfd8d3;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #cbd5d1;
   border-radius: 50%;
-  background: #ffffff;
+  background: #fff;
   color: #98a2b3;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   box-sizing: border-box;
 }
@@ -321,55 +274,35 @@
 }
 
 .step-label {
-  margin-top: 5px;
-  color: #667085;
-  font-size: 8px;
+  color: #344054;
+  font-size: 10px;
   font-weight: 600;
+  line-height: 1.4;
 }
-
-/* COMPLETED */
 
 .approval-step.completed .step-circle {
-  border-color: #16804c;
-  background: #16804c;
-  color: #ffffff;
+  border-color: #198754;
+  background: #198754;
+  color: #fff;
 }
-
-.approval-step.completed .step-label {
-  color: #101828;
-}
-
-/* CURRENT */
 
 .approval-step.current .step-circle {
-  border-color: #d99b18;
-  background: #ffffff;
-  color: #b76a00;
-  box-shadow:
-    0 0 0 4px rgba(217, 155, 24, 0.12);
+  border-color: #d8a43d;
+  color: #a66a00;
+  box-shadow: 0 0 0 4px #fff6e6;
 }
-
-.approval-step.current .step-label {
-  color: #101828;
-}
-
-/* REJECTED */
 
 .approval-step.rejected .step-circle {
-  border-color: #d32f2f;
-  background: #d32f2f;
-  color: #ffffff;
+  border-color: #dc3545;
+  background: #dc3545;
+  color: #fff;
 }
 
-/* DISABLED */
-
-.approval-step.disabled {
-  opacity: 0.55;
+.approval-step.disabled .step-label {
+  color: #98a2b3;
 }
 
-/* =========================================
-   ACTIONS
-========================================= */
+/* ACTION BUTTONS */
 
 .approval-actions {
   display: flex;
@@ -380,40 +313,38 @@
 
 .approve-btn,
 .reject-btn {
-  min-height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 0 14px;
+  gap: 6px;
+  min-height: 32px;
+  padding: 6px 13px;
   border-radius: 6px;
   font-family: 'Poppins', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: background-color 0.2s;
 }
 
 .approve-btn {
-  border: 1px solid #146b2f;
-  background: #146b2f;
-  color: #ffffff;
+  border: 1px solid #176b43;
+  background: #176b43;
+  color: #fff;
 }
 
 .approve-btn:hover {
-  background: #0f5927;
+  background: #105334;
 }
 
 .reject-btn {
-  border: 1px solid #dc4c4c;
-  background: #ffffff;
-  color: #d32f2f;
+  border: 1px solid #dc3545;
+  background: #fff;
+  color: #c62828;
 }
 
 .reject-btn:hover {
-  background: #fff5f5;
+  background: #fff1f1;
 }
 
 .approve-btn .material-symbols-outlined,
@@ -421,121 +352,104 @@
   font-size: 15px;
 }
 
-/* =========================================
-   EMPTY STATE
-========================================= */
+/* EMPTY STATE */
 
 .empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 250px;
-  padding: 30px;
-  border: 1px solid #dfe5e2;
-  border-radius: 11px;
-  background: #ffffff;
+  padding: 48px 20px;
+  border: 1px solid #dfe7e3;
+  border-radius: 12px;
+  background: #fff;
   text-align: center;
 }
 
-.empty-state .material-symbols-outlined {
-  color: #16804c;
-  font-size: 42px;
+.empty-state > .material-symbols-outlined {
+  color: #198754;
+  font-size: 40px;
 }
 
 .empty-state h3 {
   margin: 10px 0 4px;
-  color: #101828;
   font-size: 16px;
 }
 
 .empty-state p {
   margin: 0;
   color: #667085;
-  font-size: 11px;
+  font-size: 12px;
 }
 
-/* =========================================
-   SIDEBAR BACKDROP
-========================================= */
+/* SIDEBAR BACKDROP */
 
 .sidebar-backdrop {
   display: none;
 }
 
-/* =========================================
-   TABLET
-========================================= */
+/* TABLET */
 
 @media (max-width: 991.98px) {
-
   .approval-container {
     padding: 18px;
-  }
-
-  .approval-timeline {
-    width: calc(100% - 60px);
   }
 
   .sidebar-backdrop {
     position: fixed;
     inset: 0;
+    z-index: 998;
     display: block;
     background: rgba(0, 0, 0, 0.45);
-    z-index: 998;
   }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+/* MOBILE */
 
 @media (max-width: 767.98px) {
-
   .approval-layout {
     min-height: calc(100vh - 64px);
   }
 
-  .approval-content {
-    width: 100%;
-  }
-
   .approval-container {
-    padding: 16px 14px 25px;
-  }
-
-  .page-header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .approval-card {
     padding: 14px;
   }
 
+  .page-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .station-badge {
+    font-size: 10px;
+  }
+
+  .approval-card {
+    padding: 13px 12px;
+  }
+
   .approval-card-header {
-    flex-direction: column;
-    gap: 8px;
+    flex-wrap: wrap;
   }
 
   .approval-timeline {
-    width: 100%;
+    width: calc(100% - 90px);
+    margin-top: 18px;
   }
 
   .approval-step {
-    width: 33.333%;
+    width: 90px;
+  }
+
+  .approval-step:first-of-type {
+    margin-left: -45px;
+  }
+
+  .approval-step:last-of-type {
+    margin-right: -45px;
   }
 
   .step-label {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .approval-actions {
-    width: 100%;
-  }
-
-  .approve-btn,
-  .reject-btn {
-    flex: 1;
+    flex-wrap: wrap;
   }
 }

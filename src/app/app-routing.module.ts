@@ -19,6 +19,26 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/centerSupervisor/centerSupervisor.module').then(m => m.CenterSupervisorModule)
       },
+      {
+        path: 'centerdirector',
+        loadChildren: () =>
+          import('./modules/centerDirector/centerDirector.module').then(m => m.CenterDirectorModule)
+      },
+       {
+        path: 'TO',
+        loadChildren: () =>
+          import('./modules/TO/transport-officer.module').then(m => m.TransportOfficerModule)
+      },
+      {
+        path: 'AM',
+        loadChildren: () =>
+          import('./modules/AdministrationManager/AdministrationManager.module').then(m => m.AdministrationManagerModule)
+      },
+       {
+        path: 'DHRAM',
+        loadChildren: () =>
+          import('./modules/DHRAM/director-hr.module').then(m => m.DirectorHrModule)
+      },
       //  {
       //   path: 'farms',
       //   loadChildren: () =>
@@ -53,11 +73,7 @@ const routes: Routes = [
       // },
      
       
-      {
-        path: 'disease-management',
-        loadChildren: () =>
-          import('./modules/disease-management/disease-management.module').then(m => m.DiseaseManagementModule)
-      },
+      
     
       {
         path: 'warehouses',

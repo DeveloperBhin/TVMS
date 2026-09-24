@@ -1,0 +1,314 @@
+
+<app-header
+  (menuToggle)="toggleSidebar()">
+</app-header>
+
+<div class="center-director-layout">
+
+  <!-- SIDEBAR -->
+  <app-sidebar
+    [opened]="sidebarOpen"
+    (closeSidebar)="closeSidebar()">
+  </app-sidebar>
+
+  <!-- MOBILE BACKDROP -->
+  <div
+    *ngIf="sidebarOpen"
+    class="sidebar-backdrop"
+    (click)="closeSidebar()">
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="center-director-content">
+
+    <div class="dashboard-container">
+
+      <!-- PAGE HEADER -->
+      <div class="dashboard-top">
+
+        <div class="page-information">
+          <h1>
+            {{ 'CENTER_DIRECTOR.DASHBOARD' | translate }}
+          </h1>
+
+          <div class="role-information">
+            <span>
+              {{ 'CENTER_DIRECTOR.ROLE' | translate }}
+            </span>
+
+            <span class="role-separator">•</span>
+
+            <span>{{ centerName }}</span>
+          </div>
+        </div>
+
+        <div class="center-badge">
+          <span class="material-symbols-outlined">
+            location_on
+          </span>
+          <span>{{ centerName }}</span>
+        </div>
+
+      </div>
+
+      <!-- WELCOME BANNER -->
+      <div class="welcome-banner">
+        <span class="material-symbols-outlined">
+          info
+        </span>
+
+        <span>
+          {{ 'CENTER_DIRECTOR.WELCOME_MESSAGE' | translate }}
+        </span>
+      </div>
+
+      <!-- SECTION HEADING -->
+      <div class="section-heading">
+
+        <div class="section-heading-text">
+          <h2>
+            {{ 'CENTER_DIRECTOR.DASHBOARD' | translate }}
+          </h2>
+
+          <p>
+            {{ 'CENTER_DIRECTOR.SUMMARY' | translate }}
+          </p>
+        </div>
+
+        <div class="heading-actions">
+
+          <!-- <a
+            routerLink="/centerdirector/requests"
+            class="secondary-action-btn"
+            >
+
+            <span class="material-symbols-outlined">
+              local_shipping
+            </span>
+
+            {{ 'CENTER_DIRECTOR.REQUESTS' | translate }}
+          </a> -->
+            <button
+            type="button"
+            class="secondary-action-btn"
+            routerLink="/centerdirector/requests">
+
+            <span class="material-symbols-outlined">
+              local_shipping
+            </span>
+
+            <span>
+            {{ 'CENTER_DIRECTOR.REQUESTS' | translate }}
+            </span>
+
+          </button>
+
+          <button
+            type="button"
+            class="report-btn"
+            (click)="downloadCenterReport()">
+
+            <span class="material-symbols-outlined">
+              download
+            </span>
+
+            {{ 'CENTER_DIRECTOR.DOWNLOAD_REPORT' | translate }}
+          </button>
+
+        </div>
+      </div>
+
+      <!-- STATISTICS -->
+      <div class="stats-grid">
+
+        <article
+          class="stat-card"
+          *ngFor="let stat of stats">
+
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">
+              {{ stat.icon }}
+            </span>
+          </div>
+
+          <span class="stat-label">
+            {{ stat.labelKey | translate }}
+          </span>
+
+          <strong class="stat-value">
+            {{ stat.value }}
+          </strong>
+
+          <small
+            *ngIf="stat.footer"
+            class="stat-footer">
+            {{ stat.footer }}
+          </small>
+
+          <small
+            *ngIf="stat.footerKey"
+            class="stat-footer">
+            {{ stat.footerKey | translate }}
+          </small>
+
+        </article>
+
+      </div>
+
+      <!-- LOWER DASHBOARD -->
+      <div class="dashboard-grid">
+
+        <!-- RECENT REQUESTS -->
+        <section class="dashboard-panel">
+
+          <div class="panel-header">
+
+            <div class="panel-title">
+              <span class="material-symbols-outlined">
+                assignment
+              </span>
+
+              <h3>
+                {{ 'CENTER_DIRECTOR.RECENT_REQUESTS' | translate }}
+              </h3>
+            </div>
+
+            <a
+              routerLink="/requests"
+              class="view-all-link">
+              {{ 'CENTER_DIRECTOR.VIEW_ALL' | translate }}
+            </a>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div
+              class="request-row"
+              *ngFor="let request of recentRequests">
+
+              <div class="row-icon">
+                <span class="material-symbols-outlined">
+                  assignment
+                </span>
+              </div>
+
+              <div class="row-content">
+
+                <strong>
+                  {{ request.reference }}
+                  —
+                  {{ request.serviceKey | translate }}
+                </strong>
+
+                <span>
+                  {{ request.vehicle }}
+                  ·
+                  {{ request.center }}
+                </span>
+
+              </div>
+
+              <span
+                class="status-badge"
+                [class.pending]="request.status === 'PENDING'"
+                [class.approved]="request.status === 'APPROVED'"
+                [class.rejected]="request.status === 'REJECTED'">
+
+                <span
+                  *ngIf="request.status === 'APPROVED'"
+                  class="material-symbols-outlined">
+                  check
+                </span>
+
+                {{
+                  getRequestStatusKey(request.status)
+                  | translate
+                }}
+              </span>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- VEHICLES -->
+        <section class="dashboard-panel">
+
+          <div class="panel-header">
+
+            <div class="panel-title">
+              <span class="material-symbols-outlined">
+                local_shipping
+              </span>
+
+              <h3>
+                {{ 'CENTER_DIRECTOR.VEHICLES' | translate }}
+              </h3>
+            </div>
+
+            <a
+              routerLink="/vehicles"
+              class="view-all-link">
+              {{ 'CENTER_DIRECTOR.VIEW_ALL' | translate }}
+            </a>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div
+              class="vehicle-row"
+              *ngFor="let vehicle of vehicles">
+
+              <div class="row-icon">
+                <span class="material-symbols-outlined">
+                  local_shipping
+                </span>
+              </div>
+
+              <div class="row-content">
+
+                <strong>
+                  {{ vehicle.registrationNumber }}
+                </strong>
+
+                <span>
+                  {{ vehicle.name }}
+                  ·
+                  {{ vehicle.center }}
+                </span>
+
+              </div>
+
+              <span
+                class="status-badge"
+                [class.operational]="vehicle.status === 'OPERATIONAL'"
+                [class.service]="vehicle.status === 'UNDER_SERVICE'">
+
+                <span class="material-symbols-outlined">
+                  {{
+                    vehicle.status === 'OPERATIONAL'
+                      ? 'check'
+                      : 'build'
+                  }}
+                </span>
+
+                {{
+                  getVehicleStatusKey(vehicle.status)
+                  | translate
+                }}
+              </span>
+
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

@@ -263,7 +263,149 @@
 
     "NO_APPROVALS": "No Pending Approvals",
     "NO_APPROVALS_DESCRIPTION": "There are currently no requests requiring your approval."
+  },
+  
+
+  "CENTER_DIRECTOR": {
+    "DASHBOARD": "Dashboard",
+    "ROLE": "Center Director",
+    "WELCOME_MESSAGE": "Welcome to TARI-VMS. This system is also available on the mobile application.",
+    "SUMMARY": "Summary of activities based on your responsibilities.",
+    "DOWNLOAD_REPORT": "Your Center Report",
+    "TOTAL_VEHICLES": "Total Vehicles",
+    "OPERATIONAL": "Operational",
+    "UNDER_SERVICE": "Under Service",
+    "PENDING_REQUESTS": "Pending Requests",
+    "NEED_DECISION": "require your decision",
+    "RECENT_REQUESTS": "Recent Requests",
+    "VIEW_ALL": "View All",
+    "VEHICLES": "Vehicles",
+    "ROUTINE_SERVICE": "Routine Service (KM-based)",
+    "BREAKDOWN_REPAIR": "Breakdown Repair",
+    "EMERGENCY_SERVICE": "Emergency Service",
+    "PENDING": "Pending",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected",
+    "REQUESTS": "Requests",
+    "ROLE": "Center Director"
+
+
+  },
+  
+  "APPROVAL": {
+    "TITLE": "Requests",
+    "DESCRIPTION": "Make final approval decisions for each request.",
+    "REQUESTED_BY": "Requested by",
+    "DRIVER_REQUESTED": "Driver Requested",
+    "CENTER_SUPERVISOR": "Center Supervisor",
+    "CENTER_DIRECTOR": "Center Director",
+    "PENDING": "Pending",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected",
+    "APPROVE": "Approve",
+    "REJECT": "Reject",
+    "NO_APPROVALS": "No requests found",
+    "NO_APPROVALS_DESCRIPTION": "There are currently no requests to display.",
+    "ROUTINE_SERVICE": "Routine Service (KM-based)",
+    "BREAKDOWN_REPAIR": "Breakdown Repair",
+    "DESC_1001": "Vehicle has reached 85,000 KM and requires routine servicing before travelling to Dodoma.",
+    "DESC_1002": "Rear brakes are making noise and require urgent inspection."
+  },
+  
+
+  "TRANSPORT_OFFICER": {
+    "DASHBOARD": "Dashboard",
+    "ROLE": "Transport Officer (TO)",
+    "WELCOME_MESSAGE": "Welcome to TARI-VMS. This system is also available on the mobile application.",
+    "SUMMARY": "Overview of activities based on your role.",
+    "DOWNLOAD_REPORT": "All Centers Report",
+    "TOTAL_CENTERS": "Total Centers",
+    "TOTAL_VEHICLES": "Total Vehicles (Nationwide)",
+    "OUT_OF_SERVICE": "Out of Service",
+    "PENDING_REQUESTS": "Requests Awaiting Decision",
+    "AWAITING_DECISION": "in your queue",
+    "RECENT_REQUESTS": "Recent Requests",
+    "VEHICLES": "Vehicles",
+    "VIEW_ALL": "View All",
+    "REQUESTS": "Requests",
+    "ROUTINE_SERVICE": "Routine Service (KM-based)",
+    "BREAKDOWN_REPAIR": "Breakdown Repair",
+    "EMERGENCY_SERVICE": "Emergency Service",
+    "PENDING": "Pending",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected",
+    "OPERATIONAL": "Operational",
+    "UNDER_SERVICE": "Under Service",
+    "NO_REQUESTS": "No requests available.",
+    "NO_VEHICLES": "No vehicles available."
+  },
+  
+
+  "ADMIN_MANAGER": {
+    "DASHBOARD": "Dashboard",
+    "ROLE": "Administration Manager (AM)",
+    "SUMMARY": "Overview of activities based on your responsibilities.",
+    "DOWNLOAD_REPORT": "All Centers Report",
+
+    "TOTAL_CENTERS": "Research Centers",
+    "TOTAL_VEHICLES": "Total Vehicles (Nationwide)",
+    "UNDER_SERVICE": "Under Service",
+    "PENDING_REQUESTS": "Requests Awaiting Decision",
+    "NEED_DECISION": "Awaiting your decision",
+
+    "RECENT_REQUESTS": "Recent Requests",
+    "VEHICLES": "Vehicles",
+    "VIEW_ALL": "View All",
+
+    "ROUTINE_SERVICE": "Routine Service (KM-based)",
+    "BREAKDOWN_REPAIR": "Breakdown Repair",
+    "EMERGENCY_SERVICE": "Emergency Service",
+
+    "STATUS_PENDING": "Pending",
+    "STATUS_APPROVED": "Approved",
+    "STATUS_REJECTED": "Rejected",
+    "STATUS_OPERATIONAL": "Operational",
+    "STATUS_UNDER_SERVICE": "Under Service",
+
+    "NO_REQUESTS": "No recent requests available.",
+    "NO_VEHICLES": "No vehicles available."
+  },
+  
+
+  "CENTERS": {
+    "TITLE": "All Centers",
+    "SUMMARY_TITLE": "Centers Summary",
+    "SUMMARY_DESCRIPTION": "All 21 TARI centers nationwide.",
+    "CENTER": "Center",
+    "VEHICLES": "Vehicles",
+    "OPERATIONAL": "Operational",
+    "UNDER_SERVICE": "Under Service",
+    "PENDING_REQUESTS": "Pending Requests",
+    "VIEW": "View",
+    "NO_CENTERS": "No centers available."
+  },
+  
+
+  "DIRECTOR_HR": {
+    "DASHBOARD": "Dashboard",
+    "ROLE": "Director HR (DRAM)",
+    "HEAD_OFFICE": "Head Office",
+    "WELCOME_MESSAGE": "Welcome to TARI-VMS. This system is also available on mobile.",
+    "SUMMARY": "Overview of activities related to your responsibilities.",
+    "DOWNLOAD_REPORT": "All Centers Report",
+    "TOTAL_CENTERS": "All Centers",
+    "TOTAL_VEHICLES": "All Vehicles Nationwide",
+    "OPERATIONAL": "Operational",
+    "OPERATIONAL_PERCENT": "68%",
+    "MONTHLY_REQUESTS": "Requests This Month",
+    "RECENT_REQUESTS": "Recent Requests",
+    "VEHICLES": "Vehicles",
+    "VIEW_ALL": "View All",
+    "NO_REQUESTS": "No recent requests.",
+    "NO_VEHICLES": "No vehicles available."
   }
+
+
 
 
 

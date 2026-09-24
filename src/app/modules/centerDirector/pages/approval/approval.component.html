@@ -1,12 +1,11 @@
+
 <app-header
   (menuToggle)="toggleSidebar()">
 </app-header>
 
 <div class="approval-layout">
 
-  <!-- ==========================================
-       SIDEBAR
-  =========================================== -->
+  <!-- SIDEBAR -->
   <app-sidebar
     [opened]="sidebarOpen"
     (closeSidebar)="closeSidebar()">
@@ -19,135 +18,77 @@
     (click)="closeSidebar()">
   </div>
 
-  <!-- ==========================================
-       MAIN CONTENT
-  =========================================== -->
+  <!-- MAIN CONTENT -->
   <main class="approval-content">
-
     <div class="approval-container">
 
-      <!-- ======================================
-           PAGE HEADER
-      ======================================= -->
+      <!-- PAGE HEADER -->
       <div class="page-header">
-
         <div class="page-header-left">
-
           <h1>
             {{ 'APPROVAL.TITLE' | translate }}
           </h1>
 
           <div class="page-role">
-
             <span>
-              {{ 'CENTER_SUPERVISOR.ROLE' | translate }}
+              {{ 'CENTER_DIRECTOR.ROLE' | translate }}
             </span>
 
-            <span class="separator">
-              •
-            </span>
-
-            <span>
-              {{ centerName }}
-            </span>
-
+            <span class="separator">·</span>
+            <span>{{ centerName }}</span>
           </div>
-
         </div>
 
-        <!-- STATION BADGE -->
         <div class="station-badge">
-
           <span class="material-symbols-outlined">
             location_on
           </span>
-
-          <span>
-            {{ centerName }}
-          </span>
-
+          {{ centerName }}
         </div>
-
       </div>
 
-      <!-- ======================================
-           APPROVAL HEADING
-      ======================================= -->
+      <!-- SECTION HEADING -->
       <div class="approval-heading">
-
         <h2>
           {{ 'APPROVAL.TITLE' | translate }}
         </h2>
-
         <p>
           {{ 'APPROVAL.DESCRIPTION' | translate }}
         </p>
-
       </div>
 
-      <!-- ======================================
-           APPROVAL LIST
-      ======================================= -->
+      <!-- APPROVAL CARDS -->
       <div class="approval-list">
 
         <article
           class="approval-card"
           *ngFor="let approval of approvals">
 
-          <!-- ==================================
-               CARD HEADER
-          =================================== -->
+          <!-- CARD HEADER -->
           <div class="approval-card-header">
 
             <div class="approval-information">
-
               <h3>
-                {{ approval.reference }}
-                —
+                {{ approval.reference }} —
                 {{ approval.serviceKey | translate }}
               </h3>
 
               <div class="approval-meta">
-
-                <span>
-                  {{ approval.vehicle }}
-                </span>
-
-                <span class="meta-separator">
-                  ·
-                </span>
-
-                <span>
-                  {{ approval.center }}
-                </span>
-
-                <span class="meta-separator">
-                  ·
-                </span>
-
-                <span>
-                  {{ approval.date }}
-                </span>
-
-                <span class="meta-separator">
-                  ·
-                </span>
-
+                <span>{{ approval.vehicle }}</span>
+                <span>·</span>
+                <span>{{ approval.center }}</span>
+                <span>·</span>
+                <span>{{ approval.date }}</span>
+                <span>·</span>
                 <span>
                   {{ 'APPROVAL.REQUESTED_BY' | translate }}:
                 </span>
-
                 <span class="check-number">
                   {{ approval.checkNumber }}
                 </span>
-
               </div>
-
             </div>
 
-            <!-- ==================================
-                 OVERALL STATUS
-            =================================== -->
             <span
               class="approval-status"
               [class.pending]="approval.status === 'PENDING'"
@@ -170,54 +111,39 @@
                 getStatusTranslation(approval.status)
                   | translate
               }}
-
             </span>
 
           </div>
 
-          <!-- ==================================
-               DESCRIPTION
-          =================================== -->
+          <!-- DESCRIPTION -->
           <div class="approval-description">
             {{ approval.descriptionKey | translate }}
           </div>
 
-          <!-- ==================================
-               APPROVAL CHAIN
-          =================================== -->
+          <!-- APPROVAL TIMELINE -->
           <div class="approval-timeline">
 
-            <!-- BASE LINE -->
             <div class="timeline-line"></div>
 
-            <!-- COMPLETED LINE -->
             <div
               class="timeline-progress"
               [style.width.%]="getProgress(approval)">
             </div>
 
-            <!-- ==================================
-                 STEP 1: DRIVER
-            =================================== -->
+            <!-- DRIVER -->
             <div class="approval-step completed">
-
               <div class="step-circle">
-
                 <span class="material-symbols-outlined">
                   check
                 </span>
-
               </div>
 
               <span class="step-label">
                 {{ 'APPROVAL.DRIVER_REQUESTED' | translate }}
               </span>
-
             </div>
 
-            <!-- ==================================
-                 STEP 2: CENTER SUPERVISOR
-            =================================== -->
+            <!-- CENTER SUPERVISOR -->
             <div
               class="approval-step"
               [class.completed]="
@@ -231,44 +157,30 @@
               ">
 
               <div class="step-circle">
-
-                <!-- APPROVED -->
                 <span
-                  *ngIf="
-                    approval.supervisorStatus === 'APPROVED'
-                  "
+                  *ngIf="approval.supervisorStatus === 'APPROVED'"
                   class="material-symbols-outlined">
                   check
                 </span>
 
-                <!-- REJECTED -->
                 <span
-                  *ngIf="
-                    approval.supervisorStatus === 'REJECTED'
-                  "
+                  *ngIf="approval.supervisorStatus === 'REJECTED'"
                   class="material-symbols-outlined">
                   close
                 </span>
 
-                <!-- PENDING -->
                 <span
-                  *ngIf="
-                    approval.supervisorStatus === 'PENDING'
-                  ">
+                  *ngIf="approval.supervisorStatus === 'PENDING'">
                   2
                 </span>
-
               </div>
 
               <span class="step-label">
                 {{ 'APPROVAL.CENTER_SUPERVISOR' | translate }}
               </span>
-
             </div>
 
-            <!-- ==================================
-                 STEP 3: CENTER DIRECTOR
-            =================================== -->
+            <!-- CENTER DIRECTOR -->
             <div
               class="approval-step"
               [class.completed]="
@@ -286,25 +198,18 @@
 
               <div class="step-circle">
 
-                <!-- APPROVED -->
                 <span
-                  *ngIf="
-                    approval.directorStatus === 'APPROVED'
-                  "
+                  *ngIf="approval.directorStatus === 'APPROVED'"
                   class="material-symbols-outlined">
                   check
                 </span>
 
-                <!-- REJECTED -->
                 <span
-                  *ngIf="
-                    approval.directorStatus === 'REJECTED'
-                  "
+                  *ngIf="approval.directorStatus === 'REJECTED'"
                   class="material-symbols-outlined">
                   close
                 </span>
 
-                <!-- PENDING / WAITING -->
                 <span
                   *ngIf="
                     approval.directorStatus === 'PENDING' ||
@@ -312,66 +217,55 @@
                   ">
                   3
                 </span>
-
               </div>
 
               <span class="step-label">
                 {{ 'APPROVAL.CENTER_DIRECTOR' | translate }}
               </span>
-
             </div>
 
           </div>
 
-          <!-- ==================================
-               ACTION BUTTONS
-          =================================== -->
+          <!-- DIRECTOR ACTIONS -->
           <div
             class="approval-actions"
-            *ngIf="approval.supervisorStatus === 'PENDING'">
+            *ngIf="
+              approval.supervisorStatus === 'APPROVED' &&
+              approval.directorStatus === 'PENDING'
+            ">
 
-            <!-- RECOMMEND -->
             <button
               type="button"
               class="approve-btn"
-              (click)="recommendApproval(approval)">
+              (click)="approveRequest(approval)">
 
               <span class="material-symbols-outlined">
                 check
               </span>
 
-              <span>
-                {{ 'APPROVAL.RECOMMEND' | translate }}
-              </span>
-
+              {{ 'APPROVAL.APPROVE' | translate }}
             </button>
 
-            <!-- REJECT -->
             <button
               type="button"
               class="reject-btn"
-              (click)="rejectApproval(approval)">
+              (click)="rejectRequest(approval)">
 
               <span class="material-symbols-outlined">
                 close
               </span>
 
-              <span>
-                {{ 'APPROVAL.REJECT' | translate }}
-              </span>
-
+              {{ 'APPROVAL.REJECT' | translate }}
             </button>
 
           </div>
 
         </article>
 
-        <!-- ======================================
-             EMPTY STATE
-        ======================================= -->
+        <!-- EMPTY STATE -->
         <div
-          class="empty-state"
-          *ngIf="approvals.length === 0">
+          *ngIf="approvals.length === 0"
+          class="empty-state">
 
           <span class="material-symbols-outlined">
             task_alt
@@ -384,13 +278,9 @@
           <p>
             {{ 'APPROVAL.NO_APPROVALS_DESCRIPTION' | translate }}
           </p>
-
         </div>
 
       </div>
-
     </div>
-
   </main>
-
 </div>
