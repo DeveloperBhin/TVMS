@@ -400,7 +400,51 @@
     "VIEW_ALL": "Angalia Zote",
     "NO_REQUESTS": "Hakuna maombi ya karibuni.",
     "NO_VEHICLES": "Hakuna magari yanayopatikana."
+  },
+  
+
+  "AUTH": {
+    "ORGANIZATION": "TAASISI YA UTAFITI WA KILIMO TANZANIA (TARI)",
+    "SYSTEM_NAME": "Mfumo wa Usimamizi wa Magari (TARI-VMS)",
+    "WELCOME_BACK": "Karibu Tena",
+    "LOGIN_DESCRIPTION": "Ingia kwenye akaunti yako ya utumishi",
+    "CREATE_ACCOUNT": "Fungua Akaunti",
+    "REGISTER_DESCRIPTION": "Jisajili ili kutumia Mfumo wa Usimamizi wa Magari",
+    "PERSONAL_DETAILS": "Taarifa Binafsi",
+    "WORK_DETAILS": "Taarifa za Kazi",
+    "ACCOUNT_SECURITY": "Usalama wa Akaunti",
+    "FULL_NAME": "Jina Kamili",
+    "EMAIL": "Barua Pepe",
+    "PHONE_NUMBER": "Namba ya Simu",
+    "STAFF_ID": "Namba ya Mtumishi",
+    "CENTER": "Kituo cha TARI",
+    "SELECT_CENTER": "Chagua Kituo cha TARI",
+    "SELECT_ROLE": "Nafasi",
+    "SELECT_ROLE_PLACEHOLDER": "Chagua nafasi yako",
+    "LOADING_ROLES": "Inapakia nafasi...",
+    "ROLE_REQUIRED": "Tafadhali chagua nafasi",
+    "DRIVER_LICENCE": "Leseni ya Udereva / Namba ya Uhakiki",
+    "ROLE_APPROVAL_NOTICE": "Nafasi uliyochagua itahitaji idhini ya msimamizi wa mfumo.",
+    "PASSWORD": "Nenosiri",
+    "CONFIRM_PASSWORD": "Thibitisha Nenosiri",
+    "PASSWORD_MIN_LENGTH": "Nenosiri lazima liwe na angalau herufi 8",
+    "PASSWORD_MISMATCH": "Manenosiri hayalingani",
+    "FIELD_REQUIRED": "Sehemu hii inahitajika",
+    "INVALID_EMAIL": "Weka barua pepe sahihi",
+    "SIGN_IN": "Ingia",
+    "SIGNING_IN": "Inaingia...",
+    "REGISTER": "Jisajili",
+    "CREATING_ACCOUNT": "Inafungua akaunti...",
+    "NO_ACCOUNT": "Huna akaunti?",
+    "ALREADY_HAVE_ACCOUNT": "Tayari una akaunti?",
+    "INVALID_CREDENTIALS": "Barua pepe au nenosiri si sahihi",
+    "EMAIL_EXISTS": "Barua pepe hii tayari imesajiliwa",
+    "LOGIN_FAILED": "Imeshindikana kuingia. Tafadhali jaribu tena.",
+    "REGISTRATION_FAILED": "Usajili umeshindikana. Tafadhali jaribu tena.",
+    "OPTIONS_LOAD_FAILED": "Imeshindikana kupakia nafasi au vituo.",
+    "RETRY": "Jaribu Tena"
   }
+
 
 
 

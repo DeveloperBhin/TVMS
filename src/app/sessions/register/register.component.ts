@@ -1,20 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+
+import {
+  AbstractControl,
+  FormBuilder,
+  ValidationErrors,
+  Validators
+} from '@angular/forms';
+
 import { Router } from '@angular/router';
-import { catchError, of } from 'rxjs';
+import { forkJoin } from 'rxjs';
+
+import { AuthService } from '../../core/services/auth.service';
+import { RegistrationOptionsService } from '../../core/services/registrations-options.service';
 
 import {
-  ActionButton,
-  FormParameters
-} from '@shared';
-
-import {
-  AppSettings,
-  AppSettingsService,
-  AuthService,
+  RoleOption,
+  CenterOption,
   RegisterRequest
-} from '@core';
+} from '../../core/models/auth.models';
 
-import { registerFormFields } from './register-form-fields';
+function passwordsMatch(
+  control: AbstractControl
+): ValidationErrors | null {
+  const password = control.get('password')?.value;
+  const confirm = control.get('confirmPassword')?.value;
+
+  return password === confirm
+    ? null
+    : { passwordMismatch: true };
+}
 
 @Component({
   selector: 'app-register',
@@ -23,170 +41,150 @@ import { registerFormFields } from './register-form-fields';
 })
 export class RegisterComponent implements OnInit {
 
-  isSubmitting = false;
+  roles: RoleOption[] = [];
+  centers: CenterOption[] = [];
 
-  fp!: FormParameters<RegisterRequest>;
+  loading = false;
+  loadingOptions = false;
+  showPassword = false;
+  showConfirmPassword = false;
 
-  utilityButtons: ActionButton[] = [];
+  errorMessage = '';
+  optionsError = '';
 
-  options = this.appSettings.getOptions();
+  form = this.fb.nonNullable.group(
+    {
+      fullName: ['', Validators.required],
+
+      email: [
+        '',
+        [Validators.required, Validators.email]
+      ],
+
+      phoneNumber: ['', Validators.required],
+
+      staffId: ['', Validators.required],
+
+      centerId: [
+        0,
+        [Validators.required, Validators.min(1)]
+      ],
+
+      requestedRoleId: [
+        0,
+        [Validators.required, Validators.min(1)]
+      ],
+
+      driverLicenceNumber: [''],
+
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8)
+        ]
+      ],
+
+      confirmPassword: [
+        '',
+        Validators.required
+      ]
+    },
+    { validators: passwordsMatch }
+  );
 
   constructor(
-    private appSettings: AppSettingsService,
-    private authService: AuthService,
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private options: RegistrationOptionsService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.setActionButtons();
-    this.setFormParameters();
+    this.loadOptions();
   }
 
-  /**
-   * Registration form configuration
-   */
-  setFormParameters(): void {
-    this.fp = {
-      fields: registerFormFields,
-      showTitle: false,
-      innerClass: 'p-0',
-      onSubmit: value =>
-        this.register(value as unknown as RegisterRequest)
-    };
+  get f() {
+    return this.form.controls;
   }
 
-  /**
-   * Submit registration
-   */
- register(payload: RegisterRequest): void {
-
-  if (payload.password !== payload.confirmPassword) {
-    window.alert('Passwords do not match.');
-    return;
+  get selectedRole(): RoleOption | undefined {
+    return this.roles.find(
+      role =>
+        role.id === this.f.requestedRoleId.value
+    );
   }
 
-  this.isSubmitting = true;
-
-  const request = {
-    fullName: payload.fullName,
-    username: payload.username,
-    email: payload.email,
-    phoneNumber: payload.phoneNumber,
-    password: payload.password
-  };
-
-  this.authService
-    .register(request)
-    .pipe(
-      catchError(error => {
-
-        this.isSubmitting = false;
-
-        console.error(
-          'Registration error:',
-          error
-        );
-
-        return of(null);
-      })
-    )
-    .subscribe(response => {
-
-      this.isSubmitting = false;
-
-      if (!response) {
-        window.alert('Registration failed.');
-        return;
-      }
-
-      window.alert('Registration successful.');
-
-      this.router.navigateByUrl(
-        '/auth/login'
-      );
-
-    });
-
-}
-
-  /**
-   * Update application options
-   */
-  updateOptions(options: AppSettings): void {
-    this.options = options;
-    this.appSettings.setOptions(options);
+  get isDriver(): boolean {
+    return this.selectedRole?.name === 'ROLE_DRIVER';
   }
 
-  /**
-   * Theme and language buttons
-   */
-  setActionButtons(): void {
+  loadOptions(): void {
+    this.loadingOptions = true;
+    this.optionsError = '';
 
-    this.utilityButtons = [
-
-      // Theme switcher
-      {
-        type: 'icon',
-
-        iconMapper: () =>
-          this.appSettings.getResolvedTheme() === 'dark'
-            ? 'light_mode'
-            : 'dark_mode',
-
-        onClick: () => {
-
-          const current =
-            this.appSettings.getResolvedTheme();
-
-          this.appSettings.setTheme(
-            current === 'dark'
-              ? 'light'
-              : 'dark'
-          );
-
-          this.options =
-            this.appSettings.getOptions();
-        }
+    forkJoin({
+      roles: this.options.getRoles(),
+      centers: this.options.getCenters()
+    }).subscribe({
+      next: result => {
+        this.roles = result.roles;
+        this.centers = result.centers;
+        this.loadingOptions = false;
       },
 
-      // Language switcher
-      {
-        type: 'icon',
-        icon: 'language',
+      error: error => {
+        console.error(error);
 
-        buttons: [
-          {
-            type: 'button',
-            label: 'English',
+        this.optionsError =
+          'AUTH.OPTIONS_LOAD_FAILED';
 
-            onClick: () => {
-
-              this.appSettings
-                .setLanguage('en');
-
-              this.options =
-                this.appSettings
-                  .getOptions();
-            }
-          },
-
-          {
-            type: 'button',
-            label: 'Kiswahili',
-
-            onClick: () => {
-
-              this.appSettings
-                .setLanguage('sw');
-
-              this.options =
-                this.appSettings
-                  .getOptions();
-            }
-          }
-        ]
+        this.loadingOptions = false;
       }
+    });
+  }
 
-    ];
+  submit(): void {
+    this.errorMessage = '';
+
+    if (this.form.invalid || this.loadingOptions) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const value = this.form.getRawValue();
+
+    const request: RegisterRequest = {
+      fullName: value.fullName.trim(),
+      email: value.email.trim().toLowerCase(),
+      phoneNumber: value.phoneNumber.trim(),
+      staffId: value.staffId.trim(),
+      centerId: value.centerId,
+      requestedRoleId: value.requestedRoleId,
+      driverLicenceNumber: this.isDriver
+        ? value.driverLicenceNumber.trim()
+        : undefined,
+      password: value.password
+    };
+
+    this.loading = true;
+
+    this.auth.register(request).subscribe({
+      next: () => {
+        this.loading = false;
+
+        // Newly registered users only have ROLE_USER.
+        this.router.navigate(['/dashboard']);
+      },
+
+      error: error => {
+        this.loading = false;
+
+        this.errorMessage =
+          error.status === 409
+            ? 'AUTH.EMAIL_EXISTS'
+            : 'AUTH.REGISTRATION_FAILED';
+      }
+    });
   }
 }

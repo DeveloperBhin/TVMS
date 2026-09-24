@@ -1,207 +1,83 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, of } from 'rxjs';
 
-import {
-  ActionButton,
-  FormParameters
-} from '@shared';
-
-import {
-  AppSettings,
-  AppSettingsService,
-  AuthService,
-  LoginRequest
-} from '@core';
-
-import { loginFormFields } from './login-form-fields';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  animation = 'move-left';
+  loading = false;
+  showPassword = false;
+  errorMessage = '';
 
-  isSubmitting = false;
-
-  showRegister = true;
-
-  fp!: FormParameters<LoginRequest>;
-
-  utilityButtons: ActionButton[] = [];
-
-  options = this.appSettings.getOptions();
+  form = this.fb.nonNullable.group({
+    email: [
+      '',
+      [Validators.required, Validators.email]
+    ],
+    password: ['', Validators.required]
+  });
 
   constructor(
-    private appSettings: AppSettingsService,
-    private authService: AuthService,
+    private fb: FormBuilder,
+    private auth: AuthService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-
-    this.setActionButtons();
-
-    this.setFormParameters();
+  get f() {
+    return this.form.controls;
   }
 
-  /**
-   * Login form configuration
-   */
-  setFormParameters(): void {
+  submit(): void {
+    this.errorMessage = '';
 
-    this.fp = {
-      fields: loginFormFields,
-      showTitle: false,
-      innerClass: 'p-0',
-
-      onSubmit: value =>
-        this.onSubmit(
-          value as unknown as LoginRequest
-        )
-    };
-  }
-
-  /**
-   * Login
-   */
-  onSubmit(formValue: LoginRequest): void {
-
-    if (this.isSubmitting) {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
       return;
     }
 
-    this.isSubmitting = true;
+    this.loading = true;
 
-    this.authService
-      .login(formValue)
-      .pipe(
-        catchError(error => {
+    this.auth.login({
+      email: this.f.email.value.trim().toLowerCase(),
+      password: this.f.password.value
+    }).subscribe({
+      next: response => {
+        this.loading = false;
 
-          console.error(
-            'Login error:',
-            error
-          );
+        const roles = response.user.roles;
 
-          this.isSubmitting = false;
-
-          return of(null);
-        })
-      )
-      .subscribe(response => {
-
-        this.isSubmitting = false;
-
-        if (!response) {
-
-          window.alert(
-            'Wrong Username or Password.'
-          );
-
-          return;
-        }
-
-        // JWT has already been stored
-        // by AuthService.login()
-
-        this.router.navigateByUrl(
-          '/dashboard'
-        );
-      });
-  }
-
-  /**
-   * Update application settings
-   */
-  updateOptions(
-    options: AppSettings
-  ): void {
-
-    this.options = options;
-
-    this.appSettings.setOptions(
-      options
-    );
-  }
-
-  /**
-   * Theme and language buttons
-   */
-  setActionButtons(): void {
-
-    this.utilityButtons = [
-
-      // Theme
-      {
-        type: 'icon',
-
-        iconMapper: () =>
-          this.appSettings.getResolvedTheme() === 'dark'
-            ? 'light_mode'
-            : 'dark_mode',
-
-        onClick: () => {
-
-          const current =
-            this.appSettings.getResolvedTheme();
-
-          this.appSettings.setTheme(
-            current === 'dark'
-              ? 'light'
-              : 'dark'
-          );
-
-          this.options =
-            this.appSettings.getOptions();
+        if (roles.includes('ROLE_ADMIN')) {
+          this.router.navigate(['/admin/dashboard']);
+        } else if (roles.includes('ROLE_DRIVER')) {
+          this.router.navigate(['/driver/dashboard']);
+        } else if (
+          roles.includes('ROLE_CENTER_DIRECTOR')
+        ) {
+          this.router.navigate(['/center-director']);
+        } else if (
+          roles.includes('ROLE_CENTER_SUPERVISOR')
+        ) {
+          this.router.navigate(['/center-supervisor']);
+        } else {
+          this.router.navigate(['/dashboard']);
         }
       },
 
-      // Language
-      {
-        type: 'icon',
+      error: error => {
+        this.loading = false;
 
-        icon: 'language',
-
-        buttons: [
-
-          {
-            type: 'button',
-
-            label: 'English',
-
-            onClick: () => {
-
-              this.appSettings
-                .setLanguage('en');
-
-              this.options =
-                this.appSettings
-                  .getOptions();
-            }
-          },
-
-          {
-            type: 'button',
-
-            label: 'Kiswahili',
-
-            onClick: () => {
-
-              this.appSettings
-                .setLanguage('sw');
-
-              this.options =
-                this.appSettings
-                  .getOptions();
-            }
-          }
-
-        ]
+        this.errorMessage =
+          error.status === 401
+            ? 'AUTH.INVALID_CREDENTIALS'
+            : 'AUTH.LOGIN_FAILED';
       }
-
-    ];
+    });
   }
 }

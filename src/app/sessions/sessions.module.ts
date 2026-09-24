@@ -1,23 +1,27 @@
+
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared';
-import { SessionsRoutingModule } from './sessions-routing.module';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
-    ForgotPasswordComponent,
-    ResetPasswordComponent
+    RegisterComponent
   ],
   imports: [
-    SharedModule,
-    SessionsRoutingModule,
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
     TranslateModule
+  ],
+  exports: [
+    LoginComponent,
+    RegisterComponent
   ]
 })
 export class SessionsModule {}

@@ -404,6 +404,51 @@
     "NO_REQUESTS": "No recent requests.",
     "NO_VEHICLES": "No vehicles available."
   }
+  ,
+  
+
+  "AUTH": {
+    "ORGANIZATION": "TANZANIA AGRICULTURAL RESEARCH INSTITUTE (TARI)",
+    "SYSTEM_NAME": "Vehicle Management System (TARI-VMS)",
+    "WELCOME_BACK": "Welcome Back",
+    "LOGIN_DESCRIPTION": "Sign in to your staff account",
+    "CREATE_ACCOUNT": "Create Account",
+    "REGISTER_DESCRIPTION": "Register to access the Vehicle Management System",
+    "PERSONAL_DETAILS": "Personal Information",
+    "WORK_DETAILS": "Work Information",
+    "ACCOUNT_SECURITY": "Account Security",
+    "FULL_NAME": "Full Name",
+    "EMAIL": "Email Address",
+    "PHONE_NUMBER": "Phone Number",
+    "STAFF_ID": "Staff ID",
+    "CENTER": "TARI Center",
+    "SELECT_CENTER": "Select TARI Center",
+    "SELECT_ROLE": "Role",
+    "SELECT_ROLE_PLACEHOLDER": "Select your role",
+    "LOADING_ROLES": "Loading roles...",
+    "ROLE_REQUIRED": "Please select a role",
+    "DRIVER_LICENCE": "Driving Licence / Check Number",
+    "ROLE_APPROVAL_NOTICE": "Your selected role will require administrator approval.",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "PASSWORD_MIN_LENGTH": "Password must contain at least 8 characters",
+    "PASSWORD_MISMATCH": "Passwords do not match",
+    "FIELD_REQUIRED": "This field is required",
+    "INVALID_EMAIL": "Enter a valid email address",
+    "SIGN_IN": "Sign In",
+    "SIGNING_IN": "Signing in...",
+    "REGISTER": "Register",
+    "CREATING_ACCOUNT": "Creating account...",
+    "NO_ACCOUNT": "Don't have an account?",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "INVALID_CREDENTIALS": "Invalid email or password",
+    "EMAIL_EXISTS": "This email address is already registered",
+    "LOGIN_FAILED": "Unable to sign in. Please try again.",
+    "REGISTRATION_FAILED": "Registration failed. Please try again.",
+    "OPTIONS_LOAD_FAILED": "Unable to load roles or centers.",
+    "RETRY": "Retry"
+  }
+
 
 
 
